@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'components/search_bar.dart';
-
 const String appName = "酷夢影視";
 void main() {
   runApp(MyApp());
@@ -64,28 +62,82 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: PreferredSize(
         child: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-          child: Text(
-            '酷萌影音',
-            style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white),
-          ),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [Colors.red, Colors.yellow]),
-              boxShadow: [
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).padding.top,
+              left: 12.0,
+              right: 12.0,
+            ),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 36.0,
+                      margin: const EdgeInsets.only(right: 8.0),
+                      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                      alignment: Alignment.center,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(Icons.search),
+                          Expanded(
+                            child: Text(
+                              "最近热映",
+                              style: TextStyle(color: Colors.grey[600]),
+                            ),
+                          ),
+                          Icon(Icons.launch)
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                          color: Color(0xccffffff),
+                          borderRadius: BorderRadius.circular(18.0)),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  child: SizedBox(
+                    width: 36.0,
+                    height: 32.0,
+                    child: Icon(
+                      Icons.access_time,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onTap: () {},
+                ),
+                InkWell(
+                  child: SizedBox(
+                    width: 36.0,
+                    height: 32.0,
+                    child: Icon(
+                      Icons.calendar_today,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onTap: () {},
+                )
+              ],
+            ),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Colors.redAccent,
+                Color(0xffff8866),
+              ]),
+              /*boxShadow: [
                 BoxShadow(
                   color: Colors.grey[500],
                   blurRadius: 20.0,
                   spreadRadius: 1.0,
                 )
-              ]),
-        ),
-        preferredSize: Size(MediaQuery.of(context).size.width, 48.0),
+              ]*/
+            )),
+        preferredSize: Size(MediaQuery.of(context).size.width, 54.0),
       ),
-      body: SearchBar(),
+      body: Center(
+        child: Text("中间的"),
+      ),
     );
   }
 }
