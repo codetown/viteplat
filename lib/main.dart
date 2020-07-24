@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import 'components/my_grid.dart';
+import 'components/my_top_bar.dart';
+
 const String appName = "酷夢影視";
 void main() {
   runApp(MyApp());
@@ -60,104 +63,41 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: PreferredSize(
-        child: Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).padding.top,
-              left: 12.0,
-              right: 12.0,
+      appBar: MyTopBar(),
+      body: ListView(
+        padding: EdgeInsets.only(top: 12.0, left: 0, right: 0, bottom: 12.0),
+        children: <Widget>[
+          CarouselSlider(
+            options: CarouselOptions(
+              autoPlay: true,
+              aspectRatio: 1.8125,
+              viewportFraction: 0.9,
+              reverse: true,
+              enlargeCenterPage: true,
+              enlargeStrategy: CenterPageEnlargeStrategy.height,
             ),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: InkWell(
-                    onTap: () {},
-                    child: Container(
-                      height: 36.0,
-                      margin: const EdgeInsets.only(right: 8.0),
-                      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                      alignment: Alignment.center,
-                      child: Row(
-                        children: <Widget>[
-                          Icon(Icons.search),
-                          Expanded(
-                            child: Text(
-                              "最近热映",
-                              style: TextStyle(color: Colors.grey[600]),
-                            ),
-                          ),
-                          Icon(Icons.launch)
-                        ],
-                      ),
-                      decoration: BoxDecoration(
-                          color: Color(0xccffffff),
-                          borderRadius: BorderRadius.circular(18.0)),
-                    ),
-                  ),
+            items: [1, 2, 3, 4, 5].map((i) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.network(
+                  "https://gitee.com/codetown/codedata/raw/master/cmovie/images/s$i.jpg",
+                  fit: BoxFit.fill,
                 ),
-                InkWell(
-                  child: SizedBox(
-                    width: 36.0,
-                    height: 32.0,
-                    child: Icon(
-                      Icons.access_time,
-                      color: Colors.white,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                InkWell(
-                  child: SizedBox(
-                    width: 36.0,
-                    height: 32.0,
-                    child: Icon(
-                      Icons.calendar_today,
-                      color: Colors.white,
-                    ),
-                  ),
-                  onTap: () {},
-                )
-              ],
-            ),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Colors.redAccent,
-                Color(0xffff8866),
-              ]),
-              /*boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[500],
-                  blurRadius: 20.0,
-                  spreadRadius: 1.0,
-                )
-              ]*/
-            )),
-        preferredSize: Size(MediaQuery.of(context).size.width, 54.0),
-      ),
-      body: ListView(children: <Widget>[
-        CarouselSlider(
-          options: CarouselOptions(
-            aspectRatio: 10.0,
-            reverse: true,
+              );
+            }).toList(),
           ),
-          items: [1, 2, 3, 4, 5].map((i) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(color: Colors.blueGrey),
-                    child: Text(
-                      'textxxx $i',
-                      style: TextStyle(fontSize: 16.0),
-                    ));
-              },
-            );
-          }).toList(),
-        ),
-      ]),
+          Container(
+            padding: EdgeInsets.only(top: 12.0, left: 20.0, right: 20.0),
+            child: Text("热播榜单"),
+          ),
+          MyGrid(
+            width: screenWidth - 16.0,
+            children: <Widget>[],
+          ),
+        ],
+      ),
     );
   }
 }
