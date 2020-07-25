@@ -89,12 +89,92 @@ class _MyHomePageState extends State<MyHomePage> {
             }).toList(),
           ),
           Container(
-            padding: EdgeInsets.only(top: 12.0, left: 20.0, right: 20.0),
-            child: Text("热播榜单"),
+            padding: EdgeInsets.only(
+                top: 12.0, left: 20.0, right: 20.0, bottom: 12.0),
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Icon(IconData(0xe6b9, fontFamily: 'Iconfont'),
+                      color: Colors.redAccent, size: 20.0),
+                ),
+                Text("热播榜单", style: TextStyle(fontSize: 18)),
+              ],
+            ),
           ),
-          MyGrid(
-            width: screenWidth - 16.0,
-            children: <Widget>[],
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+            child: MyGrid(
+              spacing: 16.0,
+              width: screenWidth - 32.0,
+              crossAxisCount: 2,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(
+                top: 12.0, left: 20.0, right: 20.0, bottom: 12.0),
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Icon(IconData(0xe759, fontFamily: 'Iconfont'),
+                      color: Colors.greenAccent, size: 22.0),
+                ),
+                Text("热门电影", style: TextStyle(fontSize: 18)),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+            child: MyGrid(
+              spacing: 16.0,
+              width: screenWidth - 32.0,
+              crossAxisCount: 2,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(
+                top: 12.0, left: 20.0, right: 20.0, bottom: 12.0),
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Icon(IconData(0xe647, fontFamily: 'Iconfont'),
+                      color: Colors.blueAccent, size: 24.0),
+                ),
+                Text("热门电视剧", style: TextStyle(fontSize: 18)),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+            child: MyGrid(
+              spacing: 16.0,
+              width: screenWidth - 32.0,
+              crossAxisCount: 2,
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(
+                top: 12.0, left: 20.0, right: 20.0, bottom: 12.0),
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Icon(IconData(0xe643, fontFamily: 'Iconfont'),
+                      color: Colors.yellow, size: 22.0),
+                ),
+                Text("热门动漫", style: TextStyle(fontSize: 18)),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+            child: MyGrid(
+              spacing: 16.0,
+              width: screenWidth - 32.0,
+              crossAxisCount: 2,
+            ),
           ),
         ],
       ),

@@ -7,7 +7,7 @@ class MyTopBar extends StatefulWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(54.0 + kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
 
 class MyTopBarState extends State<MyTopBar> {
