@@ -93,10 +93,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 top: 12.0, left: 20.0, right: 20.0, bottom: 12.0),
             child: Row(
               children: <Widget>[
+                Icon(
+                  IconData(
+                    0xe6b9,
+                    fontFamily: 'Iconfont',
+                  ),
+                  color: Colors.redAccent,
+                  size: 20.0,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
-                  child: Icon(IconData(0xe6b9, fontFamily: 'Iconfont'),
-                      color: Colors.redAccent, size: 20.0),
+                  child: Icon(
+                    IconData(
+                      0xe6b9,
+                      fontFamily: 'Iconfont',
+                    ),
+                    color: Colors.redAccent,
+                    size: 20.0,
+                  ),
                 ),
                 Text("热播榜单", style: TextStyle(fontSize: 18)),
               ],
