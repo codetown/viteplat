@@ -19,7 +19,7 @@ class MyGrid extends StatelessWidget {
             .map((e) => MyItem(
                 imageUrl:
                     "https://gitee.com/codetown/codedata/raw/master/cmovie/images/s$e.jpg",
-                imageAspectRatio: 0.618,
+                imageAspectRatio: 0.56,
                 width: itemWidth,
                 title: "电视剧$e"))
             .toList());
