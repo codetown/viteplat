@@ -67,22 +67,17 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: MyTopBar(),
       body: ListView(
-        padding: EdgeInsets.only(top: 12.0, left: 0, right: 0, bottom: 12.0),
+        padding: EdgeInsets.only(top: 16.0, left: 0, right: 0, bottom: 16.0),
         children: <Widget>[
           CarouselSlider(
             options: CarouselOptions(
-              autoPlay: true,
-              aspectRatio: 1.8125,
-              viewportFraction: 0.9,
-              reverse: true,
-              enlargeCenterPage: true,
-              enlargeStrategy: CenterPageEnlargeStrategy.height,
-            ),
+                autoPlay: true, viewportFraction: 1, aspectRatio: 532 / 280),
             items: [1, 2, 3, 4, 5].map((i) {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
                   "https://gitee.com/codetown/codedata/raw/master/cmovie/images/s$i.jpg",
+                  width: screenWidth - 32,
                   fit: BoxFit.fill,
                 ),
               );

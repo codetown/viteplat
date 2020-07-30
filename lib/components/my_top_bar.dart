@@ -18,8 +18,8 @@ class MyTopBarState extends State<MyTopBar> {
       alignment: Alignment.center,
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top,
-        left: 12.0,
-        right: 12.0,
+        left: 16.0,
+        right: 10.0,
       ),
       child: Row(
         children: <Widget>[
@@ -31,17 +31,28 @@ class MyTopBarState extends State<MyTopBar> {
                 margin: const EdgeInsets.only(right: 8.0),
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 alignment: Alignment.center,
-                child: Row(
-                  children: <Widget>[
-                    Icon(Icons.search),
-                    Expanded(
-                      child: Text(
-                        "最近热映",
-                        style: TextStyle(color: Colors.grey[600]),
+                child: GestureDetector(
+                  onTap: () {
+                    print("跳转到搜索页面");
+                  },
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(right: 4.0),
+                        child: Icon(
+                          Icons.search,
+                          color: Colors.red[200],
+                        ),
                       ),
-                    ),
-                    Icon(Icons.launch)
-                  ],
+                      Expanded(
+                        child: Text(
+                          "最近热映",
+                          style: TextStyle(color: Colors.grey[600]),
+                        ),
+                      ),
+                      Icon(Icons.iso, color: Colors.red[100])
+                    ],
+                  ),
                 ),
                 decoration: BoxDecoration(
                     color: Color(0xccffffff),
