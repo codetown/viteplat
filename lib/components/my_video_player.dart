@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class MyTopBar extends StatefulWidget implements PreferredSizeWidget {
+class MyVideoPlayer extends StatefulWidget implements PreferredSizeWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyTopBarState();
+    return MyVideoPlayerState();
   }
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
 
-class MyTopBarState extends State<MyTopBar> {
+class MyVideoPlayerState extends State<MyVideoPlayer> {
   @override
   Widget build(BuildContext context) {
     return Container(
