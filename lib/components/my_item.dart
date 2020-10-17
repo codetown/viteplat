@@ -35,7 +35,7 @@ class MyItem extends StatelessWidget {
               child: Text(title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 16)),
+                  style: TextStyle(fontSize: 16, color: Color(0xff666666))),
               padding: EdgeInsets.only(top: 4.0),
             ),
           ],
