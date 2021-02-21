@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cmvideo/components/my_cate_title.dart';
 import 'package:cmvideo/components/my_grid.dart';
 import 'package:flutter/material.dart';
 class Home extends StatefulWidget {
@@ -20,6 +21,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final _myColors = [
+    Color(0xfff54665),
+    Color(0xff33c35f),
+    Color(0xffff8844),
+    Color(0xff2593fc),
+    Color(0xff8342e4)
+  ];
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -46,27 +55,7 @@ class _HomeState extends State<Home> {
               );
             }).toList(),
           ),
-          Container(
-            padding: EdgeInsets.only(
-                top: 16.0, left:24.0, right: 24.0, bottom: 8.0),
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Icon(
-                    IconData(0xe6b9, fontFamily: 'Iconfont'),
-                    color: Colors.redAccent,
-                    size: 20.0,
-                  ),
-                ),
-                Text("热播榜单",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.redAccent,
-                        fontWeight: FontWeight.bold)),
-              ],
-            ),
-          ),
+          MyCateTitle(iconCode:0xe6b9,title:'热播榜单',color:_myColors[0]),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: MyGrid(
@@ -75,25 +64,7 @@ class _HomeState extends State<Home> {
               crossAxisCount: 2,
             ),
           ),
-          Container(
-            padding: const EdgeInsets.only(
-                top: 16.0, left: 24.0, right: 24.0, bottom: 8.0),
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Icon(IconData(0xe759, fontFamily: 'Iconfont'),
-                      color: Colors.greenAccent, size: 22.0),
-                ),
-                Text("热门电影",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.greenAccent,
-                      fontWeight: FontWeight.bold,
-                    )),
-              ],
-            ),
-          ),
+          MyCateTitle(iconCode:0xe759,title:'热门电影',color:_myColors[1]),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: MyGrid(
@@ -102,27 +73,7 @@ class _HomeState extends State<Home> {
               crossAxisCount: 2,
             ),
           ),
-          Container(
-            padding: const EdgeInsets.only(
-                top: 16.0, left: 24.0, right: 24.0, bottom: 8.0),
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Icon(IconData(0xe647, fontFamily: 'Iconfont'),
-                      color: Colors.blueAccent, size: 24.0),
-                ),
-                Text(
-                  "热门电视剧",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.blueAccent,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          MyCateTitle(iconCode:0xe647,title:'热门电视剧',color:_myColors[2]),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: MyGrid(
@@ -131,26 +82,7 @@ class _HomeState extends State<Home> {
               crossAxisCount: 2,
             ),
           ),
-          Container(
-            padding: const EdgeInsets.only(
-                top: 16.0, left: 24.0, right: 24.0, bottom: 8.0),
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Icon(IconData(0xe643, fontFamily: 'Iconfont'),
-                      color: Color(0xffd8d822), size: 22.0),
-                ),
-                Text(
-                  "热门动漫",
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Color(0xffd8d822),
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
+          MyCateTitle(iconCode:0xe643,title:'热门动漫',color:_myColors[3]),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: MyGrid(

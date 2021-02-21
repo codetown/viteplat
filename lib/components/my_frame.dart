@@ -54,13 +54,13 @@ class _MyFrameState extends State<MyFrame> {
             BottomNavigationBarItem(
               label:"分类",
               icon: Icon(
-                Icons.category,
+                Icons.video_collection,
               ),
             ),
             BottomNavigationBarItem(
               label:"新闻",
               icon: Icon(
-                Icons.info,
+                Icons.message,
               ),
             ),
             BottomNavigationBarItem(

@@ -31,7 +31,7 @@ class _CateState extends State<Cate> {
     return ListView(
         padding: EdgeInsets.only(top: 16.0, left: 0, right: 0, bottom: 16.0),
         children: <Widget>[
-          Text("CATE")
+          Text("Cate")
         ],
     );
   }

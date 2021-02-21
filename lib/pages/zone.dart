@@ -37,7 +37,6 @@ class _ZoneState extends State<Zone> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          margin:EdgeInsets.only(bottom:16.0),
           padding: EdgeInsets.only(
             top: topHeight + 24,
             left: 16,
@@ -59,15 +58,16 @@ class _ZoneState extends State<Zone> {
                 child: ClipOval(
                  child:Material(
                    color:Colors.grey[200],
-                   child: Padding(
-                     padding: const EdgeInsets.all(8.0),
-                     child: ClipOval(
-                            child: InkWell(
-                              onTap: () {},
-                              child: Image.network("https://gitee.com/codetown/codedata/raw/master/wetalk/avt101.jpg",width:64,height:64,fit:BoxFit.fill,),
+                   child: InkWell(
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ClipOval(
+
+                                  child: Image.network("https://gitee.com/codetown/codedata/raw/master/wetalk/avt101.jpg",width:64,height:64,fit:BoxFit.fill,),
+                                ),
                             ),
-                        ),
-                   ),
+                      ),
                  ),
                  ),
               ),
