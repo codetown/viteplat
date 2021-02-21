@@ -15,15 +15,14 @@ class MyMenuItem extends StatelessWidget {
     List<Widget> childList = [
       Container(
           alignment: Alignment.center,
-          height: 54.0,
-          width: 54.0,
-          child: Icon(CupertinoIcons.phone)
-          /*Image.asset(
+          height: 56.0,
+          width: 56.0,
+          child:Image.asset(
           "assets/images/" + imageName,
-          width: 40.0,
-          height: 40.0,
+          width: 32.0,
+          height: 32.0,
           fit: BoxFit.fill,
-        ),*/
+        )
           ),
       Expanded(
         child: Text(
@@ -52,8 +51,8 @@ class MyMenuItem extends StatelessWidget {
       );
     } else {
       childList.add(SizedBox(
-        width: 20.0,
-        height: 40,
+        width: 16.0,
+        height: 32,
       ));
     }
     return childList;

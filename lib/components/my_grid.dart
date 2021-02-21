@@ -26,7 +26,7 @@ class MyGrid extends StatelessWidget {
                     "https://gitee.com/codetown/codedata/raw/master/cmovie/images/t0$e.jpg",
                 imageAspectRatio: imageAspectRatio,
                 width: itemWidth,
-                title: "电视剧$e"))
+                title: "电视电影动漫音乐内容名称$e"))
             .toList());
   }
 }
