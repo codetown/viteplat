@@ -1,11 +1,17 @@
-# cmvideo 酷梦影视
+# vite-plat 后台管理通用模板  
 
-A new Flutter project.
+模板搭建过程
 
-## Getting Started
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```  
 
-This project is a starting point for a Flutter application.
+更新依赖
 
-## 开发计划
-
-**搜索页面**:点击首页搜索栏,跳转到或者弹出搜索页面,然后完成搜索功能
+```bash
+pnpm up --latest
+```  

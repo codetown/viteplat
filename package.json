@@ -1,0 +1,40 @@
+{
+  "name": "viteplat",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {
+    "@ant-design/charts": "^1.4.2",
+    "@ant-design/icons": "^5.0.1",
+    "@ant-design/pro-form": "^2.8.0",
+    "@ant-design/pro-layout": "^7.10.0",
+    "@ant-design/pro-table": "^3.5.0",
+    "@emotion/css": "^11.10.6",
+    "antd": "^5.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "@vitejs/plugin-react-swc": "^3.2.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.4",
+    "scss": "^0.2.4",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4"
+  }
+}
