@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styles from './layout.module.scss'
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -15,15 +16,21 @@ const { Header, Sider, Content } = Layout
 // const loopMenuItem=(routes)=>{
 
 // }
-const App: React.FC = () => {
+const SelfLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
   const {
     token: { colorBgContainer }
   } = theme.useToken()
   console.info(asideMenuConfig)
   return (
-    <Layout className="antd-layout">
-      <Sider trigger={null} collapsible collapsed={collapsed} theme="light">
+    <div className={styles.layout}>
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        theme="light"
+        className={styles.leftMenu}
+      >
         <div className="logo">
           <span>
             <img src="/vite.svg" />
@@ -31,7 +38,7 @@ const App: React.FC = () => {
           <strong>VitePlat</strong>
         </div>
         <Menu
-          // theme="light"
+          theme="light"
           mode="inline"
           defaultSelectedKeys={['1']}
           items={[
@@ -54,13 +61,15 @@ const App: React.FC = () => {
           //items={asideMenuConfig.map((item,index)=>({key:item.name,icon:item.icon,label:item.path} as ItemType))}
         />
       </Sider>
-      <Layout className="site-layout">
+      <div className={styles.rightContent}>
         <Header
           style={{
             padding: 16,
             background: colorBgContainer,
             display: 'flex',
-            alignItems: 'center'
+            alignItems: 'center',
+            borderRadius: 12,
+            marginBottom: 24
           }}
         >
           <span
@@ -74,20 +83,22 @@ const App: React.FC = () => {
         </Header>
         <Content
           style={{
-            margin: '16px 0 16px 16px',
-            // padding: 24,
-            paddingRight: 16,
+            margin: 0,
+            padding: 24,
             minHeight: 280,
+            height: 'calc(100vh - 136px)',
             // background: colorBgContainer,
+            background: '#fff',
             overflowX: 'hidden',
-            overflowY: 'auto'
+            overflowY: 'auto',
+            borderRadius: 12
           }}
         >
           <Outlet />
         </Content>
-      </Layout>
-    </Layout>
+      </div>
+    </div>
   )
 }
 
-export default App
+export default SelfLayout

@@ -1,11 +1,12 @@
 import './App.css'
 import { lazy, createElement, Suspense, ComponentType } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { Spin } from 'antd'
 // import NotFound from "../pages/NotFound/NotFound";
 import ProLayout from './layouts/ProLayout'
 import IceLayout from './layouts/IceLayout'
 import AntdLayout from './layouts/AntdLayout'
-import { Spin } from 'antd'
+import SelfLayout from './layouts/SelfLayout'
 import routeConfig from '@/config/routes'
 // 这是正常懒加载写法 在引入时需要用<Suspense><Home/></Suspense>
 // const Home = lazy(() => import("../pages/Home/Home"));
@@ -22,7 +23,7 @@ function App() {
         path="/login"
         element={lazyElement(() => import('./pages/login/'))}
       ></Route>
-      <Route path="/" element={<IceLayout />}>
+      <Route path="/" element={<SelfLayout />}>
         {/* 重定向首页为Home页 */}
         <Route path="" element={lazyElement(() => import('./pages/home'))} />
         <Route
