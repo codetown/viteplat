@@ -8,6 +8,7 @@ import type { MenuProps } from 'antd'
 import { Breadcrumb, Layout, Menu, theme } from 'antd'
 import { Outlet } from 'react-router-dom'
 import styles from './app-layout.module.scss'
+import AvatarDropdown from '@/components/AvatarDropdown'
 const { Header, Content, Sider } = Layout
 
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
@@ -45,13 +46,17 @@ const App: React.FC = () => {
   return (
     <Layout>
       <Header className={styles.header}>
-        <div className={styles.logo} />
+        <div className={styles.logo}>
+          <img src="/vite.svg" alt="" />
+          <strong>App管理系统</strong>
+        </div>
         <Menu
-          theme="dark"
+        style={{flex:1}}
           mode="horizontal"
           defaultSelectedKeys={['2']}
           items={items1}
         />
+        <AvatarDropdown name={'小乖'} avatar={'/vite.svg'}/>
       </Header>
       <Layout>
         <Sider width={200} style={{ background: colorBgContainer }}>
