@@ -4,10 +4,11 @@ import { Routes, Route } from 'react-router-dom'
 import { Spin } from 'antd'
 // import NotFound from "../pages/NotFound/NotFound";
 import ProLayout from './layouts/ProLayout'
-import IceLayout from './layouts/IceLayout'
 import AntdLayout from './layouts/AntdLayout'
-import SelfLayout from './layouts/SelfLayout'
-import routeConfig from '@/config/routes'
+import AppLayout from './layouts/AppLayout'
+import CustomizedLayout from './layouts/CustomizedLayout'
+import NotFound from './pages/error/404'
+import routeConfig from '../config/routes'
 // 这是正常懒加载写法 在引入时需要用<Suspense><Home/></Suspense>
 // const Home = lazy(() => import("../pages/Home/Home"));
 // const Course = lazy(() => import("../pages/Course/Course"));
@@ -23,7 +24,7 @@ function App() {
         path="/login"
         element={lazyElement(() => import('./pages/login/'))}
       ></Route>
-      <Route path="/" element={<SelfLayout />}>
+      <Route path="/" element={<AppLayout />}>
         {/* 重定向首页为Home页 */}
         <Route path="" element={lazyElement(() => import('./pages/home'))} />
         <Route
@@ -31,13 +32,13 @@ function App() {
           element={lazyElement(() => import('./pages/home'))}
           index
         />
-        {routeConfig.route.routes?.map((item: any, index: number) => (
+        {/* {routeConfig?.route?.routes?.map((item: any, index: number) => (
           <Route
             key={`route-${index + 1}`}
             path={item?.path}
             element={lazyElement(() => item?.component)}
           />
-        ))}
+        ))} */}
 
         {/* <Route
             path="home/second"
@@ -49,6 +50,16 @@ function App() {
             element={lazyElement(() => import("../pages/Course/Course"))}
           />
           <Route path="*" element={<NotFound />} /> */}
+        {/* <Route
+          path="home/second"
+          element={lazyElement(() => import('../pages/Home/HomeSecond'))}
+        />
+
+        <Route
+          path="course"
+          element={lazyElement(() => import('../pages/Course/Course'))}
+        /> */}
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   )

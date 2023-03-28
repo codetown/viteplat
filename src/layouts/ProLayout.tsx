@@ -142,7 +142,7 @@ export default () => {
                 paddingBlockStart: 12
               }}
             >
-              <div>© 2021 Made with love</div>
+              <div>© 2023 Made with love</div>
               <div>by Ant Design</div>
             </div>
           )

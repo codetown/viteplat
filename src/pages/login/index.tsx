@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 // import { definePageConfig, history, useAuth } from 'ice';
-import { message, Alert } from 'antd';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { ProFormCheckbox, ProFormText, LoginForm } from '@ant-design/pro-form';
-import styles from './index.module.css';
+import { message, Alert } from 'antd'
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import { ProFormCheckbox, ProFormText, LoginForm } from '@ant-design/pro-form'
+import styles from './index.module.scss'
 // import type { LoginParams, LoginResult } from '@/interfaces/user';
 // import { login, fetchUserInfo } from '@/services/user';
 // import store from '@/store';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/vite.svg'
 
 const LoginMessage: React.FC<{
-  content: string;
+  content: string
 }> = ({ content }) => {
   return (
     <Alert
       style={{
-        marginBottom: 24,
+        marginBottom: 24
       }}
       message={content}
       type="error"
       showIcon
     />
-  );
-};
+  )
+}
 
 const Login: React.FC = () => {
   // const [loginResult, setLoginResult] = useState<LoginResult>({});
@@ -59,9 +59,9 @@ const Login: React.FC = () => {
   return (
     <div className={styles.container}>
       <LoginForm
-        title="ICE Pro"
+        title="Vite Platform"
         logo={<img alt="logo" src={logo} />}
-        subTitle="基于 ice.js 3 开箱即用的中后台模板"
+        subTitle="基于 vite + react 的开箱即用的中后台模板"
         onFinish={async (values) => {
           // await handleSubmit(values as LoginParams);
         }}
@@ -75,33 +75,33 @@ const Login: React.FC = () => {
           name="username"
           fieldProps={{
             size: 'large',
-            prefix: <UserOutlined className={'prefixIcon'} />,
+            prefix: <UserOutlined className={'prefixIcon'} />
           }}
           placeholder={'用户名: admin or user'}
           rules={[
             {
               required: true,
-              message: '请输入用户名!',
-            },
+              message: '请输入用户名!'
+            }
           ]}
         />
         <ProFormText.Password
           name="password"
           fieldProps={{
             size: 'large',
-            prefix: <LockOutlined className={'prefixIcon'} />,
+            prefix: <LockOutlined className={'prefixIcon'} />
           }}
           placeholder={'密码: ice'}
           rules={[
             {
               required: true,
-              message: '请输入密码！',
-            },
+              message: '请输入密码！'
+            }
           ]}
         />
         <div
           style={{
-            marginBottom: 24,
+            marginBottom: 24
           }}
         >
           <ProFormCheckbox noStyle name="autoLogin">
@@ -109,7 +109,7 @@ const Login: React.FC = () => {
           </ProFormCheckbox>
           <a
             style={{
-              float: 'right',
+              float: 'right'
             }}
           >
             忘记密码
@@ -117,7 +117,7 @@ const Login: React.FC = () => {
         </div>
       </LoginForm>
     </div>
-  );
-};
+  )
+}
 
 export default Login
