@@ -1,123 +1,90 @@
-import { definePageConfig } from 'ice';
-import { PlusOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
-import React, { useRef } from 'react';
-import { PageContainer } from '@ant-design/pro-layout';
-import type { ProColumns, ActionType } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
-import { getRepos } from '@/services/list';
+import React, { useState } from 'react';
+import { Button, Card, Table } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+import { CopyOutlined, DeleteOutlined, FormOutlined } from '@ant-design/icons';
 
-interface GithubRepoItem {
-  url: string;
-  id: number;
+interface DataType {
+  key: React.Key;
   name: string;
-  star: string;
-  description: string;
+  age: number;
+  address: string;
 }
 
-const columns: Array<ProColumns<GithubRepoItem>> = [
+const columns: ColumnsType<DataType> = [
   {
-    title: 'id',
-    dataIndex: 'id',
-    ellipsis: true,
-    width: 80,
-  },
-  {
-    title: '名称',
+    title: 'Name',
     dataIndex: 'name',
-    width: 200,
   },
   {
-    title: 'Stars',
-    dataIndex: 'star',
-    width: 200,
+    title: 'Age',
+    dataIndex: 'age',
   },
   {
-    title: '描述',
-    dataIndex: 'description',
+    title: 'Address',
+    dataIndex: 'address',
   },
   {
-    title: '操作',
-    valueType: 'option',
-    key: 'option',
-    width: 200,
-    render: (text, record, _, action) => [
-      <a
-        key="editable"
-        onClick={() => {
-          action?.startEditable?.(record.id);
-        }}
-      >
-        编辑
-      </a>,
-      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
-        查看
-      </a>,
-    ],
-  },
+    title:'操作',
+    render(){
+      return <>
+      <Button type='link' icon={<FormOutlined />}></Button>
+      <Button type='link' icon={<DeleteOutlined />}></Button>
+      <Button type='link' icon={<CopyOutlined />}></Button>
+      <FormOutlined />
+      <DeleteOutlined />
+      <CopyOutlined />
+      </>
+    }
+  }
 ];
 
-const TableList: React.FC = () => {
-  const actionRef = useRef<ActionType>();
+const data: DataType[] = [];
+for (let i = 0; i < 46; i++) {
+  data.push({
+    key: i,
+    name: `Edward King ${i}`,
+    age: 32,
+    address: `London, Park Lane no. ${i}`,
+  });
+}
+
+const App: React.FC = () => {
+  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  const start = () => {
+    setLoading(true);
+    // ajax request after empty completing
+    setTimeout(() => {
+      setSelectedRowKeys([]);
+      setLoading(false);
+    }, 1000);
+  };
+
+  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
+    console.log('selectedRowKeys changed: ', newSelectedRowKeys);
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
+  const hasSelected = selectedRowKeys.length > 0;
+
   return (
-    <PageContainer>
-      <ProTable<GithubRepoItem>
-        columns={columns}
-        actionRef={actionRef}
-        cardBordered
-        request={(params = {}, sort, filter) => {
-          console.log(sort, filter);
-          return getRepos(params);
-        }}
-        editable={{
-          type: 'multiple',
-        }}
-        columnsState={{
-          persistenceKey: 'pro-table-singe-demos',
-          persistenceType: 'localStorage',
-          onChange(value) {
-            console.log('value: ', value);
-          },
-        }}
-        rowKey="id"
-        search={{
-          labelWidth: 'auto',
-        }}
-        options={{
-          setting: {
-            listsHeight: 400,
-          },
-        }}
-        form={{
-          // 由于配置了 transform，提交的参与与定义的不同这里需要转化一下
-          syncToUrl: (values, type) => {
-            if (type === 'get') {
-              return {
-                ...values,
-                created_at: [values.startTime, values.endTime],
-              };
-            }
-            return values;
-          },
-        }}
-        pagination={{
-          pageSize: 8,
-        }}
-        dateFormatter="string"
-        toolBarRender={() => [
-          <Button key="button" icon={<PlusOutlined />} type="primary">
-            新建
-          </Button>,
-        ]}
-      />
-    </PageContainer>
+    <Card title="列表" extra={<Button>新增</Button>}>
+      <div style={{ marginBottom: 16 }}>
+        <Button type="primary" onClick={start} disabled={!hasSelected} loading={loading}>
+          Reload
+        </Button>
+        <span style={{ marginLeft: 8 }}>
+          {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
+        </span>
+      </div>
+      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+    </Card>
   );
 };
 
-export default TableList;
-
-export const pageConfig = definePageConfig(() => {
-  return {
-    auth: ['admin'],
-  };
-});
+export default App;

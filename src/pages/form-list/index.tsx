@@ -89,7 +89,7 @@ const App: React.FC = () => {
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
-      <Select style={{ width:80 }}>
+      <Select style={{ width: 70 }}>
         <Option value="86">+86</Option>
         <Option value="87">+87</Option>
       </Select>
@@ -98,7 +98,7 @@ const App: React.FC = () => {
 
   const suffixSelector = (
     <Form.Item name="suffix" noStyle>
-      <Select style={{ width:80}}>
+      <Select style={{ width: 70 }}>
         <Option value="USD">$</Option>
         <Option value="CNY">¥</Option>
       </Select>
@@ -202,7 +202,7 @@ const App: React.FC = () => {
           { type: 'array', required: true, message: 'Please select your habitual residence!' },
         ]}
       >
-        <Cascader options={residences}/>
+        <Cascader options={residences} />
       </Form.Item>
 
       <Form.Item
@@ -226,7 +226,7 @@ const App: React.FC = () => {
         label="Website"
         rules={[{ required: true, message: 'Please input website!' }]}
       >
-        <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website" allowClear>
+        <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
           <Input />
         </AutoComplete>
       </Form.Item>
@@ -244,7 +244,7 @@ const App: React.FC = () => {
         label="Gender"
         rules={[{ required: true, message: 'Please select gender!' }]}
       >
-        <Select placeholder="select your gender" allowClear>
+        <Select placeholder="select your gender">
           <Option value="male">Male</Option>
           <Option value="female">Female</Option>
           <Option value="other">Other</Option>

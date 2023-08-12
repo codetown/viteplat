@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
-// import { definePageConfig, history, useAuth } from 'ice';
-import { message, Alert } from 'antd'
+import { message, Alert, Card } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
-import { ProFormCheckbox, ProFormText, LoginForm } from '@ant-design/pro-form'
+import md5 from 'blueimp-md5';
 import styles from './index.module.scss'
-// import type { LoginParams, LoginResult } from '@/interfaces/user';
-// import { login, fetchUserInfo } from '@/services/user';
 // import store from '@/store';
 import logo from '@/assets/vite.svg'
-
+import { Button, Checkbox, Form, Input } from 'antd';
+import {fetchLogin} from '@/services/common';
+import { useNavigate } from 'react-router-dom';
 const LoginMessage: React.FC<{
   content: string
 }> = ({ content }) => {
@@ -25,97 +24,66 @@ const LoginMessage: React.FC<{
 }
 
 const Login: React.FC = () => {
-  // const [loginResult, setLoginResult] = useState<LoginResult>({});
-  // const [, userDispatcher] = store.useModel('user');
-  // const [, setAuth] = useAuth();
+  const navigate=useNavigate()
+  const onFinish = async (values: any) => {
+    const passMD5=md5(values.password)
+    const res= await fetchLogin({...values,password:passMD5});
+    const {code,data}=res.data
+    if(code==200){
+      sessionStorage.setItem('jwt',data);
+      navigate('/');
+      // 跳转到首页
+    }
+  };
 
-  // async function updateUserInfo() {
-  //   const userInfo = await fetchUserInfo();
-  //   userDispatcher.updateCurrentUser(userInfo);
-  // }
-
-  // async function handleSubmit(values: LoginParams) {
-  //   try {
-  //     const result = await login(values);
-  //     if (result.success) {
-  //       message.success('登录成功！');
-  //       setAuth({
-  //         admin: result.userType === 'admin',
-  //         user: result.userType === 'user',
-  //       });
-  //       await updateUserInfo();
-  //       const urlParams = new URL(window.location.href).searchParams;
-  //       history?.push(urlParams.get('redirect') || '/');
-  //       return;
-  //     }
-  //     console.log(result);
-  //     // 如果失败去设置用户错误信息，显示提示信息
-  //     setLoginResult(result);
-  //   } catch (error) {
-  //     message.error('登录失败，请重试！');
-  //     console.log(error);
-  //   }
-  // }
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+  };
   return (
     <div className={styles.container}>
-      <LoginForm
-        title="Vite Platform"
-        logo={<img alt="logo" src={logo} />}
-        subTitle="基于 vite + react 的开箱即用的中后台模板"
-        onFinish={async (values) => {
-          // await handleSubmit(values as LoginParams);
-        }}
-      >
-        {/* {loginResult.success === false && (
-          <LoginMessage
-            content="账户或密码错误(admin/ice)"
-          />
-        )} */}
-        <ProFormText
-          name="username"
-          fieldProps={{
-            size: 'large',
-            prefix: <UserOutlined className={'prefixIcon'} />
-          }}
-          placeholder={'用户名: admin or user'}
-          rules={[
-            {
-              required: true,
-              message: '请输入用户名!'
-            }
-          ]}
-        />
-        <ProFormText.Password
-          name="password"
-          fieldProps={{
-            size: 'large',
-            prefix: <LockOutlined className={'prefixIcon'} />
-          }}
-          placeholder={'密码: ice'}
-          rules={[
-            {
-              required: true,
-              message: '请输入密码！'
-            }
-          ]}
-        />
-        <div
-          style={{
-            marginBottom: 24
-          }}
-        >
-          <ProFormCheckbox noStyle name="autoLogin">
-            自动登录
-          </ProFormCheckbox>
-          <a
-            style={{
-              float: 'right'
-            }}
+      <Card>
+        <div className={styles.content}>
+          <Form
+            name="login"
+            className={styles.loginForm}
+            layout='vertical'
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            size='large'
+            autoComplete="off"
           >
-            忘记密码
-          </a>
+        <div className={styles.title}>
+          <img src={logo} className={styles.logo} alt="" />
+          <strong>Vite-Plat通用管理系统</strong>
         </div>
-      </LoginForm>
+            <Form.Item
+              name="username"
+              label="账号"
+              rules={[{ required: true, message: '请输入用户名！'}]}
+            >
+              <Input prefix={<UserOutlined/>} />
+            </Form.Item>
+
+            <Form.Item
+              name="password"
+              label="密码"
+              rules={[{ required: true, message: '请输入密码！' }]}
+            >
+              <Input.Password prefix={<LockOutlined/>}/>
+            </Form.Item>
+
+            <Form.Item name="remember" valuePropName="checked">
+              <Checkbox>记住密码</Checkbox>
+            </Form.Item>
+
+              <Button type="primary" htmlType="submit" style={{width:'100%'}}>
+                登录
+              </Button>
+          </Form>
+          <img src="/loginbg2.jpg" alt="" className={styles.infoImg} />
+        </div>
+      </Card>
     </div>
   )
 }

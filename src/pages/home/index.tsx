@@ -7,7 +7,6 @@ import CardLineChart from '@/components/CardLineChart';
 import CardRankChart from '@/components/CardRankChart';
 import CardPieChart from '@/components/CardPieChart';
 import CardGroupBarChart from '@/components/CardGroupBarChart';
-import styles from './index.module.scss'
 export default function Dashboard() {
   return (
     <Row gutter={[16, 16]}>

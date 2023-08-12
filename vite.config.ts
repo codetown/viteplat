@@ -1,4 +1,3 @@
-// import { fileURLToPath, URL } from "node:url";
 import path from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
@@ -24,7 +23,12 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "./src/assets/scss/varible.scss";'
+        additionalData: '@import "./src/assets/scss/varible.scss";',
+        modifyVars: {
+          'primary-color': '#1DA57A',
+          'link-color': '#1DA57A',
+          'border-radius-base': '2px'
+        }
       }
     },
     modules: {
@@ -46,6 +50,7 @@ export default defineConfig({
     }
   },
   server: {
+    cors: true,
     proxy: {
       '/api': {
         target: 'http://10.88.66.86:8080/api/',
