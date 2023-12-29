@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Card } from 'antd'
 import mock from './mock'
 import styles from './index.module.css'
-import { TinyColumn } from '@ant-design/charts'
+import { Tiny } from '@ant-design/charts'
 
 interface CardConfig {
   title?: string | React.ReactNode
@@ -40,7 +40,7 @@ const CardBarChart: React.FunctionComponent<CardBarChartProps> = (props: CardBar
         {des}
         <span>{rate}↑</span>
       </div>
-      <TinyColumn data={chartData!} width={10} height={chartHeight} />
+      <Tiny.Column data={chartData!} height={chartHeight} />
     </Card>
   )
 }

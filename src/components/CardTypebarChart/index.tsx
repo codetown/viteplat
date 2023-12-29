@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Card } from 'antd'
-import { RingProgress } from '@ant-design/charts'
+import { Tiny } from '@ant-design/charts'
 import mock from './mock'
 import styles from './index.module.css'
 
@@ -42,10 +42,9 @@ const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
         {des}
         <span>{rate}↑</span>
       </div>
-      <RingProgress
+      <Tiny.Ring
         percent={chartData!}
         height={chartHeight}
-        width={10}
         color={['#5B8FF9', '#E8EDF3']}
         progressStyle={{ width: 30 }}
       />

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Card } from 'antd'
-import { TinyLine } from '@ant-design/charts'
+import { Tiny } from '@ant-design/charts'
 import mock from './mock'
 import styles from './index.module.css'
 
@@ -42,7 +42,7 @@ const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardL
         {des}
         <span>{rate}↑</span>
       </div>
-      <TinyLine data={values!} width={10} height={chartHeight} smooth />
+      {values && <Tiny.Line data={values} height={chartHeight} smooth />}
     </Card>
   )
 }

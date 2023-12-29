@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Card } from 'antd'
-import { TinyArea } from '@ant-design/charts'
+import { Tiny } from '@ant-design/charts'
 import mock from './mock'
 import styles from './index.module.css'
 
@@ -40,9 +40,8 @@ const CardAreaChart: React.FunctionComponent<CardAreaChartProps> = (props): JSX.
         {des}
         <span>{rate}↑</span>
       </div>
-      <TinyArea
+      <Tiny.Area
         data={chartData!}
-        width={10}
         height={chartHeight}
         smooth
         line={{
