@@ -1,21 +1,37 @@
-import { TableOutlined, WarningOutlined, FormOutlined, DashboardOutlined } from '@ant-design/icons';
-import type { MenuDataItem } from '@ant-design/pro-layout';
+import { TableOutlined, WarningOutlined, FormOutlined, DashboardOutlined } from '@ant-design/icons'
+import { ReactNode } from 'react'
 
-const asideMenuConfig: MenuDataItem[] = [
+type SiderMenuItemType = {
+  name: string
+  path?: string
+  icon?: ReactNode
+  children?: SiderMenuItemType[]
+}
+const asideMenuConfig: SiderMenuItemType[] = [
   {
     name: '工作台',
     path: '/',
-    icon: <DashboardOutlined />,
+    icon: <DashboardOutlined />
   },
   {
     name: '表单',
     path: '/form',
-    icon: <FormOutlined />,
+    icon: <FormOutlined />
+  },
+  {
+    name: '表单列表',
+    path: '/form-list',
+    icon: <FormOutlined />
   },
   {
     name: '列表',
     path: '/list',
-    icon: <TableOutlined />,
+    icon: <TableOutlined />
+  },
+  {
+    name: '高级上传',
+    path: '/upload-advance',
+    icon: <TableOutlined />
   },
   {
     name: '结果&异常',
@@ -23,14 +39,14 @@ const asideMenuConfig: MenuDataItem[] = [
     children: [
       {
         name: '成功',
-        path: '/success',
+        path: '/success'
       },
       {
         name: '404',
-        path: '/404',
-      },
-    ],
-  },
-];
+        path: '/404'
+      }
+    ]
+  }
+]
 
-export { asideMenuConfig };
+export { asideMenuConfig }

@@ -62,28 +62,53 @@
 //     },
 // ];
 export default [
-    {
-        path: '/',
-        redirect: '/home',
-    },
-    {
-        name: '首页',
-        path: '/home',
-        component: './Home',
-    },
-    {
-        name: '权限演示',
-        path: '/access',
-        component: './Access',
-    },
-    {
-        name: ' CRUD 示例',
-        path: '/table',
-        component: './Table',
-    },
-    {
-        name: '其他',
-        path: '/other',
-        component: './Table',
-    },
-];
+  // {
+  //     path: '/',
+  //     redirect: '/home',
+  // },
+  // {
+  //     name: '首页',
+  //     path: '/home',
+  //     component: './Home',
+  // },
+  // {
+  //     name: '权限演示',
+  //     path: '/access',
+  //     component: './Access',
+  // },
+  // {
+  //     name: ' CRUD 示例',
+  //     path: '/table',
+  //     component: './Table',
+  // },
+  // {
+  //     name: '其他',
+  //     path: '/other',
+  //     component: './Table',
+  // },
+  {
+    name: '成功',
+    path: '/success',
+    component: '/success'
+  },
+  {
+    name: '列表',
+    path: '/list',
+    component: '/list'
+  },
+  {
+    name: '表单',
+    path: '/form',
+    component: '/form'
+  },
+  {
+    name: '表单列表',
+    path: '/form-list',
+    component: '/form-list'
+  },
+  {
+    name: '上传示例',
+    path: '/upload-advance',
+    component: '/upload-advance'
+  }
+]

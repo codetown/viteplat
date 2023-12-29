@@ -6,20 +6,37 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
+    'plugin:react/recommended',
+    'plugin:prettier/recommended',
+    'plugin:react/jsx-runtime'
   ],
-  overrides: [],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
+  overrides: [
+    {
+      env: {
+        node: true
+      },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script'
+      }
+    }
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'react', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
     'arrow-body-style': 'off',
-    'prefer-arrow-callback': 'off'
+    'prefer-arrow-callback': 'off',
+    '@typescript-eslint/no-explicit-any': ['off']
   }
 }

@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { Radio, Card } from 'antd';
-import type { RadioChangeEvent } from 'antd';
-import { Pie } from '@ant-design/charts';
-import styles from './index.module.css';
+import * as React from 'react'
+import { Radio, Card } from 'antd'
+import type { RadioChangeEvent } from 'antd'
+import { Pie } from '@ant-design/charts'
+import styles from './index.module.css'
 
-const { useState } = React;
+const { useState } = React
 
 interface CardConfig {
-  title?: string;
-  value?: number;
-  chartData?: Array<Record<string, any>>;
-  chartHeight?: number;
+  title?: string
+  value?: number
+  chartData?: Array<Record<string, any>>
+  chartHeight?: number
 }
 
 const DEFAULT_DATA: CardConfig = {
@@ -20,57 +20,49 @@ const DEFAULT_DATA: CardConfig = {
     {
       type: '事例一',
       value: 40,
-      title: '事例一 | 40.00%     ¥4,544',
+      title: '事例一 | 40.00%     ¥4,544'
     },
     {
       type: '事例二',
       value: 21,
-      title: '事例二 | 22.12%     ¥2,344',
+      title: '事例二 | 22.12%     ¥2,344'
     },
     {
       type: '事例三',
       value: 17,
-      title: '事例三 | 16.59%     ¥3,512',
+      title: '事例三 | 16.59%     ¥3,512'
     },
     {
       type: '事例四',
       value: 13,
-      title: '事例四 | 13.11%     ¥2,341',
+      title: '事例四 | 13.11%     ¥2,341'
     },
     {
       type: '事例五',
       value: 9,
-      title: '事例五 |  9.29%     ¥1,231',
-    },
+      title: '事例五 |  9.29%     ¥1,231'
+    }
   ],
-  chartHeight: 500,
-};
+  chartHeight: 500
+}
 
 export interface CardPieChartProps {
-  cardConfig?: CardConfig;
+  cardConfig?: CardConfig
 }
 
 const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.Element => {
-  const {
-    cardConfig = DEFAULT_DATA,
-  } = props;
+  const { cardConfig = DEFAULT_DATA } = props
 
-  const { title, chartData, chartHeight } = cardConfig;
+  const { title, chartData, chartHeight } = cardConfig
 
-  const [type, setType] = useState('one');
+  const [type, setType] = useState('one')
   const changeType = (e: RadioChangeEvent) => {
-    setType(e.target.value);
-  };
-
+    setType(e.target.value)
+  }
 
   return (
     <Card title={title}>
-      <Radio.Group
-        value={type}
-        onChange={changeType}
-        className={styles.radioGroup}
-        optionType="button"
-      >
+      <Radio.Group value={type} onChange={changeType} className={styles.radioGroup} optionType="button">
         <Radio value="one" className={styles.radioFlex}>
           类目一
         </Radio>
@@ -87,7 +79,7 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.El
         colorField="type"
         appendPadding={10}
         legend={{
-          position: 'bottom',
+          position: 'bottom'
         }}
         height={chartHeight}
         label={{
@@ -95,22 +87,22 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.El
           offset: '-50%',
           autoRotate: false,
           style: { textAlign: 'center' },
-          formatter: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+          formatter: ({ percent }) => `${(percent * 100).toFixed(0)}%`
         }}
         radius={1}
         innerRadius={0.64}
         meta={{
           value: {
-            formatter: (v) => `¥ ${v}`,
-          },
+            formatter: (v) => `¥ ${v}`
+          }
         }}
         statistic={{
           title: {
-            offsetY: -8,
+            offsetY: -8
           },
           content: {
-            offsetY: -4,
-          },
+            offsetY: -4
+          }
         }}
         interactions={[
           { type: 'element-selected' },
@@ -120,18 +112,18 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.El
             cfg: {
               start: [
                 { trigger: 'element:mouseenter', action: 'pie-statistic:change' },
-                { trigger: 'legend-item:mouseenter', action: 'pie-statistic:change' },
+                { trigger: 'legend-item:mouseenter', action: 'pie-statistic:change' }
               ],
               end: [
                 { trigger: 'element:mouseleave', action: 'pie-statistic:reset' },
-                { trigger: 'legend-item:mouseleave', action: 'pie-statistic:reset' },
-              ],
-            },
-          },
+                { trigger: 'legend-item:mouseleave', action: 'pie-statistic:reset' }
+              ]
+            }
+          }
         ]}
       />
     </Card>
-  );
-};
+  )
+}
 
-export default CardPieChart;
+export default CardPieChart

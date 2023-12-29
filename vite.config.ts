@@ -1,7 +1,7 @@
-// import { fileURLToPath, URL } from "node:url";
 import path from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -17,14 +17,19 @@ export default defineConfig({
   // },
   resolve: {
     alias: {
-      '@/': `${path.resolve(process.cwd(), 'src')}/`,
+      '@/': `${path.resolve(process.cwd(), 'src')}/`
     },
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'] // 默认值，这些文件引入时不需要写后缀
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "./src/assets/scss/varible.scss";'
+        additionalData: '@import "./src/assets/scss/varible.scss";',
+        modifyVars: {
+          'primary-color': '#1DA57A',
+          'link-color': '#1DA57A',
+          'border-radius-base': '2px'
+        }
       }
     },
     modules: {
@@ -46,9 +51,10 @@ export default defineConfig({
     }
   },
   server: {
+    cors: true,
     proxy: {
       '/api': {
-        target: 'http://10.88.66.86:8080/api/',
+        target: 'http://127.0.0.1:8080/api/',
         rewrite: (path) => path.replace(/^\/api/, ''),
         changeOrigin: true
       }
