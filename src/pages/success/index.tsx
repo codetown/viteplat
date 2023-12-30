@@ -1,11 +1,11 @@
-import { Button, Card, Result } from 'antd';
+import { Button, Card, Result } from 'antd'
 
 const extra = (
   <>
     <Button type="primary">返回列表</Button>
     <Button>查看项目</Button>
   </>
-);
+)
 
 export default function Success() {
   return (
@@ -18,5 +18,5 @@ export default function Success() {
         extra={extra}
       />
     </Card>
-  );
+  )
 }

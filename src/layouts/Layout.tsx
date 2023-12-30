@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-} from '@ant-design/icons'
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Breadcrumb, Layout, Menu, theme } from 'antd'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { asideMenuConfig } from './menuConfig'
@@ -15,8 +12,8 @@ const { Header, Sider, Content } = Layout
 // }
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const [openKeys,setOpenKeys]=useState<string[]>(JSON.parse(localStorage.getItem('openKeys')||'[]'))
-  const myLocation=useLocation()
+  const [openKeys, setOpenKeys] = useState<string[]>(JSON.parse(localStorage.getItem('openKeys') || '[]'))
+  const myLocation = useLocation()
   const {
     token: { colorBgContainer }
   } = theme.useToken()
@@ -34,24 +31,31 @@ const App: React.FC = () => {
           mode="inline"
           theme="dark"
           openKeys={openKeys}
-          onOpenChange={(keys)=>{{
-            setOpenKeys(keys)
-            localStorage.setItem('openKeys',JSON.stringify(keys))
-          }}}
+          onOpenChange={(keys) => {
+            {
+              setOpenKeys(keys)
+              localStorage.setItem('openKeys', JSON.stringify(keys))
+            }
+          }}
           defaultSelectedKeys={[myLocation.pathname]}
           selectedKeys={[myLocation.pathname]}
-          items={asideMenuConfig.map((item, index) => ({
-            key: item.path || `menu-item-${index + 1}`,
-            icon: item.icon,
-            children: item?.children?.map(child => ({ key: child.path, label: <Link to={child.path || '/'}>{child.name}</Link> })) || undefined,
-            label: item.children && item.children.length > 0 ? item.name : <Link to={item.path || '/'}>{item.name}</Link>
-          } as ItemType))}
+          items={asideMenuConfig.map(
+            (item, index) =>
+              ({
+                key: item.path || `menu-item-${index + 1}`,
+                icon: item.icon,
+                children:
+                  item?.children?.map((child) => ({
+                    key: child.path,
+                    label: <Link to={child.path || '/'}>{child.name}</Link>
+                  })) || undefined,
+                label:
+                  item.children && item.children.length > 0 ? item.name : <Link to={item.path || '/'}>{item.name}</Link>
+              }) as ItemType
+          )}
         />
-        <div className={styles.siderBottom} style={{justifyContent:collapsed?'center':'right'}}>
-          <span
-            className={styles.trigger}
-            onClick={() => setCollapsed(!collapsed)}
-          >
+        <div className={styles.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }}>
+          <span className={styles.trigger} onClick={() => setCollapsed(!collapsed)}>
             {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           </span>
         </div>
@@ -63,12 +67,10 @@ const App: React.FC = () => {
             background: colorBgContainer,
             display: 'flex',
             alignItems: 'center'
-          }}
-        >
-          
-          <Breadcrumb items={[{title:'首页'},{title:'用户'},{title:'列表'}]}/>
+          }}>
+          <Breadcrumb items={[{ title: '首页' }, { title: '用户' }, { title: '列表' }]} />
           <div className={styles.headerRight}>
-          <AvatarDropdown name="小狗" avatar="/vite.svg" />
+            <AvatarDropdown name="小狗" avatar="/vite.svg" />
           </div>
         </Header>
         <Content
@@ -78,8 +80,7 @@ const App: React.FC = () => {
             minHeight: 280,
             overflowX: 'hidden',
             overflowY: 'auto'
-          }}
-        >
+          }}>
           <Outlet />
         </Content>
       </Layout>

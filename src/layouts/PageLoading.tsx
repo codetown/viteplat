@@ -3,7 +3,7 @@ import { Spin } from 'antd'
 const PageLoading: React.FC = () => {
   return (
     <div className={styles.pageLoading}>
-        <Spin size='large'/>
+      <Spin size="large" />
     </div>
   )
 }

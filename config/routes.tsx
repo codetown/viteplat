@@ -1,4 +1,3 @@
-import React from 'react'
 import { CrownFilled, SmileFilled, TabletFilled } from '@ant-design/icons'
 export default {
   route: {

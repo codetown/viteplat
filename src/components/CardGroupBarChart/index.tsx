@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { Card } from 'antd';
-import { Column } from '@ant-design/charts';
-import styles from './index.module.css';
+import * as React from 'react'
+import { Card } from 'antd'
+import { Column } from '@ant-design/charts'
+import styles from './index.module.css'
 
 interface CardConfig {
-  title?: string;
-  chartData?: Array<Record<string, any>>;
-  chartHeight?: number;
+  title?: string
+  chartData?: Array<Record<string, any>>
+  chartHeight?: number
 }
 
 const DEFAULT_DATA: CardConfig = {
@@ -26,21 +26,21 @@ const DEFAULT_DATA: CardConfig = {
     { category: '品类四', value: 333, type: '门店三' },
     { category: '品类五', value: 111, type: '门店一' },
     { category: '品类五', value: 452, type: '门店二' },
-    { category: '品类五', value: 234, type: '门店三' },
+    { category: '品类五', value: 234, type: '门店三' }
   ],
-  chartHeight: 500,
-};
-
-export interface CardGroupBarChartProps {
-  cardConfig?: CardConfig;
+  chartHeight: 500
 }
 
-const CardGroupBarChart: React.FunctionComponent<CardGroupBarChartProps> = (props: CardGroupBarChartProps): JSX.Element => {
-  const {
-    cardConfig = DEFAULT_DATA,
-  } = props;
+export interface CardGroupBarChartProps {
+  cardConfig?: CardConfig
+}
 
-  const { title, chartData, chartHeight } = cardConfig;
+const CardGroupBarChart: React.FunctionComponent<CardGroupBarChartProps> = (
+  props: CardGroupBarChartProps
+): JSX.Element => {
+  const { cardConfig = DEFAULT_DATA } = props
+
+  const { title, chartData, chartHeight } = cardConfig
 
   return (
     <Card title={title} className={styles.cardGroupBarChart}>
@@ -62,12 +62,12 @@ const CardGroupBarChart: React.FunctionComponent<CardGroupBarChartProps> = (prop
             // 数据标签防遮挡
             { type: 'interval-hide-overlap' },
             // 数据标签文颜色自动调整
-            { type: 'adjust-color' },
-          ],
+            { type: 'adjust-color' }
+          ]
         }}
       />
-    </Card >
-  );
-};
+    </Card>
+  )
+}
 
-export default CardGroupBarChart;
+export default CardGroupBarChart
