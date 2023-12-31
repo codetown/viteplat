@@ -41,7 +41,7 @@ const DEFAULT_DATA: CardConfig = {
       title: '事例五 |  9.29%     ¥1,231'
     }
   ],
-  chartHeight: 500
+  chartHeight: 300
 }
 
 export interface CardPieChartProps {

@@ -27,7 +27,7 @@ const DEFAULT_DATA: CardConfig = {
     { category: '品类五', value: 452, type: '门店二' },
     { category: '品类五', value: 234, type: '门店三' }
   ],
-  chartHeight: 500
+  chartHeight: 300
 }
 
 export interface CardGroupBarChartProps {
