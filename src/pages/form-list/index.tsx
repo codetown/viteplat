@@ -1,6 +1,6 @@
 import { Card, CascaderProps } from 'antd'
 import { AutoComplete, Button, Cascader, Checkbox, Col, Form, Input, InputNumber, Row, Select } from 'antd'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const { Option } = Select
 
@@ -69,7 +69,7 @@ const tailFormItemLayout = {
   }
 }
 
-const App: React.FC = () => {
+export default function FormList() {
   const [form] = Form.useForm()
 
   const onFinish = (values: any) => {
@@ -257,5 +257,3 @@ const App: React.FC = () => {
     </Card>
   )
 }
-
-export default App

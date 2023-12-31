@@ -1,27 +1,16 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import { ConfigProvider } from 'antd'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App'
-import './index.css'
+import { App, ConfigProvider } from 'antd'
+import { RouterProvider } from 'react-router-dom'
+import routes from '@/routes'
+import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: '#3366ff'
-          }
-          // ,
-          // components: {
-          //   Button: {
-          //     background: 'linear-gradient(90deg,#1395fe 4.83%,#1e72ff 94.74%)'
-          //   },
-          // }
-        }}>
-        <App />
-      </ConfigProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <StrictMode>
+    <ConfigProvider>
+      <App>
+        <RouterProvider router={routes} />
+      </App>
+    </ConfigProvider>
+  </StrictMode>
 )

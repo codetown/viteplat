@@ -1,8 +1,7 @@
-import * as React from 'react'
 import { Card } from 'antd'
-import { Tiny } from '@ant-design/charts'
+import { Tiny, TinyLineConfig } from '@ant-design/charts'
 import mock from './mock'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 interface CardConfig {
   title: string | React.ReactNode
@@ -31,7 +30,20 @@ interface CardAreaChartProps {
 const CardAreaChart: React.FunctionComponent<CardAreaChartProps> = (props): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
   const { title, subTitle, value, chartData, des, rate, chartHeight } = cardConfig
-
+  const config:TinyLineConfig = {
+    data: chartData,
+    height: chartHeight,
+    smooth: true,
+    line: {
+      size: 2,
+      color: '#00D6CB'
+    },
+    areaStyle: {
+      lineWidth: 10,
+      fill: '#00D6CB',
+      fillOpacity: 0.2
+    }
+  }
   return (
     <Card title={title} className={styles.areaChart}>
       <div className={styles.cardSubTitle}>{subTitle}</div>
@@ -40,19 +52,8 @@ const CardAreaChart: React.FunctionComponent<CardAreaChartProps> = (props): JSX.
         {des}
         <span>{rate}↑</span>
       </div>
-      <Tiny.Area
-        data={chartData!}
-        height={chartHeight}
-        smooth
-        line={{
-          size: 2,
-          color: '#00D6CB'
-        }}
-        areaStyle={{
-          lineWidth: 10,
-          fill: '#00D6CB',
-          fillOpacity: 0.2
-        }}
+      <Tiny.Area 
+      {...config}
       />
     </Card>
   )

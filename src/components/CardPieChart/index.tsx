@@ -1,10 +1,8 @@
-import * as React from 'react'
+import {useState} from 'react'
 import { Radio, Card } from 'antd'
 import type { RadioChangeEvent } from 'antd'
 import { Pie } from '@ant-design/charts'
-import styles from './index.module.css'
-
-const { useState } = React
+import styles from './index.module.scss'
 
 interface CardConfig {
   title?: string
@@ -87,13 +85,13 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.El
           offset: '-50%',
           autoRotate: false,
           style: { textAlign: 'center' },
-          formatter: ({ percent }) => `${(percent * 100).toFixed(0)}%`
+          formatter: ({ percent }:any) => `${(percent * 100).toFixed(0)}%`
         }}
         radius={1}
         innerRadius={0.64}
         meta={{
           value: {
-            formatter: (v) => `¥ ${v}`
+            formatter: (v: any) => `¥ ${v}`
           }
         }}
         statistic={{

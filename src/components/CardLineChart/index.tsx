@@ -1,8 +1,7 @@
-import * as React from 'react'
 import { Card } from 'antd'
 import { Tiny } from '@ant-design/charts'
 import mock from './mock'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 interface CardConfig {
   title?: string | React.ReactNode
@@ -42,7 +41,7 @@ const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardL
         {des}
         <span>{rate}↑</span>
       </div>
-      {values && <Tiny.Line data={values} height={chartHeight} smooth />}
+      <Tiny.Line data={values!} height={chartHeight} smooth />
     </Card>
   )
 }

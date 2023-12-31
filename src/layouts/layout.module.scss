@@ -35,22 +35,25 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 .logo > span {
   line-height: 64px;
   height: 64px;
   vertical-align: middle;
-  margin-right: 8px;
 }
 .logo > span > img {
   vertical-align: middle;
-  margin: 0;
+  margin-bottom:6px;
+  width:28px;
+  height:28px;
 }
 .logo > strong {
   font-size: 18px;
   display: inline-block;
   line-height: 64px;
   height: 64px;
+  margin-left:8px;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -60,6 +63,7 @@
 }
 .headerRight{
   margin-left:auto;
+  position: relative;
 }
 .menu {
   height: calc(100vh - 100px);
@@ -71,7 +75,12 @@
   height:36px;
   background-color: #102539;
   display: flex;
-  .trigger{
+  align-items: center;
+   span:nth-of-type(1){
+    color:#f2f2f2;
+    font-size: 12px;
+  }
+   span:nth-of-type(2){
     width:36px;
     height:36px;
     line-height:36px;

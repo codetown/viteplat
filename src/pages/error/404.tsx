@@ -1,8 +1,8 @@
 import { Button, Result } from 'antd'
-import React from 'react'
+
 import { useNavigate } from 'react-router-dom'
 
-const NotFoundPage: React.FC = () => {
+export default function NotFoundPage() {
   const navigate = useNavigate()
   return (
     <Result
@@ -17,5 +17,3 @@ const NotFoundPage: React.FC = () => {
     />
   )
 }
-
-export default NotFoundPage

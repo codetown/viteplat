@@ -4,6 +4,7 @@
  */
 import axios, { AxiosResponse } from 'axios'
 import { message, notification } from 'antd'
+import routes from '@/routes'
 
 // 某个字符串是否在某个数组中
 // const inArray = (str: string, strArr: string[]) => {
@@ -40,7 +41,6 @@ const codeMessage = {
  */
 const errorHandler = (error: { response: AxiosResponse }) => {
   const { response } = error
-  // console.info("xxxxxxxx=>",response,error);
   if (response && response.status) {
     const statusIndex = response.status as keyof typeof codeMessage
     const errorText = codeMessage[statusIndex] || response.statusText
@@ -63,6 +63,46 @@ const errorHandler = (error: { response: AxiosResponse }) => {
     sessionStorage.removeItem('menuTree')
   }
   // history.push('/login');
+  // const responseData = {
+  //   data: '',
+  //   status: 500,
+  //   statusText: 'Internal Server Error',
+  //   headers: {
+  //     'access-control-allow-origin': '*',
+  //     connection: 'keep-alive',
+  //     'content-type': 'text/plain',
+  //     date: 'Mon, 25 Sep 2023 08:19:20 GMT',
+  //     'keep-alive': 'timeout=5',
+  //     'transfer-encoding': 'chunked'
+  //   },
+  //   config: {
+  //     transitional: {
+  //       silentJSONParsing: true,
+  //       forcedJSONParsing: true,
+  //       clarifyTimeoutError: false
+  //     },
+  //     adapter: 'xhr',
+  //     transformRequest: [null],
+  //     transformResponse: [null],
+  //     timeout: 10000,
+  //     xsrfCookieName: 'XSRF-TOKEN',
+  //     xsrfHeaderName: 'X-XSRF-TOKEN',
+  //     maxContentLength: -1,
+  //     maxBodyLength: -1,
+  //     env: {},
+  //     headers: {
+  //       Accept: 'application/json, text/plain, */*'
+  //     },
+  //     baseURL: '/',
+  //     method: 'get',
+  //     params: {
+  //       pageNo: 1,
+  //       pageSize: 20
+  //     },
+  //     url: '/api/v1/admins'
+  //   },
+  //   request: {}
+  // }
   return response
 }
 
@@ -80,28 +120,35 @@ const request = axios.create({
     'Content-Type': 'application/json'
   }
 })
+
+function clearLoginInfo() {
+  // 返回405时删除已缓存的jwt数据
+  if (sessionStorage.getItem('jwt')) {
+    sessionStorage.removeItem('jwt')
+  }
+  if (sessionStorage.getItem('menuTree')) {
+    sessionStorage.removeItem('menuTree')
+  }
+  routes.navigate('login')
+}
 // response拦截器, 处理response
-request.interceptors.response.use(async (response: unknown) => {
+request.interceptors.response.use(async (response: any) => {
   const responseData = response.data
   if (responseData) {
+    if (responseData.code === 405) {
+      message.info('登录超时，请重新登录', 1, clearLoginInfo)
+      return responseData
+    }
     if (responseData.code !== 200) {
       message.error(responseData.message)
-      return response
+      // const { status, data } = response
+      return responseData
     }
-    if (responseData.code === 405) {
-      message.info('登录超时，请重新登录', 2, function () {
-        // 返回405时删除已缓存的jwt数据
-        if (sessionStorage.getItem('jwt')) {
-          sessionStorage.removeItem('jwt')
-        }
-        if (sessionStorage.getItem('menuTree')) {
-          sessionStorage.removeItem('menuTree')
-        }
-        //history.push('/login');
-      })
-    }
+  } else {
+    responseData.code = response.status
+    responseData.message = response.message
   }
-  return response
+  return responseData
 }, errorHandler)
 
 //不需要登录就可以访问的接口
@@ -122,12 +169,11 @@ const noLoginUrls = ['/api/v1/login', '/api/v1/plf/login', '/api/v1/get-captcha'
 
 // 请求拦截器
 request.interceptors.request.use(function (config) {
-  console.info('config=>', config)
   if (!noLoginUrls.includes(`${config?.url}`)) {
     const jwt = sessionStorage.getItem('jwt')
     if (jwt) {
-      const headers = { Authorization: `Bearer ${jwt}` }
-      config = { ...config, ...headers }
+      // const headers = { Authorization: `Bearer ${jwt}` }
+      config.headers['Authorization'] = `Bearer ${jwt}`
     }
   }
   return config

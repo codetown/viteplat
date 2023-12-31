@@ -2,19 +2,8 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // resolve: {
-  //   alias: {
-  //     '@/': `${resolve(process.cwd(), 'src')}/`,
-  //   },
-  // },
-  // resolve: {
-  //   alias: {
-  //     "@": fileURLToPath(new URL("./src", import.meta.url)),
-  //   },
-  // },
   resolve: {
     alias: {
       '@/': `${path.resolve(process.cwd(), 'src')}/`
@@ -54,7 +43,7 @@ export default defineConfig({
     cors: true,
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8080/api/',
+        target: 'http://localhost:8080/api/',
         rewrite: (path) => path.replace(/^\/api/, ''),
         changeOrigin: true
       }

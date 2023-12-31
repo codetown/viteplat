@@ -1,7 +1,6 @@
-import * as React from 'react'
 import { Card } from 'antd'
 import { Column } from '@ant-design/charts'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 interface CardConfig {
   title?: string
@@ -50,7 +49,6 @@ const CardGroupBarChart: React.FunctionComponent<CardGroupBarChartProps> = (
         yField="value"
         seriesField="type"
         isGroup
-        width={10}
         height={chartHeight}
         label={{
           // 可手动配置 label 数据标签位置

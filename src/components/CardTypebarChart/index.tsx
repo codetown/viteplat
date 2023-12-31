@@ -1,8 +1,8 @@
-import * as React from 'react'
+
 import { Card } from 'antd'
 import { Tiny } from '@ant-design/charts'
 import mock from './mock'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 interface CardConfig {
   title?: string | React.ReactNode
@@ -33,7 +33,12 @@ const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
   const { cardConfig = DEFAULT_DATA } = props
 
   const { title, subTitle, value, des, rate, chartHeight, chartData } = cardConfig
-
+  const config = {
+    percent: chartData,
+    height: chartHeight,
+    color: ['#5B8FF9', '#E8EDF3'],
+    progressStyle: { width: 30 }
+  }
   return (
     <Card title={title}>
       <div className={styles.cardSubTitle}>{subTitle}</div>
@@ -43,10 +48,7 @@ const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
         <span>{rate}↑</span>
       </div>
       <Tiny.Ring
-        percent={chartData!}
-        height={chartHeight}
-        color={['#5B8FF9', '#E8EDF3']}
-        progressStyle={{ width: 30 }}
+        {...config}
       />
     </Card>
   )

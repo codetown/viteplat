@@ -1,7 +1,6 @@
 import { UploadOutlined } from '@ant-design/icons'
 import { Button, Card, Col, List, Progress, Row, Upload, UploadFile } from 'antd'
-// import { Form } from 'antd'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const CHUNK_SIZE: number = 4096 * 512
 // 拆分文件
@@ -41,7 +40,7 @@ const fileList: UploadFile[] = [
   //   status: 'error',
   // },
 ]
-const App: React.FC = () => {
+export default function UploadAdvance() {
   // const [form] = Form.useForm()
 
   // const onFinish = (values: any) => {
@@ -128,5 +127,3 @@ const App: React.FC = () => {
     </Card>
   )
 }
-
-export default App
