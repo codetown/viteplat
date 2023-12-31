@@ -31,7 +31,7 @@ const App: React.FC = () => {
           mode="inline"
           theme="dark"
           openKeys={openKeys}
-          onOpenChange={(keys) => {
+          onOpenChange={(keys: React.SetStateAction<string[]>) => {
             {
               setOpenKeys(keys)
               localStorage.setItem('openKeys', JSON.stringify(keys))
