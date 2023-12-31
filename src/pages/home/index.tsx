@@ -10,10 +10,10 @@ export default function Dashboard() {
   return (
     <Row gutter={[16, 16]}>
       <Col xs={24} sm={12} md={6}>
-        <CardBarChart />
+        <CardBarChart/>
       </Col>
       <Col xs={24} sm={12} md={6}>
-        <CardAreaChart />
+        <CardAreaChart/>
       </Col>
       <Col xs={24} sm={12} md={6}>
         <CardTypebarChart />

@@ -3,6 +3,7 @@ import { Tiny } from '@ant-design/charts'
 import mock from './mock'
 import styles from './index.module.scss'
 
+const { Line } = Tiny
 interface CardConfig {
   title?: string | React.ReactNode
   subTitle?: string | React.ReactNode
@@ -21,7 +22,7 @@ const DEFAULT_DATA: CardConfig = {
   nums: mock.nums,
   des: '周同比:',
   rate: '10.1',
-  chartHeight: 100
+  chartHeight:100
 }
 
 export interface CardLineChartProps {
@@ -31,8 +32,25 @@ export interface CardLineChartProps {
 const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardLineChartProps): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
 
-  const { title, subTitle, value, values, des, rate, chartHeight } = cardConfig
-
+  const { title, subTitle, value, values, des, rate,chartHeight } = cardConfig
+  const config = {
+    data: values!.map((value, index) => ({ value, index })),
+    height:chartHeight,
+    autoFit:true,
+    shapeField: 'smooth',
+    xField: 'index',
+    yField: 'value',
+    label: {
+      selector: 'last',
+      text: (d: any) => d.value,
+      textAlign: 'right',
+      textBaseline: 'bottom',
+      dx: -10,
+      dy: -10,
+      connector: true,
+      style: { fontSize: 10 },
+    },
+  };
   return (
     <Card title={title}>
       <div className={styles.cardSubTitle}>{subTitle}</div>
@@ -41,7 +59,7 @@ const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardL
         {des}
         <span>{rate}↑</span>
       </div>
-      <Tiny.Line data={values!} height={chartHeight} smooth />
+      <Line {...config}/>
     </Card>
   )
 }

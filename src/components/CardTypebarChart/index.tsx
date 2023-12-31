@@ -3,7 +3,7 @@ import { Card } from 'antd'
 import { Tiny } from '@ant-design/charts'
 import mock from './mock'
 import styles from './index.module.scss'
-
+const { Ring } = Tiny
 interface CardConfig {
   title?: string | React.ReactNode
   subTitle?: string | React.ReactNode
@@ -32,13 +32,26 @@ const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
 ): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
 
-  const { title, subTitle, value, des, rate, chartHeight, chartData } = cardConfig
+  const { title, subTitle, value, des, rate, chartData,chartHeight} = cardConfig
   const config = {
     percent: chartData,
-    height: chartHeight,
-    color: ['#5B8FF9', '#E8EDF3'],
-    progressStyle: { width: 30 }
-  }
+    color: ['#E8EFF5', '#66AFF4'],
+    height:chartHeight,
+    autoFit:true,
+    annotations: [
+      {
+        type: 'text',
+        style: {
+          text: `${chartData! * 100}%`,
+          x: '50%',
+          y: '50%',
+          textAlign: 'center',
+          fontSize: 16,
+          fontStyle: 'bold',
+        },
+      },
+    ],
+  };
   return (
     <Card title={title}>
       <div className={styles.cardSubTitle}>{subTitle}</div>
@@ -47,9 +60,7 @@ const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
         {des}
         <span>{rate}↑</span>
       </div>
-      <Tiny.Ring
-        {...config}
-      />
+      <Ring  {...config}/>
     </Card>
   )
 }
