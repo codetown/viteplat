@@ -1,5 +1,5 @@
 import { Card } from 'antd'
-import { Tiny } from '@ant-design/charts'
+import { Tiny, TinyLineConfig } from '@ant-design/charts'
 import mock from './mock'
 import styles from './index.module.scss'
 
@@ -33,7 +33,7 @@ const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardL
   const { cardConfig = DEFAULT_DATA } = props
 
   const { title, subTitle, value, values, des, rate,chartHeight } = cardConfig
-  const config = {
+  const config:TinyLineConfig = {
     data: values!.map((value, index) => ({ value, index })),
     height:chartHeight,
     autoFit:true,
