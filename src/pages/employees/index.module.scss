@@ -1,0 +1,23 @@
+.infoBlock{
+    overflow:hidden;
+    display: block;
+    >img{
+        float:left;
+        height:48px;
+        width:48px;
+        margin-right:8px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    >span{
+        display: block;
+        height:24px;
+        line-height: 24px;
+    }
+}
+.infoBlock::after{
+    content:'.';
+    font-size: 0;
+    clear:both;
+    display: block;
+}

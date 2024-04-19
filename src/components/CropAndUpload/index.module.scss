@@ -1,0 +1,20 @@
+.avatarUpload {
+
+    :global {
+        .ant-upload-list.ant-upload-list-picture-card {
+            position: relative;
+
+            .ant-upload-list-picture-card-container {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+            }
+        }
+        .ant-upload.ant-upload-select-picture-card  {
+            >span.ant-upload {
+                flex-direction: column;
+            }
+        }
+    }
+}
