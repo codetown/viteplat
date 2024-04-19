@@ -27,13 +27,13 @@ interface CardAreaChartProps {
   cardConfig?: CardConfig
 }
 
-const CardAreaChart: React.FunctionComponent<CardAreaChartProps> = (props): JSX.Element => {
+const CardAreaChart: React.FunctionComponent<CardAreaChartProps> = (props: CardAreaChartProps): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
-  const { title, subTitle, value, chartData, des, rate,chartHeight } = cardConfig
+  const { title, subTitle, value, chartData, des, rate, chartHeight } = cardConfig
   const config: TinyLineConfig = {
     data: chartData.map((value, index) => ({ value, index })),
-    height:chartHeight,
-    autoFit:true,
+    height: chartHeight,
+    autoFit: true,
     shapeField: 'smooth',
     xField: 'index',
     yField: 'value',

@@ -42,22 +42,15 @@ import request from './request'
 //     notification.error(errors)
 //   });
 // }
-interface RepsonseData {
+export interface RepsonseData {
   code: number
   message: string
   data: any
 }
+
 // fetchLogin 登录
 export function fetchLogin(params: any): Promise<RepsonseData> {
   return request('/api/v1/login', {
-    method: 'POST',
-    data: params
-  })
-}
-
-// getCaptcha 获取登录验证码
-export function getCaptcha(params: any): Promise<RepsonseData> {
-  return request(`/api/v1/get-captcha`, {
     method: 'POST',
     data: params
   })
@@ -98,21 +91,6 @@ export function fetchLogout(params: any): Promise<RepsonseData> {
 // getHomeInfo 获取首页信息
 export function getHomeInfo(params: any): Promise<RepsonseData> {
   return request('/api/v1/home', {
-    method: 'GET',
-    params
-  })
-}
-
-// getMemberDetail 获取用户信息详情
-export function getMemberDetail(id: number): Promise<RepsonseData> {
-  return request(`/api/v1/members/${id}`, {
-    method: 'GET'
-  })
-}
-
-// getMemberList 获取用户信息列表
-export function getMemberList(params: any): Promise<RepsonseData> {
-  return request('/api/v1/members', {
     method: 'GET',
     params
   })
@@ -182,3 +160,42 @@ export function getAdmins(params: any): Promise<RepsonseData> {
 //     requestType:'form',
 //   });
 // };
+
+// fakeLogin 登录
+export async function fakeLogin(params:any) {
+  return request('/api/v1/plt/login', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+// getCaptcha 获取登录验证码
+export async function getCaptcha(params:any) {
+  return request(`/api/v1/get-captcha`, {
+    method: 'POST',
+    data: params,
+  });
+}
+
+// logout 退出系统
+export async function fakeLogout(params: any) {
+  return request('/api/v1/logout', {
+    method: 'DELETE',
+    params
+  });
+};
+
+// getMemberDetail 获取用户信息详情
+export async function getMemberDetail(id:number) {
+  return request(`/api/v1/members/${id}`, {
+    method: 'GET'
+  });
+};
+
+// getMemberList 获取用户信息列表
+export async function getMemberList(params:any) {
+  return request('/api/v1/members', {
+    method: 'GET',
+    params
+  });
+};

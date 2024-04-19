@@ -1,4 +1,3 @@
-
 import { Card } from 'antd'
 import { Tiny } from '@ant-design/charts'
 import mock from './mock'
@@ -32,12 +31,12 @@ const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
 ): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
 
-  const { title, subTitle, value, des, rate, chartData,chartHeight} = cardConfig
+  const { title, subTitle, value, des, rate, chartData, chartHeight } = cardConfig
   const config = {
     percent: chartData,
     color: ['#E8EFF5', '#66AFF4'],
-    height:chartHeight,
-    autoFit:true,
+    height: chartHeight,
+    autoFit: true,
     annotations: [
       {
         type: 'text',
@@ -47,11 +46,11 @@ const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
           y: '50%',
           textAlign: 'center',
           fontSize: 16,
-          fontStyle: 'bold',
-        },
-      },
-    ],
-  };
+          fontStyle: 'bold'
+        }
+      }
+    ]
+  }
   return (
     <Card title={title}>
       <div className={styles.cardSubTitle}>{subTitle}</div>
@@ -60,7 +59,7 @@ const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
         {des}
         <span>{rate}↑</span>
       </div>
-      <Ring  {...config}/>
+      <Ring {...config} />
     </Card>
   )
 }

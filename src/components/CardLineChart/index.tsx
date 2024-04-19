@@ -22,7 +22,7 @@ const DEFAULT_DATA: CardConfig = {
   nums: mock.nums,
   des: '周同比:',
   rate: '10.1',
-  chartHeight:100
+  chartHeight: 100
 }
 
 export interface CardLineChartProps {
@@ -32,11 +32,11 @@ export interface CardLineChartProps {
 const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardLineChartProps): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
 
-  const { title, subTitle, value, values, des, rate,chartHeight } = cardConfig
-  const config:TinyLineConfig = {
+  const { title, subTitle, value, values, des, rate, chartHeight } = cardConfig
+  const config: TinyLineConfig = {
     data: values!.map((value, index) => ({ value, index })),
-    height:chartHeight,
-    autoFit:true,
+    height: chartHeight,
+    autoFit: true,
     shapeField: 'smooth',
     xField: 'index',
     yField: 'value',
@@ -48,9 +48,9 @@ const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardL
       dx: -10,
       dy: -10,
       connector: true,
-      style: { fontSize: 10 },
-    },
-  };
+      style: { fontSize: 10 }
+    }
+  }
   return (
     <Card title={title}>
       <div className={styles.cardSubTitle}>{subTitle}</div>
@@ -59,7 +59,7 @@ const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardL
         {des}
         <span>{rate}↑</span>
       </div>
-      <Line {...config}/>
+      <Line {...config} />
     </Card>
   )
 }

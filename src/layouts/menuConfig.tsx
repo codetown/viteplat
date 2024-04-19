@@ -24,8 +24,28 @@ const asideMenuConfig: SiderMenuItemType[] = [
     icon: <FormOutlined />
   },
   {
-    name: '列表',
-    path: '/list',
+    name: '管理员',
+    path: '/administrators',
+    icon: <TableOutlined />
+  },
+  {
+    name: '平台配置',
+    path: '/web-config',
+    icon: <TableOutlined />
+  },
+  {
+    name: '数据字典',
+    path: '/options',
+    icon: <TableOutlined />
+  },
+  {
+    name: '员工列表',
+    path: '/employees',
+    icon: <TableOutlined />
+  },
+  {
+    name: '视频列表',
+    path: '/videos',
     icon: <TableOutlined />
   },
   {

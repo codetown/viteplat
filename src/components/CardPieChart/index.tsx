@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react'
+import { useMemo, useState } from 'react'
 import { Radio, Card } from 'antd'
 import type { RadioChangeEvent } from 'antd'
 import { Pie } from '@ant-design/charts'
@@ -48,7 +48,7 @@ export interface CardPieChartProps {
   cardConfig?: CardConfig
 }
 
-const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.Element => {
+const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props: CardPieChartProps): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
 
   const { title, chartData, chartHeight } = cardConfig
@@ -57,55 +57,60 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.El
   const changeType = (e: RadioChangeEvent) => {
     setType(e.target.value)
   }
-  const pieMemo=useMemo(()=> <Pie
-  data={chartData!}
-  angleField="value"
-  colorField="type"
-  appendPadding={10}
-  legend={{
-    position: 'bottom'
-  }}
-  height={chartHeight}
-  label={{
-    type: 'inner',
-    offset: '-50%',
-    autoRotate: false,
-    style: { textAlign: 'center' },
-    formatter: ({ percent }:any) => `${(percent * 100).toFixed(0)}%`
-  }}
-  radius={1}
-  innerRadius={0.64}
-  meta={{
-    value: {
-      formatter: (v: any) => `¥ ${v}`
-    }
-  }}
-  statistic={{
-    title: {
-      offsetY: -8
-    },
-    content: {
-      offsetY: -4
-    }
-  }}
-  interactions={[
-    { type: 'element-selected' },
-    { type: 'element-active' },
-    {
-      type: 'pie-statistic-active',
-      cfg: {
-        start: [
-          { trigger: 'element:mouseenter', action: 'pie-statistic:change' },
-          { trigger: 'legend-item:mouseenter', action: 'pie-statistic:change' }
-        ],
-        end: [
-          { trigger: 'element:mouseleave', action: 'pie-statistic:reset' },
-          { trigger: 'legend-item:mouseleave', action: 'pie-statistic:reset' }
-        ]
-      }
-    }
-  ]}
-/>,[chartData])
+  const pieMemo = useMemo(
+    () => (
+      <Pie
+        data={chartData!}
+        angleField="value"
+        colorField="type"
+        appendPadding={10}
+        legend={{
+          position: 'bottom'
+        }}
+        height={chartHeight}
+        label={{
+          type: 'inner',
+          offset: '-50%',
+          autoRotate: false,
+          style: { textAlign: 'center' }
+          // formatter: ({ percent }: any) => `${((percent || 1) * 100).toFixed(0)}%`
+        }}
+        // radius={1}
+        // innerRadius={0.64}
+        // meta={{
+        //   value: {
+        //     formatter: (v: any) => `¥ ${v}`
+        //   }
+        // }}
+        // statistic={{
+        //   title: {
+        //     offsetY: -8
+        //   },
+        //   content: {
+        //     offsetY: -4
+        //   }
+        // }}
+        // interactions={[
+        //   { type: 'element-selected' },
+        //   { type: 'element-active' },
+        //   {
+        //     type: 'pie-statistic-active',
+        //     cfg: {
+        //       start: [
+        //         { trigger: 'element:mouseenter', action: 'pie-statistic:change' },
+        //         { trigger: 'legend-item:mouseenter', action: 'pie-statistic:change' }
+        //       ],
+        //       end: [
+        //         { trigger: 'element:mouseleave', action: 'pie-statistic:reset' },
+        //         { trigger: 'legend-item:mouseleave', action: 'pie-statistic:reset' }
+        //       ]
+        //     }
+        //   }
+        // ]}
+      />
+    ),
+    [chartData]
+  )
   return (
     <Card title={title}>
       <Radio.Group value={type} onChange={changeType} className={styles.radioGroup} optionType="button">
@@ -119,7 +124,7 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.El
           类目三
         </Radio>
       </Radio.Group>
-    {pieMemo}
+      {pieMemo}
     </Card>
   )
 }

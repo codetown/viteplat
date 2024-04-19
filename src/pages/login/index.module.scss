@@ -1,7 +1,7 @@
 .container {
   height: 100vh;
   overflow: auto;
-  background-color: #2244cc;
+  background-color: #0066DD;
   :global(.ant-card){
     margin-left:auto;
     margin-right:auto;
@@ -19,9 +19,10 @@
     align-items: center;
     margin-bottom:24px;
     .logo{
-      width:32px;
-      height:32px;
+      width:48px;
+      height:48px;
       margin-right:8px;
+      margin-top:2px;
     }
     strong{
       font-size: 24px;
@@ -37,6 +38,12 @@
       min-width:240px;
       padding:32px;
       // background-color: #2244cc;
+      :global(.ant-form-item){
+        margin-bottom:4px;
+      }
+      :global(.ant-form-item-label>label){
+        height:28px;
+      }
     }
     >.infoImg{
       width:50%;

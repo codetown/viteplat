@@ -30,12 +30,12 @@ const CardBarChart: React.FunctionComponent<CardBarChartProps> = (props: CardBar
   const { cardConfig = DEFAULT_DATA } = props
 
   const { title, subTitle, value, chartData, des, rate, chartHeight } = cardConfig
-  const config:TinyLineConfig = {
-    data:chartData!.map((value, index) => ({ value, index })),
-    autoFit:true,
+  const config: TinyLineConfig = {
+    data: chartData!.map((value, index) => ({ value, index })),
+    autoFit: true,
     height: chartHeight,
     xField: 'index',
-    yField: 'value',
+    yField: 'value'
   }
   return (
     <Card title={title}>

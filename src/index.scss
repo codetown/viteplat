@@ -55,3 +55,18 @@ h1 {
     background-color: #f9f9f9;
   }
 }
+
+.tableCard{
+  .ant-card-body{
+    padding:0;
+  }
+  .ant-table-wrapper .ant-table-pagination.ant-pagination{
+    margin-right:16px;
+  }
+  // .ant-table-wrapper .ant-table-selection{
+  //   padding-left: 8px;
+  // }
+  .ant-table-wrapper .ant-table-selection-column{
+    padding-left:16px;
+  }
+}

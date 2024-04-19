@@ -1,4 +1,3 @@
-
 import { Card, Row, Col, Divider } from 'antd'
 import styles from './index.module.scss'
 

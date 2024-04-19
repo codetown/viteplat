@@ -1,21 +1,25 @@
 import { SetStateAction, useState } from 'react'
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
-import { Breadcrumb, Layout, Menu, theme } from 'antd'
+import { MenuFoldOutlined, MenuUnfoldOutlined, MessageOutlined } from '@ant-design/icons'
+import { Badge, Breadcrumb, Layout, Menu, theme } from 'antd'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { asideMenuConfig } from './menuConfig'
 import AvatarDropdown from './comments/AvatarDropdown'
 import styles from './layout.module.scss'
 import { ItemType } from 'antd/es/menu/hooks/useItems'
 import useGlobalStore from '@/stores/global'
+// import NoticeDropdown from './comments/NoticeDropdown'
+import logo from '@/assets/logo2.png'
+import avatar from '@/assets/logo1.png'
+
 const { Header, Sider, Content } = Layout
 
 export default function MainLayout() {
   const [collapsed, setCollapsed] = useState(false)
   const [openKeys, setOpenKeys] = useState<string[]>(JSON.parse(localStorage.getItem('openKeys') || '[]'))
   const myLocation = useLocation()
-  const { newMessageCount, userInfo } = useGlobalStore((state: any) => ({
+  const { newMessageCount, currentUser } = useGlobalStore((state: any) => ({
     newMessageCount: state.newMessageCount,
-    userInfo: state.userInfo
+    currentUser: state.currentUser
   }))
   const {
     token: { colorBgContainer }
@@ -25,7 +29,7 @@ export default function MainLayout() {
       <Sider trigger={null} collapsible collapsed={collapsed} theme="light">
         <div className={styles.logo}>
           <span>
-            <img src="/vite.svg" />
+            <img src={logo} />
           </span>
           <strong>Web-Platform</strong>
         </div>
@@ -85,8 +89,11 @@ export default function MainLayout() {
           }}>
           <Breadcrumb items={[{ title: '首页' }, { title: '用户' }, { title: '列表' }]} />
           <div className={styles.headerRight}>
-            <span style={{position:'absolute',right:-8,top:-8}}>{newMessageCount}</span>
-            <AvatarDropdown name={userInfo?.name} avatar="/vite.svg" />
+            <Badge count={newMessageCount}>
+              <MessageOutlined className={styles.messageIcon} />
+            </Badge>
+            {/* <NoticeDropdown /> */}
+            <AvatarDropdown name={currentUser?.username} avatar={avatar} />
           </div>
         </Header>
         <Content

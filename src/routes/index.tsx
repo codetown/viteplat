@@ -26,8 +26,24 @@ const routes: RouteObject[] = [
         element: lazyLoad(lazy(() => import('@/pages/form-list')))
       },
       {
-        path: 'list',
-        element: lazyLoad(lazy(() => import('@/pages/list')))
+        path: 'administrators',
+        element: lazyLoad(lazy(() => import('@/pages/administrators')))
+      },
+      {
+        path: 'web-config',
+        element: lazyLoad(lazy(() => import('@/pages/web-config')))
+      },
+      {
+        path: 'options',
+        element: lazyLoad(lazy(() => import('@/pages/options')))
+      },
+      {
+        path: 'employees',
+        element: lazyLoad(lazy(() => import('@/pages/employees')))
+      },
+      {
+        path: 'videos',
+        element: lazyLoad(lazy(() => import('@/pages/videos')))
       },
       {
         path: 'success',

@@ -2,10 +2,10 @@ import { Card } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import md5 from 'blueimp-md5'
 import styles from './index.module.scss'
-import logo from '@/assets/vite.svg'
 import { Button, Checkbox, Form, Input } from 'antd'
 import { fetchLogin } from '@/services/common'
 import { useNavigate } from 'react-router-dom'
+import logo from '@/assets/logo2.png'
 
 export default function Login() {
   const navigate = useNavigate()
