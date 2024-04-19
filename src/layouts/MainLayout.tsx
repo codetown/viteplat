@@ -26,7 +26,7 @@ export default function MainLayout() {
   } = theme.useToken()
   return (
     <Layout className={styles.layout}>
-      <Sider trigger={null} collapsible collapsed={collapsed} theme="light">
+      <Sider trigger={null} collapsible collapsed={collapsed} collapsedWidth={56} theme="light">
         <div className={styles.logo}>
           <span>
             <img src={logo} />
@@ -64,8 +64,8 @@ export default function MainLayout() {
         <div className={styles.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }}>
           {collapsed ? (
             <>
-              <span onClick={() => setCollapsed(!collapsed)}>展开</span>
-              <span onClick={() => setCollapsed(!collapsed)}>
+              {/* <span onClick={() => setCollapsed(!collapsed)}>展开</span> */}
+              <span onClick={() => setCollapsed(!collapsed)} title="展开">
                 <MenuUnfoldOutlined />
               </span>
             </>
