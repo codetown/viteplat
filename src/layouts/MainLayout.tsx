@@ -45,7 +45,7 @@ export default function MainLayout() {
             }
           }}
           defaultSelectedKeys={[myLocation.pathname]}
-          selectedKeys={[myLocation.pathname]}
+          selectedKeys={[myLocation.pathname=='/home'?'/':myLocation.pathname]}
           items={asideMenuConfig.map(
             (item, index) =>
               ({
