@@ -1,4 +1,15 @@
-import { TableOutlined, WarningOutlined, FormOutlined, DashboardOutlined } from '@ant-design/icons'
+import {
+  WarningOutlined,
+  FormOutlined,
+  DashboardOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+  TeamOutlined,
+  AppstoreOutlined,
+  // SettingOutlined,
+  // DatabaseOutlined,
+  // UploadOutlined
+} from '@ant-design/icons'
 import { ReactNode } from 'react'
 
 type SiderMenuItemType = {
@@ -14,44 +25,76 @@ const asideMenuConfig: SiderMenuItemType[] = [
     icon: <DashboardOutlined />
   },
   {
-    name: '表单',
-    path: '/form',
-    icon: <FormOutlined />
+    name: '系统管理',
+    path: '/system',
+    icon: <AppstoreOutlined />,
+    children: [
+      {
+        name: '管理员',
+        path: '/administrators',
+        icon: <UserOutlined />
+      },
+      {
+        name: '角色管理',
+        path: '/system/role'
+      },
+      {
+        name: '权限管理',
+        path: '/system/permission'
+      },
+      {
+        name: '系统配置',
+        path: '/web-config'
+      },
+      {
+        name: '数据字典',
+        path: '/options'
+      }
+    ]
   },
+  // {
+  //   name: '管理员',
+  //   path: '/administrators',
+  //   icon: <UserOutlined />
+  // },
+  // {
+  //   name: '平台配置',
+  //   path: '/web-config',
+  //   icon: <SettingOutlined />
+  // },
+  // {
+  //   name: '数据字典',
+  //   path: '/options',
+  //   icon: <DatabaseOutlined />
+  // },
   {
-    name: '表单列表',
-    path: '/form-list',
-    icon: <FormOutlined />
-  },
-  {
-    name: '管理员',
-    path: '/administrators',
-    icon: <TableOutlined />
-  },
-  {
-    name: '平台配置',
-    path: '/web-config',
-    icon: <TableOutlined />
-  },
-  {
-    name: '数据字典',
-    path: '/options',
-    icon: <TableOutlined />
-  },
-  {
-    name: '员工列表',
+    name: '员工管理',
     path: '/employees',
-    icon: <TableOutlined />
+    icon: <TeamOutlined />
   },
   {
     name: '视频列表',
     path: '/videos',
-    icon: <TableOutlined />
+    icon: <VideoCameraOutlined />
   },
   {
-    name: '高级上传',
-    path: '/upload-advance',
-    icon: <TableOutlined />
+    name: '功能示例',
+    path: '/form-example',
+    icon: <FormOutlined />,
+    children: [
+      {
+        name: '单个表单',
+        path: '/form'
+      },
+      {
+        name: '表单列表',
+        path: '/form-list'
+      },
+      {
+        name: '高级上传',
+        path: '/upload-advance'
+      }
+    ]
   },
   {
     name: '结果&异常',
