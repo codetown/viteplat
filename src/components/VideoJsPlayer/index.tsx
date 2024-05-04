@@ -2,10 +2,11 @@ import { useEffect, useRef } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
 import "./pre-build.css";
+import Player from "video.js/dist/types/player";
 export default (props:any) => {
 
-  const videoRef = useRef(null);
-  const playerRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const playerRef = useRef<Player>();
   const { options, onReady } = props;
 
   useEffect(() => {
@@ -33,8 +34,7 @@ export default (props:any) => {
 
     return () => {
       if (player) {
-        // player?.dispose();
-        playerRef.current = null;
+        player?.dispose();
       }
     };
   }, [playerRef]);

@@ -96,8 +96,8 @@ const errorHandler = (error: { response: AxiosResponse }) => {
   //     baseURL: '/',
   //     method: 'get',
   //     params: {
-  //       pageNo: 1,
-  //       pageSize: 20
+  //       page: 1,
+  //       per_page: 20
   //     },
   //     url: '/api/v1/admins'
   //   },

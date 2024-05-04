@@ -3,11 +3,11 @@ import { getEmployeeList } from '@/services/employees'
 const useEmployeeStore = create((set) => ({
   items: [],
   total: 0,
-  current: 1,
-  pageSize: 10,
+  page: 1,
+  per_page: 10,
   filterFields: { realName: '', status: -1, gender: -1, nickName: '', mobile: -1, createdAt: -1 },
   async searchEmployees(
-    pageInfo: { current: number; pageSize: number },
+    pageInfo: { page: number; per_page: number },
     filterFields: {
       realName: string
       status: number
@@ -21,8 +21,8 @@ const useEmployeeStore = create((set) => ({
     console.info(res)
     if (res?.code == 200) {
       set({
-        current: pageInfo.current,
-        pageSize: pageInfo.pageSize,
+        current: pageInfo.page,
+        per_page: pageInfo.per_page,
         items: res.data.items,
         total: res.data.total,
         filterFields
