@@ -1,46 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
-import { getVideos, searchVideos, getVideoDetail } from '@/services/common';
-import { Card, Modal,Form, Input, List, message } from 'antd';
-// import moment from 'moment';
-// import AvatarList from '@/components/AvatarList';
-// import StandardFormRow from '@/components/StandardFormRow';
-// import TagSelect from '@/components/TagSelect';
+import { useEffect, useRef } from 'react';
+import { Card, Modal, Form, Input, List, message } from 'antd';
 import styles from './index.module.scss';
 import VideoJsPlayer from '@/components/VideoJsPlayer';
-// const { Option } = Select;
+import useVideoStore from '@/stores/video';
 const { Search } = Input;
-const FormItem = Form.Item;
-
-const list:any = [];
-
-// for (let i = 0; i < 20; i += 1) {
-//   list.push({
-//     id: `fake-list-${i}`,
-//     owner: user[i % 10],
-//     title: titles[i % 8],
-//     avatar: avatars[i % 8],
-//     cover: parseInt(`${i / 4}`, 10) % 2 === 0 ? covers[i % 4] : covers[3 - (i % 4)],
-//     status: ['active', 'exception', 'normal'][i % 3],
-//     percent: Math.ceil(Math.random() * 50) + 50,
-//     logo: avatars[i % 8],
-//     href: 'https://ant.design',
-//     updatedAt: new Date(new Date().getTime() - 1000 * 60 * 60 * 2 * i).getTime(),
-//     createdAt: new Date(new Date().getTime() - 1000 * 60 * 60 * 2 * i).getTime(),
-//     subDescription: desc[i % 5],
-//     description:
-//       '在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，这些类似的组件会被抽离成一套标准规范。',
-//     newUser: Math.ceil(Math.random() * 1000) + 1000,
-//     star: Math.ceil(Math.random() * 100) + 100,
-//     like: Math.ceil(Math.random() * 100) + 100,
-//     message: Math.ceil(Math.random() * 10) + 10,
-//   });
-// }
-
-// const getKey = (id, index) => `${id}-${index}`;
+const FormItem = Form.Item
 
 export default function () {
-  const [showPlayer, setShowPlayer] = useState(false)
-  const [currentVideo, setCurrentVideo] = useState<any>(null)
+  const { searchVideos,loading, items, total, current, pageSize, getCurrentVideo, currentVideo, showPlayer, setState } = useVideoStore((state: any) => state)
   const playerRef = useRef<any>();
 
   const videoJsOptions = { // lookup the options in the docs for more options
@@ -69,7 +36,7 @@ export default function () {
     ]
   }
 
-  const handlePlayerReady = (player:any) => {
+  const handlePlayerReady = (player: any) => {
     playerRef.current = player;
 
     // you can handle player events here
@@ -81,64 +48,28 @@ export default function () {
       console.log('player will dispose');
     });
   };
-
-  const [loading, setLoading] = useState(false);
-  const [videos, setVideos] = useState([]);
-  const [pageState, setPageState] = useState({ total: 0, current: 1, pageSize: 24 });
   const pageConst = {
     showSizeChanger: true,
     pageSizeOptions: [24, 16, 12],
-    showTotal: (total:number) => `共${total}条`,
+    showTotal: (total: number) => `共${total}条`,
     onChange: (current: any, pageSize: number) => {
-      const newPageInfo = { ...pageState, current, pageSize };
-      if (pageSize !== pageState.pageSize) {
+      const newPageInfo = { total, current, pageSize };
+      if (pageSize !== 24) {
         newPageInfo.current = 1;
       }
       search(newPageInfo);
     },
   };
   const [form] = Form.useForm();
-  const search = (params:any) => {
+  const search = (params: any) => {
     if (loading) {
       return;
     }
-    setLoading(true);
-    let videoOperation;
     const pageParams = { page_no: params.current || 1, page_size: params.pageSize || 24 };
-    if (params && params.title) {
-      videoOperation = searchVideos({ ...pageParams, title: params.title });
-    } else {
-      videoOperation = getVideos({ ...form.getFieldsValue(), ...pageParams });
-    }
-    videoOperation.then((res) => {
-      if (res?.code === 200) {
-        setVideos(res?.data?.items || []);
-        setPageState({
-          pageSize: pageParams.page_size,
-          current: pageParams.page_no,
-          total: res?.data?.total,
-        });
-      } else {
-        setVideos([]);
-        setPageState({
-          pageSize: pageParams.page_size,
-          current: pageParams.page_no,
-          total: 0,
-        });
-      }
-      setLoading(false);
-    });
-    // getOptions(form.getFieldsValue()).then(res => {
-    //   if (res && res.code === 200) {
-    //     // setDataSource(res.data.items);
-    //   }
-    //   setLoading(false);
-    // });
+    searchVideos({...pageParams,params})
   };
-  const preview = async (item:any) => {
-    setCurrentVideo(item)
-    setShowPlayer(true)
-    const detialRes = await getVideoDetail({ id: item.id });
+  const preview = async (item: any) => {
+    const detialRes = await getCurrentVideo({ id: item.id });
     const videoUrl = detialRes?.data?.vfiles?.[0]?.fileURL;
     if (videoUrl) {
       if (playerRef?.current) {
@@ -146,23 +77,23 @@ export default function () {
         playerRef?.current?.play();
         playerRef?.current?.currentTime(0);
       } else {
-        setShowPlayer(false)
         message.error('播放器未初始化')
+        setState({ showPlayer: false })
       }
     } else {
-      setShowPlayer(false)
       message.error('播放地址错误！');
+      setState({ showPlayer: false })
     }
   };
 
   useEffect(() => {
-    search(pageState);
+    search({});
   }, []);
-  const cardList = list && (
+  const cardList = items && (
     <List
       rowKey="id"
       loading={loading}
-      pagination={{ ...pageConst, ...pageState }}
+      pagination={{ ...pageConst, total, current, pageSize }}
       grid={{
         gutter: 16,
         xs: 2,
@@ -172,8 +103,8 @@ export default function () {
         xl: 6,
         xxl: 8,
       }}
-      dataSource={videos}
-      renderItem={(item:any) => (
+      dataSource={items}
+      renderItem={(item: any) => (
         <List.Item>
           {/* <Card className={styles.card} bodyStyle={{ padding: '0 0.5em' }}
             cover={
@@ -284,7 +215,12 @@ export default function () {
         </Form>
       </Card>
       <div className={styles.cardList}>{cardList}</div>
-      <Modal className={styles.preview} width={960} open={showPlayer} title={currentVideo?.title || ''} onCancel={() => { playerRef?.current?.pause(); setShowPlayer(false) }} footer={null}>
+      <Modal className={styles.preview} width={960} open={showPlayer} 
+      forceRender={true} title={currentVideo?.title || ''} 
+      onCancel={() => { 
+        playerRef?.current?.pause(); 
+        setState({ showPlayer: false });
+        }} footer={null}>
         <VideoJsPlayer options={videoJsOptions} onReady={handlePlayerReady} />
       </Modal>
     </div>
