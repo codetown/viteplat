@@ -84,14 +84,14 @@ export default function () {
 
   const [loading, setLoading] = useState(false);
   const [videos, setVideos] = useState([]);
-  const [pageState, setPageState] = useState({ total: 0, current: 1, per_page: 24 });
+  const [pageState, setPageState] = useState({ total: 0, current: 1, pageSize: 24 });
   const pageConst = {
     showSizeChanger: true,
-    per_pageOptions: [24, 16, 12],
+    pageSizeOptions: [24, 16, 12],
     showTotal: (total:number) => `共${total}条`,
-    onChange: (current: any, per_page: number) => {
-      const newPageInfo = { ...pageState, current, per_page };
-      if (per_page !== pageState.per_page) {
+    onChange: (current: any, pageSize: number) => {
+      const newPageInfo = { ...pageState, current, pageSize };
+      if (pageSize !== pageState.pageSize) {
         newPageInfo.current = 1;
       }
       search(newPageInfo);
@@ -104,7 +104,7 @@ export default function () {
     }
     setLoading(true);
     let videoOperation;
-    const pageParams = { page: params.current || 1, per_page: params.per_page || 24 };
+    const pageParams = { page_no: params.current || 1, page_size: params.pageSize || 24 };
     if (params && params.title) {
       videoOperation = searchVideos({ ...pageParams, title: params.title });
     } else {
@@ -114,18 +114,17 @@ export default function () {
       if (res?.code === 200) {
         setVideos(res?.data?.items || []);
         setPageState({
-          per_page: pageParams.per_page,
-          current: pageParams.page,
+          pageSize: pageParams.page_size,
+          current: pageParams.page_no,
           total: res?.data?.total,
         });
       } else {
         setVideos([]);
         setPageState({
-          per_page: pageParams.per_page,
-          current: pageParams.page,
+          pageSize: pageParams.page_size,
+          current: pageParams.page_no,
           total: 0,
         });
-        message.error(res?.message);
       }
       setLoading(false);
     });
