@@ -1,30 +1,35 @@
-import { useEffect, useRef } from "react";
-import videojs from "video.js";
-import "video.js/dist/video-js.css";
-import "./pre-build.css";
-import Player from "video.js/dist/types/player";
-export default (props:any) => {
-
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const playerRef = useRef<Player>();
-  const { options, onReady } = props;
+import {useRef,useEffect} from 'react';
+import videojs from 'video.js';
+import 'video.js/dist/video-js.css';
+import './pre-build.css';
+import './sublim.css';
+export const VideoJS = (props:any) => {
+  const videoRef = useRef<any>(null);
+  const playerRef = useRef<any>(null);
+  const {options, onReady} = props;
 
   useEffect(() => {
-    // make sure Video.js player is only initialized once
+
+    // Make sure Video.js player is only initialized once
     if (!playerRef.current) {
-      const videoElement = videoRef.current;
-      if (!videoElement) return;
+      // The Video.js player needs to be _inside_ the component el for React 18 Strict Mode. 
+      const videoElement = document.createElement("video-js");
+
+      videoElement.classList.add('pre-build');
+      videoRef.current.appendChild(videoElement);
 
       const player = playerRef.current = videojs(videoElement, options, () => {
-        console.log("player is ready");
+        // videojs.log('player is ready');
+        // player.addClass('pre-build');
         onReady && onReady(player);
       });
-      player.addClass('pre-build');
+    // You could update an existing player in the `else` block here
+    // on prop change, for example:
     } else {
-      // you can update player here [update player through props]
-      // const player = playerRef.current;
-      // player.autoplay(options.autoplay);
-      // player.src(options.sources);
+      const player = playerRef.current;
+
+      player.autoplay(options.autoplay);
+      player.src(options.sources);
     }
   }, [options, videoRef]);
 
@@ -33,16 +38,18 @@ export default (props:any) => {
     const player = playerRef.current;
 
     return () => {
-      if (player) {
-        player?.dispose();
+      if (player && !player.isDisposed()) {
+        player.dispose();
+        playerRef.current = null;
       }
     };
   }, [playerRef]);
 
   return (
-    // vjs-big-play-centered vjs-fluid
     <div data-vjs-player>
-      <video ref={videoRef} className="video-js vjs-big-play-centered" /> 
+      <div ref={videoRef} />
     </div>
   );
 }
+
+export default VideoJS;
