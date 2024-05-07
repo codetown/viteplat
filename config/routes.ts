@@ -110,5 +110,10 @@ export default [
     name: '上传示例',
     path: '/upload-advance',
     component: '/upload-advance'
+  },
+  {
+    name: '视频播放',
+    path: '/hook-video-demo',
+    component: '/upload-advance'
   }
 ]

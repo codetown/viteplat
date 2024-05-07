@@ -97,10 +97,9 @@ export function getHomeInfo(params: any): Promise<RepsonseData> {
 }
 
 // getVideoDetail 获取视频详情信息和播放链接地址
-export function getVideoDetail(params: any): Promise<RepsonseData> {
-  return request(`/api/v1/videos/${params?.id}`, {
-    method: 'GET',
-    params
+export function getVideoDetail(id: number): Promise<RepsonseData> {
+  return request(`/api/v1/videos/${id}`, {
+    method: 'GET'
   })
 }
 

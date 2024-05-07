@@ -3,11 +3,12 @@ import { Card, Modal, Form, Input, List, message } from 'antd';
 import styles from './index.module.scss';
 import VideoJsPlayer from '@/components/VideoJsPlayer';
 import useVideoStore from '@/stores/video';
+import { getVideoDetail } from '@/services/common';
 const { Search } = Input;
 const FormItem = Form.Item
 
 export default function () {
-  const { searchVideos,loading, items, total, current, pageSize, getCurrentVideo, currentVideo, showPlayer, setState } = useVideoStore((state: any) => state)
+  const { searchVideos,loading, items, total, current, pageSize, currentVideo, showPlayer, setState } = useVideoStore((state: any) => state)
   const playerRef = useRef<any>();
 
   const videoJsOptions = { // lookup the options in the docs for more options
@@ -26,17 +27,18 @@ export default function () {
       timeDivider: true,
       durationDisplay: true,
       pictureInPictureToggle: true,
-    },
-    sources: [ // 视频来源路径
-      {
-        src: '//vjs.zencdn.net/v/oceans.mp4',
-        type: 'video/mp4',
-        poster: '//vjs.zencdn.net/v/oceans.png'
-      }
-    ]
+    }
+    // ,
+    // sources: [ // 视频来源路径
+    //   {
+    //     src: '//vjs.zencdn.net/v/oceans.mp4',
+    //     type: 'video/mp4',
+    //     poster: '//vjs.zencdn.net/v/oceans.png'
+    //   }
+    // ]
   }
 
-  const handlePlayerReady = (player: any) => {
+  const handlePlayerReady = (player:any) => {
     playerRef.current = player;
 
     // you can handle player events here
@@ -48,7 +50,13 @@ export default function () {
       console.log('player will dispose');
     });
   };
+
   const pageConst = {
+    total,
+    pageSize,
+    current,
+    defaultPageSize:24,
+    defaultCurrent:1,
     showSizeChanger: true,
     pageSizeOptions: [24, 16, 12],
     showTotal: (total: number) => `共${total}条`,
@@ -65,24 +73,29 @@ export default function () {
     if (loading) {
       return;
     }
-    const pageParams = { page_no: params.current || 1, page_size: params.pageSize || 24 };
-    searchVideos({...pageParams,params})
+    const pageParams = { page: params.current || 1, per_page: params.pageSize || 24 };
+    searchVideos({...pageParams,...params})
   };
   const preview = async (item: any) => {
-    const detialRes = await getCurrentVideo({ id: item.id });
+    const detialRes=await getVideoDetail(item.id)
     const videoUrl = detialRes?.data?.vfiles?.[0]?.fileURL;
     if (videoUrl) {
       if (playerRef?.current) {
-        playerRef?.current?.src(videoUrl);
+        const newSrc={
+          src:videoUrl,
+          type:'application/x-mpegURL'
+        };
+        playerRef?.current?.src(newSrc);
         playerRef?.current?.play();
         playerRef?.current?.currentTime(0);
+        setState({currentVideo:detialRes?.data,showPlayer:true});
       } else {
-        message.error('播放器未初始化')
         setState({ showPlayer: false })
+        message.error('播放器未初始化')
       }
     } else {
-      message.error('播放地址错误！');
       setState({ showPlayer: false })
+      message.error('播放地址错误！');
     }
   };
 
@@ -93,7 +106,7 @@ export default function () {
     <List
       rowKey="id"
       loading={loading}
-      pagination={{ ...pageConst, total, current, pageSize }}
+      pagination={pageConst}
       grid={{
         gutter: 16,
         xs: 2,
@@ -215,7 +228,9 @@ export default function () {
         </Form>
       </Card>
       <div className={styles.cardList}>{cardList}</div>
-      <Modal className={styles.preview} width={960} open={showPlayer} 
+      <Modal className={styles.preview} 
+      width={960} 
+      open={showPlayer} 
       forceRender={true} title={currentVideo?.title || ''} 
       onCancel={() => { 
         playerRef?.current?.pause(); 

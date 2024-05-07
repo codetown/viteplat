@@ -12,7 +12,7 @@ const useVideoStore = create((set) => ({
   setState: (newState: any) => set(newState),
   async searchVideos(params:any) {
     let videoOperation;
-    const pageParams = { page_no: params.current || 1, per_page: params.pageSize || 24 };
+    const pageParams = { page: params.current || 1, per_page: params.pageSize || 24 };
     if (params && params.title) {
       videoOperation = getVideosFromBty4lyy({ ...pageParams, title: params.title });
     } else {

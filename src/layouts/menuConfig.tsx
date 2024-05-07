@@ -93,6 +93,11 @@ const asideMenuConfig: SiderMenuItemType[] = [
       {
         name: '高级上传',
         path: '/upload-advance'
+      },
+      {
+        name: '视频播放',
+        path: '/hook-video-demo',
+        icon: <VideoCameraOutlined />
       }
     ]
   },
