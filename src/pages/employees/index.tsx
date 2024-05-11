@@ -83,7 +83,7 @@ export default function Employees() {
 
   const { items, total, current, pageSize, filterFileds, searchEmployees } = useEmployeeStore((state: any) => state)
   useEffect(() => {
-    searchEmployees({page: 1, per_page: 10 })
+    searchEmployees({current: 1, pageSize: 10 })
   }, [])
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     console.log('selectedRowKeys changed: ', newSelectedRowKeys)
@@ -143,7 +143,7 @@ export default function Employees() {
         <FilterForm
           fields={fields}
           onFilter={(values: any) => {
-            searchEmployees({ page: 1, pageSize:pageSize }, values)
+            searchEmployees({ current: 1, pageSize:pageSize }, values)
           }}
         />
       }>
@@ -165,7 +165,7 @@ export default function Employees() {
           total,
           onChange: async (current, pageSize) => {
             setLoading(true)
-            await searchEmployees({ per_page:pageSize, page: current}, filterFileds)
+            await searchEmployees({ pageSize:pageSize, current: current}, filterFileds)
             setLoading(false)
           }
         }}

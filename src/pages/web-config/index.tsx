@@ -21,8 +21,8 @@ export default function() {
         // setLoading(true);
         // getMemberList({
         //   ...form.getFieldsValue(),
-        //   page: params?.current||1,
-        //   per_page: params?.pageSize||10,
+        //   current: params?.current||1,
+        //   pageSize: params?.pageSize||10,
         // }).then((res) => {
         //   if (res && res.code === 200) {
         //     setPagination({...pagination,current:params?.current,pageSize:params?.pageSize,total:res.data.total})

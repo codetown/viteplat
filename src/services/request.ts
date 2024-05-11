@@ -5,6 +5,7 @@
 import axios, { AxiosResponse } from 'axios'
 import { message, notification } from 'antd'
 import routes from '@/routes'
+import { pureParams } from './common'
 
 // 某个字符串是否在某个数组中
 // const inArray = (str: string, strArr: string[]) => {
@@ -96,8 +97,8 @@ const errorHandler = (error: { response: AxiosResponse }) => {
   //     baseURL: '/',
   //     method: 'get',
   //     params: {
-  //       page: 1,
-  //       per_page: 20
+  //       current: 1,
+  //       pageSize: 20
   //     },
   //     url: '/api/v1/admins'
   //   },
@@ -169,6 +170,12 @@ const noLoginUrls = ['/api/v1/login', '/api/v1/plf/login', '/api/v1/get-captcha'
 
 // 请求拦截器
 request.interceptors.request.use(function (config) {
+  // if(config.data){
+  //   config.data = pureParams(config.data);
+  // }
+  if(config.params){
+    config.params = pureParams(config.params);
+  }
   if (!noLoginUrls.includes(`${config?.url}`)) {
     const jwt = sessionStorage.getItem('jwt')
     if (jwt) {

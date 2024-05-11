@@ -154,3 +154,24 @@ export async function getMemberList(params:any) {
     params
   });
 };
+
+export function pureParams(params:any,deleteZero:boolean = false){
+  const realParams:any = {}
+  Object.keys(params).forEach(key=>{
+    const condition1 = ['current','pageSize'].includes(key)
+    let condition2 = params[key]===undefined||params[key]===null||params[key]===''|| Number.isNaN(params[key])
+    if (deleteZero){
+      condition2=condition2||(params[key]===0)
+    }
+    if((!condition1)&&(!condition2)){
+      realParams[key]=params[key]
+    }
+    if(key==='current'){
+      realParams['page']=params.current
+    }
+    if(key==='pageSize'){
+      realParams['per_page']=params.pageSize
+    }
+  })
+  return realParams
+}

@@ -65,7 +65,7 @@ export default function List() {
     }, 1000)
   }
   useEffect(() => {
-    searchAdmins({ page: 1, per_page: 20 })
+    searchAdmins({ current: 1, pageSize: 20 })
   }, [])
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     console.log('selectedRowKeys changed: ', newSelectedRowKeys)
