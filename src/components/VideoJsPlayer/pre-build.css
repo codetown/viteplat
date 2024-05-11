@@ -246,7 +246,7 @@
     line-height: 2em;
     border: none;
     border-radius: 50%;
-    font-size: 3.5em;
+    font-size: 3em;
     background-color: rgba(0, 0, 0, .32);
     color: #fff;
     -webkit-transition: border-color .4s, outline .4s, background-color .4s;
@@ -262,26 +262,26 @@
 
 .pre-build .vjs-menu-button-popup .vjs-menu .vjs-menu-content {
     background-color: transparent;
-    width:6em;
-    left:1.5em;
+    width: 6em;
+    left: 1.5em;
     padding-bottom: .5em
 }
 
 .pre-build .vjs-menu-button-popup .vjs-menu .vjs-menu-item,
 .pre-build .vjs-menu-button-popup .vjs-menu .vjs-menu-title {
     background-color: rgba(0, 0, 0, .45);
-    margin: .3em 0;
+    margin: 0;
     border-radius: .3em;
-    border:1px solid #555;
+    border: 1px solid #555;
 }
 
 .pre-build .vjs-menu-button-popup .vjs-menu .vjs-menu-item.vjs-selected {
     background-color: rgba(0, 120, 255, .54);
-    color:#fff;
+    color: #fff;
 }
 
 .pre-build .vjs-big-play-button {
-    font-size: 3.5em;
+    font-size: 3em;
     border-radius: 50%;
     height: 2em !important;
     line-height: 2em !important;
