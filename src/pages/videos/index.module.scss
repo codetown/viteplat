@@ -94,15 +94,24 @@ a.videoItem:hover>span{
 }
 
 .preview{
+    :global(.ant-modal-content){
+        padding:0;
+    }
     :global(.ant-modal-header){
         padding: 4px 12px;
+        margin-bottom:0;
     }
     :global(.ant-modal-body){
         padding:0;
+    }
+    :global(.ant-modal-close){
+        top:0;
+        right:0;
     }
     :global(.ant-modal-close-x){
         width:32px;
         height:32px;
         line-height:32px;
+        top:0;
     }
 }

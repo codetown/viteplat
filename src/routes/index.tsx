@@ -7,7 +7,7 @@ import lazyLoad from './lazyLoad'
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: lazyLoad(lazy(() => import('@/layouts/MainLayout'))),
+    element: lazyLoad(lazy(() => import('@/layouts/authLayout'))),
     children: [
       {
         index: true,
@@ -52,10 +52,6 @@ const routes: RouteObject[] = [
       {
         path: 'upload-advance',
         element: lazyLoad(lazy(() => import('@/pages/upload-advance')))
-      },
-      {
-        path: 'hook-video-demo',
-        element: lazyLoad(lazy(() => import('@/pages/hook-video-demo')))
       }
     ]
   },

@@ -146,7 +146,7 @@ vite构建工具的配置项，在这里可以使用一些第三方插件，做�
 // const routes: RouteObject[] = [
 //   {
 //     path: '/',
-//     element: lazyLoad(lazy(() = import('@/layouts/MainLayout'))),
+//     element: lazyLoad(lazy(() = import('@/layouts/'))),
 //     children: [
 //       {
 //         index: true,

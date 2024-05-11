@@ -24,6 +24,7 @@ export default function Dashboard() {
       <Col span={24}>
         <CardRankChart />
       </Col>
+
       <Col span={8}>
         <CardPieChart />
       </Col>

@@ -144,7 +144,7 @@ export default function(){
               ? {
                 size: 20,
                 total,
-                per_pageOptions: [10, 20, 50],
+                pageSizeOptions: [10, 20, 50],
                 showTotal: (recordTotal: number) => `共${recordTotal}条`
               } as unknown as TablePaginationConfig
               : false

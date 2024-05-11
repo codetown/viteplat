@@ -1,7 +1,7 @@
 import { Card } from 'antd'
 import mock from './mock'
 import styles from './index.module.scss'
-import { Tiny, TinyLineConfig } from '@ant-design/charts'
+import { Tiny, TinyLineConfig } from '@ant-design/plots'
 const { Column } = Tiny
 interface CardConfig {
   title?: string | React.ReactNode

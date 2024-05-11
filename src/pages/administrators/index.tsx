@@ -65,7 +65,7 @@ export default function Administrators() {
   //   }, 1000)
   // }
   useEffect(() => {
-    searchAdmins({ page: 1, per_page: 20 })
+    searchAdmins({ pageNo: 1, pageSize: 20 })
   }, [])
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     console.log('selectedRowKeys changed: ', newSelectedRowKeys)

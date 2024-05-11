@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { Radio, Card } from 'antd'
 import type { RadioChangeEvent } from 'antd'
-import { Pie } from '@ant-design/charts'
+import { Pie } from '@ant-design/plots'
 import styles from './index.module.scss'
 
 interface CardConfig {
@@ -50,69 +50,64 @@ export interface CardPieChartProps {
 
 const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props: CardPieChartProps): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
-
-  const { title, chartData, chartHeight } = cardConfig
-
   const [type, setType] = useState('one')
   const changeType = (e: RadioChangeEvent) => {
     setType(e.target.value)
   }
-  const pieMemo = useMemo(
-    () => (
-      <Pie
-        data={chartData!}
-        angleField="value"
-        colorField="type"
-        appendPadding={10}
-        legend={{
-          position: 'bottom'
-        }}
-        height={chartHeight}
-        label={{
-          type: 'inner',
-          offset: '-50%',
-          autoRotate: false,
-          style: { textAlign: 'center' }
-          // formatter: ({ percent }: any) => `${((percent || 1) * 100).toFixed(0)}%`
-        }}
-        // radius={1}
-        // innerRadius={0.64}
-        // meta={{
-        //   value: {
-        //     formatter: (v: any) => `¥ ${v}`
-        //   }
-        // }}
-        // statistic={{
-        //   title: {
-        //     offsetY: -8
-        //   },
-        //   content: {
-        //     offsetY: -4
-        //   }
-        // }}
-        // interactions={[
-        //   { type: 'element-selected' },
-        //   { type: 'element-active' },
-        //   {
-        //     type: 'pie-statistic-active',
-        //     cfg: {
-        //       start: [
-        //         { trigger: 'element:mouseenter', action: 'pie-statistic:change' },
-        //         { trigger: 'legend-item:mouseenter', action: 'pie-statistic:change' }
-        //       ],
-        //       end: [
-        //         { trigger: 'element:mouseleave', action: 'pie-statistic:reset' },
-        //         { trigger: 'legend-item:mouseleave', action: 'pie-statistic:reset' }
-        //       ]
-        //     }
-        //   }
-        // ]}
-      />
-    ),
-    [chartData]
-  )
+  const config = {
+    data: cardConfig.chartData,
+    angleField: 'value',
+    colorField: 'type',
+    appendPadding: 10,
+    height: cardConfig.chartHeight,
+    legend: {
+      color: {
+        title: false,
+        position: 'bottom',
+        rowPadding: 5,
+      },
+    },
+    label: {
+      type: 'inner',
+      offset: '-50%',
+      autoRotate: false,
+      style: { textAlign: 'center' }
+    },
+    radius: 1,
+    innerRadius: 0.64,
+    meta: {
+      value: {
+        formatter: (v: any) => `¥ ${v}`
+      }
+    },
+    statistic: {
+      title: {
+        offsetY: -8
+      },
+      content: {
+        offsetY: -4
+      }
+    },
+    interactions: [
+      { type: 'element-selected' },
+      { type: 'element-active' },
+      {
+        type: 'pie-statistic-active',
+        cfg: {
+          start: [
+            { trigger: 'element:mouseenter', action: 'pie-statistic:change' },
+            { trigger: 'legend-item:mouseenter', action: 'pie-statistic:change' }
+          ],
+          end: [
+            { trigger: 'element:mouseleave', action: 'pie-statistic:reset' },
+            { trigger: 'legend-item:mouseleave', action: 'pie-statistic:reset' }
+          ]
+        }
+      }
+    ]
+  };
   return (
-    <Card title={title}>
+    <Card title={cardConfig.title}>
       <Radio.Group value={type} onChange={changeType} className={styles.radioGroup} optionType="button">
         <Radio value="one" className={styles.radioFlex}>
           类目一
@@ -124,7 +119,9 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props: CardPie
           类目三
         </Radio>
       </Radio.Group>
-      {pieMemo}
+      <Pie
+        {...config}
+      />
     </Card>
   )
 }

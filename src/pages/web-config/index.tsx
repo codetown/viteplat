@@ -12,7 +12,7 @@ export default function() {
     // const [tableHeight, setTableHeight] = useState(48);
     // const [pagination, setPagination] = useState({
     //     current: 1,
-    //     per_page: 10,
+    //     pageSize: 10,
     //     showTotal: (total:number) => `共${total}条`,
     // });
         // const [form] = Form.useForm();
@@ -22,10 +22,10 @@ export default function() {
         // getMemberList({
         //   ...form.getFieldsValue(),
         //   page: params?.current||1,
-        //   per_page: params?.per_page||10,
+        //   per_page: params?.pageSize||10,
         // }).then((res) => {
         //   if (res && res.code === 200) {
-        //     setPagination({...pagination,current:params?.current,per_page:params?.per_page,total:res.data.total})
+        //     setPagination({...pagination,current:params?.current,pageSize:params?.pageSize,total:res.data.total})
         //     setDataSource(res.data.items);
         //   }else{
         //     setDataSource([]);
@@ -39,7 +39,7 @@ export default function() {
     };
 
     useEffect(() => {
-        search({ current: 1, per_page: 10 });
+        search({ current: 1, pageSize: 10 });
     }, []);
     const fields = [{
         label: "工作名",

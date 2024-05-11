@@ -1,5 +1,5 @@
 import { Card } from 'antd'
-import { Tiny } from '@ant-design/charts'
+import { Tiny } from '@ant-design/plots'
 import mock from './mock'
 import styles from './index.module.scss'
 const { Ring } = Tiny

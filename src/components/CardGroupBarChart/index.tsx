@@ -1,5 +1,5 @@
 import { Card } from 'antd'
-import { Column } from '@ant-design/charts'
+import { Column } from '@ant-design/plots';
 import styles from './index.module.scss'
 
 interface CardConfig {
@@ -27,7 +27,7 @@ const DEFAULT_DATA: CardConfig = {
     { category: '品类五', value: 452, type: '门店二' },
     { category: '品类五', value: 234, type: '门店三' }
   ],
-  chartHeight: 300
+  chartHeight: 360
 }
 
 export interface CardGroupBarChartProps {
@@ -38,32 +38,32 @@ const CardGroupBarChart: React.FunctionComponent<CardGroupBarChartProps> = (
   props: CardGroupBarChartProps
 ): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
-
-  const { title, chartData, chartHeight } = cardConfig
-
+  const config = {
+    data: cardConfig.chartData,
+    xField: 'category',
+    yField: 'value',
+    colorField: 'type',
+    legend: {
+      color: {
+        title: false,
+        position: 'bottom'
+      }
+    },
+    height: cardConfig.chartHeight,
+    group: true,
+    style: {
+      // 矩形四个方向的内边距
+      inset: 5,
+      // 矩形单个方向的内边距
+      // insetLeft:5,
+      // insetRight:20,
+      // insetBottom:10
+      // insetTop:10
+    },
+  };
   return (
-    <Card title={title} className={styles.cardGroupBarChart}>
-      <Column
-        data={chartData!}
-        xField="category"
-        yField="value"
-        seriesField="type"
-        isGroup
-        height={chartHeight}
-        label={{
-          // 可手动配置 label 数据标签位置
-          position: 'middle',
-          // 可配置附加的布局方法
-          layout: [
-            // 柱形图数据标签位置自动调整
-            { type: 'interval-adjust-position' },
-            // 数据标签防遮挡
-            { type: 'interval-hide-overlap' },
-            // 数据标签文颜色自动调整
-            { type: 'adjust-color' }
-          ]
-        }}
-      />
+    <Card title={cardConfig.title} className={styles.cardGroupBarChart}>
+      <Column {...config} />
     </Card>
   )
 }

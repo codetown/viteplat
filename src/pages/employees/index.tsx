@@ -81,7 +81,7 @@ export default function Employees() {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
   const [loading, setLoading] = useState(false)
 
-  const { items, total, page, per_page, filterFileds, searchEmployees } = useEmployeeStore((state: any) => state)
+  const { items, total, current, pageSize, filterFileds, searchEmployees } = useEmployeeStore((state: any) => state)
   useEffect(() => {
     searchEmployees({page: 1, per_page: 10 })
   }, [])
@@ -143,7 +143,7 @@ export default function Employees() {
         <FilterForm
           fields={fields}
           onFilter={(values: any) => {
-            searchEmployees({ page: 1, per_page:per_page }, values)
+            searchEmployees({ page: 1, pageSize:pageSize }, values)
           }}
         />
       }>
@@ -160,12 +160,12 @@ export default function Employees() {
         columns={columns}
         dataSource={items}
         pagination={{
+          current,
+          pageSize,
           total,
-          current:page,
-          pageSize:per_page,
           onChange: async (current, pageSize) => {
             setLoading(true)
-            await searchEmployees({  page: current,per_page:pageSize}, filterFileds)
+            await searchEmployees({ per_page:pageSize, page: current}, filterFileds)
             setLoading(false)
           }
         }}
