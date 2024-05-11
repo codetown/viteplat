@@ -29,9 +29,9 @@
     &:last-child {
       border-bottom: 0;
     }
-    &:hover {
-      // background: @primary-1;
-    }
+    // &:hover {
+    //   // background: @primary-1;
+    // }
     .title {
       margin-bottom: 8px;
       font-weight: normal;
@@ -94,8 +94,8 @@
     &:only-child {
       width: 100%;
     }
-    &:not(:only-child):last-child {
-      // border-left: 1px solid @border-color-split;
-    }
+    // &:not(:only-child):last-child {
+    //   // border-left: 1px solid @border-color-split;
+    // }
   }
 }
