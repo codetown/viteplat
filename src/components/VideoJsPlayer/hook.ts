@@ -1,11 +1,9 @@
 // useVideoPlayer.ts
 import { useState, useEffect } from 'react';
 import videojs from 'video.js';
-import { videojsOptions } from './videojsOptions'; // 假设你已经定义了Video.js的默认配置
+import videojsOptions from './options'; // 假设你已经定义了Video.js的默认配置
 import Player from 'video.js/dist/types/player';
 
-import './pre-build.css';
-import './sublim.css';
 interface VideoPlayerControls {
   play: () => void;
   pause: () => void;
@@ -21,7 +19,7 @@ interface VideoPlayerControls {
  * @param videoRef 视频元素的引用
  * @returns 包含播放控制方法的对象
  */
-export const useVideoPlayer = (videoRef: React.MutableRefObject<any | null>): VideoPlayerControls => {
+export const useVideoPlayer = (videoRef: React.MutableRefObject<HTMLVideoElement | null>): VideoPlayerControls => {
   const [player, setPlayer] = useState<Player | null>(null);
 
   useEffect(() => {
@@ -29,9 +27,6 @@ export const useVideoPlayer = (videoRef: React.MutableRefObject<any | null>): Vi
 
     // 初始化Video.js播放器
     if (videoRef.current) {
-      const videoElement = document.createElement("video-js");
-      videoElement.classList.add('pre-build');
-      videoRef.current.appendChild(videoElement);
       instance = videojs(videoRef.current, videojsOptions, () => {
         console.log('Video.js player is ready.');
       });

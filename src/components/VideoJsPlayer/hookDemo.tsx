@@ -2,7 +2,6 @@
 import { useRef, useState } from 'react';
 import { useVideoPlayer } from './hook';
 import '@videojs/themes/dist/forest/index.css';
-import { Button } from 'antd';
 
 const VideoPlayer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -19,15 +18,13 @@ const VideoPlayer: React.FC = () => {
 
   return (
     <div>
-      <div><video ref={videoRef} className="video-js" /></div>
-      <div>
-        <Button onClick={play}>播放</Button>
-        <Button onClick={pause}>Pause</Button>
-        <Button onClick={stop}>Stop</Button>
-        <Button onClick={mute}>Mute</Button>
-        <Button onClick={unmute}>Unmute</Button>
-        <Button onClick={handleSourceChange}>更改</Button>
-      </div>
+      <video ref={videoRef} className="video-js" />
+      <button onClick={play}>Play</button>
+      <button onClick={pause}>Pause</button>
+      <button onClick={stop}>Stop</button>
+      <button onClick={mute}>Mute</button>
+      <button onClick={unmute}>Unmute</button>
+      <button onClick={handleSourceChange}>Change Video</button>
       <p>Is Playing: {isPlaying() ? 'Yes' : 'No'}</p>
     </div>
   );
