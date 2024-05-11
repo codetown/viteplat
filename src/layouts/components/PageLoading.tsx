@@ -1,4 +1,4 @@
-import styles from './layout.module.scss'
+import styles from '../layout.module.scss'
 import { Spin } from 'antd'
 const PageLoading: React.FC = () => {
   return (

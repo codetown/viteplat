@@ -4,7 +4,7 @@ import { useVideoPlayer } from '@/components/VideoJsPlayer/hook';
 import 'video.js/dist/video-js.css';
 import { Button, Space } from 'antd';
 
-const VideoPlayer: React.FC = () => {
+export default function (){
   const videoRef = useRef<any>(null);
   const { play, pause, stop, setSrc, mute, unmute, isPlaying } = useVideoPlayer(videoRef);
 
@@ -34,5 +34,3 @@ const VideoPlayer: React.FC = () => {
     </div>
   );
 };
-
-export default VideoPlayer;

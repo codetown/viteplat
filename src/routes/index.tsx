@@ -52,6 +52,10 @@ const routes: RouteObject[] = [
       {
         path: 'upload-advance',
         element: lazyLoad(lazy(() => import('@/pages/upload-advance')))
+      },
+      {
+        path: 'hook-video-demo',
+        element: lazyLoad(lazy(() => import('@/pages/hook-video-demo')))
       }
     ]
   },
