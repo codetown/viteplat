@@ -58,8 +58,14 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props: CardPie
     data: cardConfig.chartData,
     angleField: 'value',
     colorField: 'type',
-    appendPadding: 10,
+    innerRadius: 0.6,
     height: cardConfig.chartHeight,
+    label: {
+      text: 'value',
+      style: {
+        fontWeight: 'bold',
+      },
+    },
     legend: {
       color: {
         title: false,
@@ -67,44 +73,19 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props: CardPie
         rowPadding: 5,
       },
     },
-    label: {
-      type: 'inner',
-      offset: '-50%',
-      autoRotate: false,
-      style: { textAlign: 'center' }
-    },
-    radius: 1,
-    innerRadius: 0.64,
-    meta: {
-      value: {
-        formatter: (v: any) => `¥ ${v}`
-      }
-    },
-    statistic: {
-      title: {
-        offsetY: -8
-      },
-      content: {
-        offsetY: -4
-      }
-    },
-    interactions: [
-      { type: 'element-selected' },
-      { type: 'element-active' },
+    annotations: [
       {
-        type: 'pie-statistic-active',
-        cfg: {
-          start: [
-            { trigger: 'element:mouseenter', action: 'pie-statistic:change' },
-            { trigger: 'legend-item:mouseenter', action: 'pie-statistic:change' }
-          ],
-          end: [
-            { trigger: 'element:mouseleave', action: 'pie-statistic:reset' },
-            { trigger: 'legend-item:mouseleave', action: 'pie-statistic:reset' }
-          ]
-        }
-      }
-    ]
+        type: 'text',
+        style: {
+          text: '销量',
+          x: '50%',
+          y: '50%',
+          textAlign: 'center',
+          fontSize: 32,
+          fontStyle: 'bold',
+        },
+      },
+    ],
   };
   return (
     <Card title={cardConfig.title}>
