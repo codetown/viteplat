@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>时尚导航网站</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background-color: #eee;
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .navbar span{
+        max-width: 1200px;
+        margin:0 auto;
+        display: block;
+      }
+
+      .navbar a {
+        color: #0088dd;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .navbar a:hover,
+      .navbar a:focus {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      main{
+        max-width: 1200px;
+        margin:1rem auto 2rem auto;
+      }
+      main h1{
+        margin-bottom:1rem;
+      }
+      .content {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 1.5rem;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .card h2 {
+        margin-bottom: 1rem;
+        color: #0088dd;
+      }
+
+      .card a {
+        display: block;
+        text-decoration: none;
+        color: #343a40;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .card a:hover {
+        color: #0088dd;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <span><a href="#tech">科技</a>
+        <a href="#design">设计</a>
+        <a href="#learn">学习</a>
+        <a href="#travel">旅行</a></span>
+    </nav>
+
+    <main>
+      <section id="tech">
+        <h1>科技</h1>
+        <div class="content">
+          <div class="card">
+            <h2>科技</h2>
+            <a href="#">最新科技新闻</a>
+            <a href="#">编程教程</a>
+            <a href="#">AI与机器学习</a>
+          </div>
+          <div class="card">
+            <h2>科技</h2>
+            <a href="#">最新科技新闻</a>
+            <a href="#">编程教程</a>
+            <a href="#">AI与机器学习</a>
+          </div>
+          <div class="card">
+            <h2>科技</h2>
+            <a href="#">最新科技新闻</a>
+            <a href="#">编程教程</a>
+            <a href="#">AI与机器学习</a>
+          </div>
+          <div class="card">
+            <h2>科技</h2>
+            <a href="#">最新科技新闻</a>
+            <a href="#">编程教程</a>
+            <a href="#">AI与机器学习</a>
+          </div>
+          <div class="card">
+            <h2>科技</h2>
+            <a href="#">最新科技新闻</a>
+            <a href="#">编程教程</a>
+            <a href="#">AI与机器学习</a>
+          </div>
+          <div class="card">
+            <h2>科技</h2>
+            <a href="#">最新科技新闻</a>
+            <a href="#">编程教程</a>
+            <a href="#">AI与机器学习</a>
+          </div>
+        </div>
+        <!-- 可以添加更多卡片 -->
+      </section>
+    </main>
+  </body>
+</html>

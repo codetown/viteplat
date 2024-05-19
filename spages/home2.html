@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酷炫导航网站</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #24292e;
+            color: #ffffff;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1200px;
+            margin:24px auto;
+            /* height: 100vh; */
+        }
+        .navbar {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            background-color: #343a40;
+            max-width: 1200px;
+            margin:0 auto;
+        }
+        .navbar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar li a:hover {
+            background-color: #1abc9c;
+        }
+        h1 {
+            font-size:48px;
+            margin-bottom:32px;
+            color: #1abc9c;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .content-section {
+            padding:24px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-width:200px;
+            flex-wrap: wrap;
+        }
+        .section-title {
+            font-size: 24px;
+            margin-bottom:12px;
+            margin-top:0;
+            color:#1abc9c;
+        }
+        .links {
+            list-style-type: none;
+            padding: 0;
+        }
+        .link-item {
+            margin-bottom: 10px;
+        }
+        .link-item a {
+            color: #343a40;
+            text-decoration: none;
+        }
+        .link-item a:hover {
+            color: #1abc9c;
+        }
+    </style>
+</head>
+<body>
+
+
+    <nav>
+        <ul class="navbar">
+            <li><a href="#tech">科技</a></li>
+            <li><a href="#design">设计</a></li>
+            <li><a href="#learn">学习</a></li>
+            <li><a href="#travel">旅行</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>探索无限可能</h1>
+    </div>
+<div class="container">
+<!-- 科技分类内容 -->
+<div id="tech" class="content-section">
+    <h2 class="section-title">科技</h2>
+    <ul class="links">
+        <li class="link-item"><a href="#">最新科技新闻</a></li>
+        <li class="link-item"><a href="#">编程教程</a></li>
+        <li class="link-item"><a href="#">AI与机器学习</a></li>
+    </ul>
+</div>
+
+<!-- 设计分类内容 -->
+<div id="design" class="content-section">
+    <h2 class="section-title">设计</h2>
+    <ul class="links">
+        <li class="link-item"><a href="#">UI设计趋势</a></li>
+        <li class="link-item"><a href="#">平面设计资源</a></li>
+        <li class="link-item"><a href="#">网页设计灵感</a></li>
+    </ul>
+</div>
+
+<!-- 学习分类内容 -->
+<div id="learn" class="content-section">
+    <h2 class="section-title">学习</h2>
+    <ul class="links">
+        <li class="link-item"><a href="#">在线课程平台</a></li>
+        <li class="link-item"><a href="#">编程语言教程</a></li>
+        <li class="link-item"><a href="#">历史与文化</a></li>
+    </ul>
+</div>
+
+<!-- 旅行分类内容 -->
+<div id="travel" class="content-section">
+    <h2 class="section-title">旅行</h2>
+    <ul class="links">
+        <li class="link-item"><a href="#">热门旅游目的地</a></li>
+        <li class="link-item"><a href="#">背包客攻略</a></li>
+        <li class="link-item"><a href="#">美食探店</a></li>
+    </ul>
+</div>
+</div>
+</body>
+</html>
