@@ -1,6 +1,6 @@
 import request from './request';
 
-export async function getOptions(params:any) {
+export async function getOptions(params: any) {
   return request('/api/v1/options', {
     method: 'GET',
     params
@@ -8,7 +8,7 @@ export async function getOptions(params:any) {
 };
 
 // getOptionDetail获取菜单树
-export async function getOptionDetail(params:any) {
+export async function getOptionDetail(params: any) {
   return request(`/api/v1/options/${params.id}`, {
     method: 'GET',
     params
@@ -16,8 +16,7 @@ export async function getOptionDetail(params:any) {
 };
 
 // addOption 添加字典项
-export async function postOption(params:any) {
-  console.info("params", params)
+export async function postOption(params: any) {
   return request('/api/v1/options', {
     method: 'POST',
     data: params
@@ -25,7 +24,7 @@ export async function postOption(params:any) {
 };
 
 // addOption 添加字典项
-export async function putOption(params:any) {
+export async function putOption(params: any) {
   return request(`/api/v1/options/${params.id}`, {
     method: 'PUT',
     data: params
@@ -33,17 +32,9 @@ export async function putOption(params:any) {
 };
 
 // addOption 添加字典项
-export async function deleteOption(params:any) {
+export async function deleteOption(params: any) {
   return request(`/api/v1/options/${params.id}`, {
     method: 'DELETE',
-    params
-  });
-};
-
-// getAdmins获取菜单树
-export async function getAdmins(params:any) {
-  return request('/api/v1/admins', {
-    method: 'GET',
     params
   });
 };

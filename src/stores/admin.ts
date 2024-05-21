@@ -5,7 +5,7 @@ const useAdminStore = create((set) => ({
   total: 0,
   searchAdmins: async (params: any) => {
     const res = await getAdmins(params)
-    console.info(res)
+    // console.info(res)
     if (res?.code == 200) {
       set({ items: res.data.items, total: res.data.total })
     }

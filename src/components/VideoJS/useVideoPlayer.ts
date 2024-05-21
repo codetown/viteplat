@@ -1,7 +1,7 @@
 // useVideoPlayer.ts
 import { useState, useEffect } from 'react';
 import videojs from 'video.js';
-import { videojsOptions } from './videojsOptions';
+import videoJsOptions from './options';
 import Player from 'video.js/dist/types/player';
 
 interface VideoPlayerHook {
@@ -21,7 +21,7 @@ export const useVideoPlayer = (videoRef: React.MutableRefObject<HTMLVideoElement
     let instance: Player | null = null;
 
     if (videoRef.current) {
-      instance = videojs(videoRef.current, videojsOptions, () => {
+      instance = videojs(videoRef.current, videoJsOptions, () => {
         console.log('Video.js player is ready');
       });
 

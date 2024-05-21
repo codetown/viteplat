@@ -5,7 +5,6 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import { asideMenuConfig } from './menuConfig'
 import AvatarDropdown from './components/AvatarDropdown'
 import styles from './layout.module.scss'
-import { ItemType } from 'antd/es/menu/hooks/useItems'
 import useGlobalStore from '@/stores/global'
 // import NoticeDropdown from './components/NoticeDropdown'
 import logo from '@/assets/logo2.png'
@@ -48,17 +47,17 @@ export default function MainLayout() {
           selectedKeys={[myLocation.pathname == '/home' ? '/' : myLocation.pathname]}
           items={asideMenuConfig.map(
             (item, index) =>
-              ({
-                key: item.path || `menu-item-${index + 1}`,
-                icon: item.icon,
-                children:
-                  item?.children?.map((child) => ({
-                    key: child.path,
-                    label: <Link to={child.path || '/'}>{child.name}</Link>
-                  })) || undefined,
-                label:
-                  item.children && item.children.length > 0 ? item.name : <Link to={item.path || '/'}>{item.name}</Link>
-              }) as ItemType
+            ({
+              key: item.path || `menu-item-${index + 1}`,
+              icon: item.icon,
+              children:
+                item?.children?.map((child) => ({
+                  key: child.path,
+                  label: <Link to={child.path || '/'}>{child.name}</Link>
+                })) || undefined,
+              label:
+                item.children && item.children.length > 0 ? item.name : <Link to={item.path || '/'}>{item.name}</Link>
+            })
           )}
         />
         <div className={styles.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }}>

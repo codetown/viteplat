@@ -86,7 +86,7 @@ export default function Administrators() {
         </Button>
         <span style={{ marginLeft: 8 }}>{hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}</span>
       </div> */}
-      <Table rowSelection={rowSelection} columns={columns} dataSource={items} pagination={{ total }} />
+      <Table rowKey="id" rowSelection={rowSelection} columns={columns} dataSource={items} pagination={{ total }} />
     </Card>
   )
 }

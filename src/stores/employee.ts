@@ -18,7 +18,7 @@ const useEmployeeStore = create((set) => ({
     }
   ) {
     const res = await getEmployeeList({ ...pageInfo, ...filterFields })
-    console.info(res)
+    // console.info(res)
     if (res?.code == 200) {
       set({
         current: pageInfo.current,
