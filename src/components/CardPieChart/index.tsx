@@ -41,7 +41,7 @@ const DEFAULT_DATA: CardConfig = {
       title: '事例五 |  9.29%     ¥1,231'
     }
   ],
-  chartHeight: 300
+  chartHeight: 360
 }
 
 export interface CardPieChartProps {
@@ -68,9 +68,14 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props: CardPie
     },
     legend: {
       color: {
-        title: false,
-        position: 'bottom',
-        rowPadding: 5,
+        title: '图例',
+        position: 'top',
+        rowPadding: 8,
+        layout: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }
       },
     },
     annotations: [
