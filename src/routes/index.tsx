@@ -56,6 +56,10 @@ const routes: RouteObject[] = [
       {
         path: 'hook-video-demo',
         element: lazyLoad(lazy(() => import('@/pages/hook-video-demo')))
+      },
+      {
+        path: 'curd-demo',
+        element: lazyLoad(lazy(() => import('@/pages/curd-demo')))
       }
     ]
   },

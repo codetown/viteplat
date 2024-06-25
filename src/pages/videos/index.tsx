@@ -8,7 +8,7 @@ const { Search } = Input;
 const FormItem = Form.Item
 
 export default function () {
-  const { searchVideos,loading, items, total, current, pageSize, currentVideo, showPlayer, setState } = useVideoStore((state: any) => state)
+  const { searchVideos, loading, items, total, current, pageSize, currentVideo, showPlayer, setState } = useVideoStore((state: any) => state)
   const playerRef = useRef<any>();
 
   const videoJsOptions = { // lookup the options in the docs for more options
@@ -51,8 +51,8 @@ export default function () {
     });
   };
   const pageConst = {
-    defaultCurrent:1,
-    defaultPageSize:24,
+    defaultCurrent: 1,
+    defaultPageSize: 24,
     showSizeChanger: true,
     pageSizeOptions: [24, 16, 12],
     pageSize,
@@ -60,7 +60,7 @@ export default function () {
     total,
     showTotal: (total: number) => `共${total}条`,
     onChange: (current: any, pageSize: number) => {
-      const newPageInfo = {current, pageSize };
+      const newPageInfo = { current, pageSize };
       search(newPageInfo);
     },
   };
@@ -73,14 +73,14 @@ export default function () {
   };
   const preview = async (item: any) => {
     const detailRes = await getVideoDetail(item.id);
-    if(detailRes.code!=200){
+    if (detailRes.code != 200) {
       return
     }
     const videoUrl = detailRes?.data?.vfiles?.[0]?.fileURL;
-    console.info(detailRes?.data,item);
+    console.info(detailRes?.data, item);
     if (videoUrl) {
       if (playerRef?.current) {
-        const newSrc={
+        const newSrc = {
           src: videoUrl,
           type: 'application/x-mpegURL',
           poster: item.poster
@@ -89,7 +89,7 @@ export default function () {
         playerRef?.current?.src(newSrc);
         playerRef?.current?.play();
         playerRef?.current?.currentTime(0);
-        setState({currentVideo:detailRes?.data,showPlayer:true})
+        setState({ currentVideo: detailRes?.data, showPlayer: true })
       } else {
         message.error('播放器未初始化')
       }
@@ -141,18 +141,18 @@ export default function () {
               size="large"
               loading={loading}
               onSearch={(value) => {
-                search({ title: value,pageNo:1,pageSize:24 });
+                search({ title: value, pageNo: 1, pageSize: 24 });
               }}
             />
           </FormItem>
         </Form>
       </Card>
       <div className={styles.cardList}>{cardList}</div>
-      <Modal className={styles.preview} width={960} open={showPlayer} 
-      forceRender={true} title={currentVideo?.title || ''} 
-      onCancel={() => { 
-        playerRef?.current?.pause(); 
-        setState({ showPlayer: false });
+      <Modal className={styles.preview} width={960} open={showPlayer} keyboard={false} maskClosable={false}
+        forceRender={true} title={currentVideo?.title || ''}
+        onCancel={() => {
+          playerRef?.current?.pause();
+          setState({ showPlayer: false });
         }} footer={null}>
         <VideoJsPlayer options={videoJsOptions} onReady={handlePlayerReady} />
       </Modal>

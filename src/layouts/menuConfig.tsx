@@ -97,7 +97,10 @@ const asideMenuConfig: SiderMenuItemType[] = [
       {
         name: '视频播放',
         path: '/hook-video-demo',
-        icon: <VideoCameraOutlined />
+      },
+      {
+        name: 'Curd Demo',
+        path: '/curd-demo',
       }
     ]
   },

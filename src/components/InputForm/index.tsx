@@ -6,16 +6,16 @@ import CropAndUpload from '../CropAndUpload'
 export default function InputForm(props: any) {
   const [form] = Form.useForm()
   const beforeUpload = (file: RcFile) => {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png'
+    const isJpgOrPng = ['image/jpeg', 'image/png'].includes(file.type)
 
     if (!isJpgOrPng) {
-      message.error('You can only upload JPG/PNG file!')
+      message.error('仅支持JPG和PNG格式的图片!')
     }
 
     const isLt2M = file.size / 1024 / 1024 < 2
 
     if (!isLt2M) {
-      message.error('Image must smaller than 2MB!')
+      message.error('图片大小不的大于2MB!')
     }
 
     return isJpgOrPng && isLt2M
@@ -84,23 +84,24 @@ export default function InputForm(props: any) {
           <Form.Item
             label={item?.label}
             name={item?.name}
-            rules={item.rules}
-            key={`${item?.name}-${index}`}
-            valuePropName={item?.name}>
+            rules={item?.rules}
+            key={`input-form-${item?.name}-${index}`}
+          // valuePropName={item?.name}
+          >
             {ele}
           </Form.Item>
         )
       })}
-      <div className={styles.formBottom}>
+      {props?.onSubmit && <div className={styles.formBottom}>
         <Button
           type="primary"
           onClick={(e) => {
             e.preventDefault()
             form.validateFields().then((values) => {
-              props?.onSubmit(values)
+              props.onSubmit(values)
             })
           }}
-          loading={props.loading}>
+          loading={props?.loading}>
           提交
         </Button>
         <span style={{ width: 48, display: 'inline-block' }}>&nbsp;</span>
@@ -108,11 +109,10 @@ export default function InputForm(props: any) {
           onClick={(e) => {
             e.preventDefault()
             form.resetFields()
-            props?.onSubmit({})
           }}>
           重置
         </Button>
-      </div>
+      </div>}
     </Form>
   )
 }

@@ -179,6 +179,7 @@ request.interceptors.request.use(function (config) {
   if (!noLoginUrls.includes(`${config?.url}`)) {
     const jwt = sessionStorage.getItem('jwt')
     if (jwt) {
+      // const headers = { Authorization: `Bearer ${jwt}` }
       config.headers['Authorization'] = `Bearer ${jwt}`
     }
   }

@@ -16,3 +16,9 @@ export function getEmployeeList(params: any): Promise<RepsonseData> {
     params
   })
 }
+
+export function removeEmployee(id: number): Promise<RepsonseData> {
+  return request(`/api/v1/members/${id}`, {
+    method: 'DELETE'
+  })
+}

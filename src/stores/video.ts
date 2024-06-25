@@ -19,24 +19,18 @@ const useVideoStore = create((set) => ({
       videoOperation = getVideos({...pageParams });
     }
     set({loading:true})
-    try {
-      const res = await videoOperation
-      if (res?.code == 200) {
-        set({
-          loading:false,
-          current: params.current,
-          pageSize: params.pageSize,
-          items: res.data.items,
-          total: res.data.total,
-          filterFields:{
-            title:params.title
-          }
-        })
-      }
-    } catch (error) {
-      
-    }finally{
-      set({loading:false})
+    const res = await videoOperation
+    if (res?.code == 200) {
+      set({
+        loading:false,
+        current: params.current,
+        pageSize: params.pageSize,
+        items: res.data.items,
+        total: res.data.total,
+        filterFields:{
+          title:params.title
+        }
+      })
     }
   }
 }))

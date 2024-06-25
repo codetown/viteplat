@@ -46,7 +46,12 @@ const CardGroupBarChart: React.FunctionComponent<CardGroupBarChartProps> = (
     legend: {
       color: {
         title: false,
-        position: 'bottom'
+        position: 'top',
+        layout: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }
       }
     },
     height: cardConfig.chartHeight,
