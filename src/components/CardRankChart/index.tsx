@@ -1,6 +1,5 @@
-import * as React from 'react'
 import { Card, Row, Col, Divider } from 'antd'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 interface DataItem {
   name?: string

@@ -1,9 +1,8 @@
-import * as React from 'react'
 import { Card } from 'antd'
 import mock from './mock'
-import styles from './index.module.css'
-import { Tiny } from '@ant-design/charts'
-
+import styles from './index.module.scss'
+import { Tiny, TinyLineConfig } from '@ant-design/plots'
+const { Column } = Tiny
 interface CardConfig {
   title?: string | React.ReactNode
   subTitle?: string | React.ReactNode
@@ -31,7 +30,13 @@ const CardBarChart: React.FunctionComponent<CardBarChartProps> = (props: CardBar
   const { cardConfig = DEFAULT_DATA } = props
 
   const { title, subTitle, value, chartData, des, rate, chartHeight } = cardConfig
-
+  const config: TinyLineConfig = {
+    data: chartData!.map((value, index) => ({ value, index })),
+    autoFit: true,
+    height: chartHeight,
+    xField: 'index',
+    yField: 'value'
+  }
   return (
     <Card title={title}>
       <div className={styles.cardSubTitle}>{subTitle}</div>
@@ -40,7 +45,7 @@ const CardBarChart: React.FunctionComponent<CardBarChartProps> = (props: CardBar
         {des}
         <span>{rate}↑</span>
       </div>
-      <Tiny.Column data={chartData!} height={chartHeight} />
+      <Column {...config} />
     </Card>
   )
 }

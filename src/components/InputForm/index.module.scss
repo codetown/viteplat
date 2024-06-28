@@ -1,0 +1,17 @@
+.inputForm {
+    width:62%;
+    min-width:400px;
+    max-width: 480px;
+    padding: 24px;
+    :global {
+        .ant-picker {
+            width: 100%;
+        }
+    }
+}
+
+.formBottom {
+    text-align: center;
+    padding-left:108px;
+    padding-top:24px;
+}

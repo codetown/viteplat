@@ -1,6 +1,6 @@
 import { Card, CascaderProps } from 'antd'
 import { AutoComplete, Button, Cascader, Checkbox, Col, Form, Input, InputNumber, Row, Select } from 'antd'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const { Option } = Select
 
@@ -69,7 +69,7 @@ const tailFormItemLayout = {
   }
 }
 
-const App: React.FC = () => {
+export default function FormPage() {
   const [form] = Form.useForm()
 
   const onFinish = (values: any) => {
@@ -207,7 +207,7 @@ const App: React.FC = () => {
         </Form.Item>
 
         <Form.Item name="intro" label="Intro" rules={[{ required: true, message: 'Please input Intro' }]}>
-          <Input.TextArea showCount maxLength={100} />
+          <Input.TextArea showCount maxLength={100} rows={5} />
         </Form.Item>
 
         <Form.Item name="gender" label="Gender" rules={[{ required: true, message: 'Please select gender!' }]}>
@@ -257,5 +257,3 @@ const App: React.FC = () => {
     </Card>
   )
 }
-
-export default App

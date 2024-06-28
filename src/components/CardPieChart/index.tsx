@@ -1,10 +1,8 @@
-import * as React from 'react'
+import { useState } from 'react'
 import { Radio, Card } from 'antd'
 import type { RadioChangeEvent } from 'antd'
-import { Pie } from '@ant-design/charts'
-import styles from './index.module.css'
-
-const { useState } = React
+import { Pie } from '@ant-design/plots'
+import styles from './index.module.scss'
 
 interface CardConfig {
   title?: string
@@ -43,25 +41,59 @@ const DEFAULT_DATA: CardConfig = {
       title: '事例五 |  9.29%     ¥1,231'
     }
   ],
-  chartHeight: 500
+  chartHeight: 360
 }
 
 export interface CardPieChartProps {
   cardConfig?: CardConfig
 }
 
-const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.Element => {
+const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props: CardPieChartProps): JSX.Element => {
   const { cardConfig = DEFAULT_DATA } = props
-
-  const { title, chartData, chartHeight } = cardConfig
-
   const [type, setType] = useState('one')
   const changeType = (e: RadioChangeEvent) => {
     setType(e.target.value)
   }
-
+  const config = {
+    data: cardConfig.chartData,
+    angleField: 'value',
+    colorField: 'type',
+    innerRadius: 0.6,
+    height: cardConfig.chartHeight,
+    label: {
+      text: 'value',
+      style: {
+        fontWeight: 'bold',
+      },
+    },
+    legend: {
+      color: {
+        title: '图例',
+        position: 'top',
+        rowPadding: 8,
+        layout: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }
+      },
+    },
+    annotations: [
+      {
+        type: 'text',
+        style: {
+          text: '销量',
+          x: '50%',
+          y: '50%',
+          textAlign: 'center',
+          fontSize: 32,
+          fontStyle: 'bold',
+        },
+      },
+    ],
+  };
   return (
-    <Card title={title}>
+    <Card title={cardConfig.title}>
       <Radio.Group value={type} onChange={changeType} className={styles.radioGroup} optionType="button">
         <Radio value="one" className={styles.radioFlex}>
           类目一
@@ -74,53 +106,7 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props): JSX.El
         </Radio>
       </Radio.Group>
       <Pie
-        data={chartData!}
-        angleField="value"
-        colorField="type"
-        appendPadding={10}
-        legend={{
-          position: 'bottom'
-        }}
-        height={chartHeight}
-        label={{
-          type: 'inner',
-          offset: '-50%',
-          autoRotate: false,
-          style: { textAlign: 'center' },
-          formatter: ({ percent }) => `${(percent * 100).toFixed(0)}%`
-        }}
-        radius={1}
-        innerRadius={0.64}
-        meta={{
-          value: {
-            formatter: (v) => `¥ ${v}`
-          }
-        }}
-        statistic={{
-          title: {
-            offsetY: -8
-          },
-          content: {
-            offsetY: -4
-          }
-        }}
-        interactions={[
-          { type: 'element-selected' },
-          { type: 'element-active' },
-          {
-            type: 'pie-statistic-active',
-            cfg: {
-              start: [
-                { trigger: 'element:mouseenter', action: 'pie-statistic:change' },
-                { trigger: 'legend-item:mouseenter', action: 'pie-statistic:change' }
-              ],
-              end: [
-                { trigger: 'element:mouseleave', action: 'pie-statistic:reset' },
-                { trigger: 'legend-item:mouseleave', action: 'pie-statistic:reset' }
-              ]
-            }
-          }
-        ]}
+        {...config}
       />
     </Card>
   )

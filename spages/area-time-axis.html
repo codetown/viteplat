@@ -1,0 +1,122 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=area-time-axis&code=DYUwLgBARghgziCBeCBqAdiA7hAIjMEACgEYBOADgoBoIzaBmASgG4AoUSAe03wE9kEAEwAWCACoIDAGwAGWRIgl5s9pwgATAjEEBtXbAS0AsgQAWAOgBOMdBq4BbIk0UN5AXXfsAZlysQidQBLQRIWCBCAHmEVVQjUVBcAbzYICHV0LhwUTBx8QiIiQ0RUFB4QfiZWVM1tCwAHAFc4MyJdDCyTc2suRrtC0zBLGztHZwgAWghZCwBWF0khBVRasBhdEKmSd11tpndqgF82LnqwIJ5BFLSwLi5gc_qALghrtIgwKyCAc2-QKxeAHIYAAPIJwQHUGppepcOBBc48F7ePoAY0R6ACZ2S0PeVnAjSsmN0Z10snctEBygApICvLjjmlDlCbgjQC83mlQN4wEDuWBIbjCCDeRBAYBBW0A84mAPjNAFyegD-1QE1Zk1b5fDRPTnpEA8p4AdiELLxPzMvINyqNt3uUC4II5uO8IAIhJA9ve7y0awAWncHG73e8-ABBMFwACSdhAdrFmUwSoDEBVCfxcFu-I5SYDcBgADcQEHww4YH8MwyLTUQSHwf6bnx6q6xecHCBBe6bX0tFY-ABxGDPCDeGDAIy40HggAqQVRAGtNbi0i0sk9Po0QAyjWkx3AADJBTBzhOLrDLqyrstMo3B0M1iDoGDNp6AwD4CYBw5yI3ag9TgTFb7zAdYbQEcyHVdfzSds7BgLte37MlKWUWRaXccs0k9GAfUcF5dFxLVa3rIE93hDQWw3d5Uyg0VZFItIQDsF4lnXHD5wgcirEo6iIFojUYnPCAKRqBAvhAOAsKYhM7wfMUpTAv8AL5PcSOYuAHDuIYXhXEAOLgPgHBtYAgVjRSEygp0AGV_3ZV5M3dNCXjQ3jkMOFggA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    let base = +new Date(1988, 9, 3);
+    let oneDay = 24 * 3600 * 1000;
+    let data = [[base, Math.random() * 300]];
+    for (let i = 1; i < 20000; i++) {
+      let now = new Date((base += oneDay));
+      data.push([+now, Math.round((Math.random() - 0.5) * 20 + data[i - 1][1])]);
+    }
+    option = {
+      tooltip: {
+        trigger: 'axis',
+        position: function (pt) {
+          return [pt[0], '10%'];
+        }
+      },
+      title: {
+        left: 'left',
+        text: '流量显示图'
+      },
+      grid: {
+        left: 72,
+        right: 72
+      },
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: 'none'
+          },
+          restore: {},
+          saveAsImage: {}
+        }
+      },
+      xAxis: {
+        type: 'time',
+        boundaryGap: false,
+        axisTick: {
+          show: true
+        },
+        axisLine: {
+          show: true
+        }
+      },
+      yAxis: {
+        name: '速率(Gbps)',
+        type: 'value',
+        boundaryGap: [0, '100%']
+      },
+      dataZoom: [
+        {
+          type: 'inside',
+          start: 0,
+          end: 20
+        },
+        {
+          start: 0,
+          end: 20
+        }
+      ],
+      series: [
+        {
+          name: '流量',
+          type: 'line',
+          smooth: true,
+          symbol: 'none',
+          areaStyle: {},
+          data: data
+        }
+      ]
+    };
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+
+</html>

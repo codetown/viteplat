@@ -1,9 +1,9 @@
-import * as React from 'react'
 import { Card } from 'antd'
-import { Tiny } from '@ant-design/charts'
+import { Tiny, TinyLineConfig } from '@ant-design/plots'
 import mock from './mock'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
+const { Line } = Tiny
 interface CardConfig {
   title?: string | React.ReactNode
   subTitle?: string | React.ReactNode
@@ -33,7 +33,24 @@ const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardL
   const { cardConfig = DEFAULT_DATA } = props
 
   const { title, subTitle, value, values, des, rate, chartHeight } = cardConfig
-
+  const config: TinyLineConfig = {
+    data: values!.map((value, index) => ({ value, index })),
+    height: chartHeight,
+    autoFit: true,
+    shapeField: 'smooth',
+    xField: 'index',
+    yField: 'value',
+    label: {
+      selector: 'last',
+      text: (d: any) => d.value,
+      textAlign: 'right',
+      textBaseline: 'bottom',
+      dx: -10,
+      dy: -10,
+      connector: true,
+      style: { fontSize: 10 }
+    }
+  }
   return (
     <Card title={title}>
       <div className={styles.cardSubTitle}>{subTitle}</div>
@@ -42,7 +59,7 @@ const CardLineChart: React.FunctionComponent<CardLineChartProps> = (props: CardL
         {des}
         <span>{rate}↑</span>
       </div>
-      {values && <Tiny.Line data={values} height={chartHeight} smooth />}
+      <Line {...config} />
     </Card>
   )
 }

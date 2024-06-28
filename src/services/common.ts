@@ -1,6 +1,5 @@
 // import { message, notification } from 'antd'
 import request from './request'
-import { AxiosResponse } from 'axios'
 
 // callRestfulApi通用调用Restful API
 // export function callRestfulApi(objName, method, params, handleSuccess = null, handleError = null) {
@@ -43,29 +42,22 @@ import { AxiosResponse } from 'axios'
 //     notification.error(errors)
 //   });
 // }
-interface RepsonseData {
+export interface RepsonseData {
   code: number
   message: string
   data: any
 }
+
 // fetchLogin 登录
-export function fetchLogin(params: any): Promise<AxiosResponse<RepsonseData, any>> {
+export function fetchLogin(params: any): Promise<RepsonseData> {
   return request('/api/v1/login', {
     method: 'POST',
     data: params
   })
 }
 
-// getCaptcha 获取登录验证码
-export function getCaptcha(params: any) {
-  return request(`/api/v1/get-captcha`, {
-    method: 'POST',
-    data: params
-  })
-}
-
 // 获取系统通知
-export function getNotices(params: any) {
+export function getNotices(params: any): Promise<RepsonseData> {
   return request('/api/v1/get-notices', {
     method: 'GET',
     params
@@ -73,7 +65,7 @@ export function getNotices(params: any) {
 }
 
 // getMyInfo 获取个人信息
-export function getMyInfo(params: any) {
+export function getMyInfo(params: any): Promise<RepsonseData> {
   return request('/api/v1/member/my-info', {
     method: 'GET',
     params
@@ -81,7 +73,7 @@ export function getMyInfo(params: any) {
 }
 
 // putMyInfo 修改个人信息
-export function putMyInfo(params: any) {
+export function putMyInfo(params: any): Promise<RepsonseData> {
   return request('/api/v1/member/my-info', {
     method: 'PUT',
     params
@@ -89,7 +81,7 @@ export function putMyInfo(params: any) {
 }
 
 // logout 退出系统
-export function fetchLogout(params: any) {
+export function fetchLogout(params: any): Promise<RepsonseData> {
   return request('/api/v1/logout', {
     method: 'DELETE',
     params
@@ -97,75 +89,15 @@ export function fetchLogout(params: any) {
 }
 
 // getHomeInfo 获取首页信息
-export function getHomeInfo(params: any) {
+export function getHomeInfo(params: any): Promise<RepsonseData> {
   return request('/api/v1/home', {
     method: 'GET',
     params
   })
 }
 
-// getMemberDetail 获取用户信息详情
-export function getMemberDetail(id: number) {
-  return request(`/api/v1/members/${id}`, {
-    method: 'GET'
-  })
-}
-
-// getMemberList 获取用户信息列表
-export function getMemberList(params: any) {
-  return request('/api/v1/members', {
-    method: 'GET',
-    params
-  })
-}
-
-// getVideoDetail 获取视频详情信息和播放链接地址
-export function getVideoDetail(params: any) {
-  return request(`/api/v1/videos/${params?.id}`, {
-    method: 'GET',
-    params
-  })
-}
-
-// getVideos 获取视频列表
-export function getVideos(params: any) {
-  return request('/api/v1/videos', {
-    method: 'GET',
-    params
-  })
-}
-
-// 第三方平台搜索视频
-export function searchVideos(params: any) {
-  return request(`/api/v1/bt4kyy/search`, {
-    method: 'GET',
-    params
-  })
-}
-
-// getVcateDetail 获取视频分类详情
-export function getVideoCateDetail(id: number) {
-  return request(`/api/v1/video-cates/${id}`)
-}
-
-// getVcates 获取视频分类列表
-export function getVcates(params: any) {
-  return request('/api/v1/video-cates', {
-    method: 'GET',
-    params
-  })
-}
-
-// getTVChannels 获取电视频道
-export function getTVChannels(params: any) {
-  return request('/api/v1/tv-channels', {
-    method: 'GET',
-    params
-  })
-}
-
 // getAdmins获取菜单树
-export function getAdmins(params: any) {
+export function getAdmins(params: any): Promise<RepsonseData> {
   return request('/api/v1/admins', {
     method: 'GET',
     params
@@ -183,3 +115,63 @@ export function getAdmins(params: any) {
 //     requestType:'form',
 //   });
 // };
+
+// fakeLogin 登录
+export async function fakeLogin(params:any) {
+  return request('/api/v1/plt/login', {
+    method: 'POST',
+    data: params,
+  });
+}
+
+// getCaptcha 获取登录验证码
+export async function getCaptcha(params:any) {
+  return request(`/api/v1/get-captcha`, {
+    method: 'POST',
+    data: params,
+  });
+}
+
+// logout 退出系统
+export async function fakeLogout(params: any) {
+  return request('/api/v1/logout', {
+    method: 'DELETE',
+    params
+  });
+};
+
+// getMemberDetail 获取用户信息详情
+export async function getMemberDetail(id:number) {
+  return request(`/api/v1/members/${id}`, {
+    method: 'GET'
+  });
+};
+
+// getMemberList 获取用户信息列表
+export async function getMemberList(params:any) {
+  return request('/api/v1/members', {
+    method: 'GET',
+    params
+  });
+};
+
+export function pureParams(params:any,deleteZero:boolean = false){
+  const realParams:any = {}
+  Object.keys(params).forEach(key=>{
+    const condition1 = ['current','pageSize'].includes(key)
+    let condition2 = params[key]===undefined||params[key]===null||params[key]===''|| Number.isNaN(params[key])
+    if (deleteZero){
+      condition2=condition2||(params[key]===0)
+    }
+    if((!condition1)&&(!condition2)){
+      realParams[key]=params[key]
+    }
+    if(key==='current'){
+      realParams['page']=params.current
+    }
+    if(key==='pageSize'){
+      realParams['per_page']=params.pageSize
+    }
+  })
+  return realParams
+}

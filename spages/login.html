@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Login Page</title>
+    <!-- Add your CSS styles here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding:64px;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding-top:32px;
+            padding-bottom:64px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #3d3d3d;
+            font-size: 2em;
+            line-height: 1.2;
+        }
+
+        form {
+            display: inline-block;
+            width: 100%;
+        }
+
+        input[type=text],
+        input[type=password] {
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            height: 3rem;
+            padding-left:1em;
+            padding-right:1em;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #0088ff;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            height: 3.125rem;
+            outline: none;
+            padding-left:1em;
+            padding-right:1em;
+            color:#f2f2f2;
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        button:hover,
+        button:focus {
+            background-color: #00aaee;
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust layout for smaller screens */
+        }
+        .data-block{
+            display:flex;
+            justify-content: space-between;
+        }
+        .data-block>div{
+            width:20%;
+            height:180px;
+            border-radius: 8px;
+        }
+        .data-block>div:nth-child(1){
+            background:linear-gradient(24deg,#ffddaa,#ff6666);
+        }
+        .data-block>div:nth-child(2){
+            background:linear-gradient(24deg,#88ddee,#0088ff);
+        }
+        .data-block>div:nth-child(3){
+            background:linear-gradient(24deg,#ffee88,#ee9966);
+        }
+        .data-block>div:nth-child(4){
+            background:linear-gradient(24deg,#ddeeff,#bb66ee);
+        }
+    </style>
+</head>
+<body>
+    <div class="data-block">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+<div class="container">
+    <h1>Login to Your Account</h1>
+    
+    <form action="/login" method="post">
+        <input type="text" placeholder="Username or Email Address" required />
+        <br><br>
+        <input type="password" placeholder="Password" required />
+        <br><br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+<div class="data-block">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<!-- Include any JavaScript files and libraries you need -->
+
+</body>
+</html>

@@ -1,27 +1,26 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import { ConfigProvider } from 'antd'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App'
-import './index.css'
+import { App, ConfigProvider } from 'antd'
+import { RouterProvider } from 'react-router-dom'
+// import type { Locale } from 'antd/es/locale';
+// import enUS from 'antd/locale/en_US';
+import zhCN from 'antd/locale/zh_CN'
+
+/**解决antd时间组件国际化不彻底问题 Start**/
+import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
+dayjs.locale('zh-cn')
+/**解决antd时间组件国际化不彻底问题 End**/
+
+import routes from '@/routes'
+import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: '#3366ff'
-          }
-          // ,
-          // components: {
-          //   Button: {
-          //     background: 'linear-gradient(90deg,#1395fe 4.83%,#1e72ff 94.74%)'
-          //   },
-          // }
-        }}>
-        <App />
-      </ConfigProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <StrictMode>
+    <ConfigProvider locale={zhCN}>
+      <App>
+        <RouterProvider router={routes} />
+      </App>
+    </ConfigProvider>
+  </StrictMode>
 )
