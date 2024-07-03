@@ -1,0 +1,204 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+		<script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+		<script type="text/javascript">
+			window.tailwind.config = {
+				darkMode: ['class'],
+				theme: {
+					extend: {
+						colors: {
+							border: 'hsl(var(--border))',
+							input: 'hsl(var(--input))',
+							ring: 'hsl(var(--ring))',
+							background: 'hsl(var(--background))',
+							foreground: 'hsl(var(--foreground))',
+							primary: {
+								DEFAULT: 'hsl(var(--primary))',
+								foreground: 'hsl(var(--primary-foreground))'
+							},
+							secondary: {
+								DEFAULT: 'hsl(var(--secondary))',
+								foreground: 'hsl(var(--secondary-foreground))'
+							},
+							destructive: {
+								DEFAULT: 'hsl(var(--destructive))',
+								foreground: 'hsl(var(--destructive-foreground))'
+							},
+							muted: {
+								DEFAULT: 'hsl(var(--muted))',
+								foreground: 'hsl(var(--muted-foreground))'
+							},
+							accent: {
+								DEFAULT: 'hsl(var(--accent))',
+								foreground: 'hsl(var(--accent-foreground))'
+							},
+							popover: {
+								DEFAULT: 'hsl(var(--popover))',
+								foreground: 'hsl(var(--popover-foreground))'
+							},
+							card: {
+								DEFAULT: 'hsl(var(--card))',
+								foreground: 'hsl(var(--card-foreground))'
+							},
+						},
+					}
+				}
+			}
+		</script>
+		<style type="text/tailwindcss">
+			@layer base {
+				:root {
+					--background: 0 0% 100%;
+--foreground: 20 14.3% 4.1%;
+--card: 0 0% 100%;
+--card-foreground: 20 14.3% 4.1%;
+--popover: 0 0% 100%;
+--popover-foreground: 20 14.3% 4.1%;
+--primary: 47.9 95.8% 53.1%;
+--primary-foreground: 26 83.3% 14.1%;
+--secondary: 60 4.8% 95.9%;
+--secondary-foreground: 24 9.8% 10%;
+--muted: 60 4.8% 95.9%;
+--muted-foreground: 25 5.3% 44.7%;
+--accent: 60 4.8% 95.9%;
+--accent-foreground: 24 9.8% 10%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 60 9.1% 97.8%;
+--border: 20 5.9% 90%;
+--input: 20 5.9% 90%;
+--ring: 20 14.3% 4.1%;
+--radius: 0.95rem;
+				}
+				.dark {
+					--background: 20 14.3% 4.1%;
+--foreground: 60 9.1% 97.8%;
+--card: 20 14.3% 4.1%;
+--card-foreground: 60 9.1% 97.8%;
+--popover: 20 14.3% 4.1%;
+--popover-foreground: 60 9.1% 97.8%;
+--primary: 47.9 95.8% 53.1%;
+--primary-foreground: 26 83.3% 14.1%;
+--secondary: 12 6.5% 15.1%;
+--secondary-foreground: 60 9.1% 97.8%;
+--muted: 12 6.5% 15.1%;
+--muted-foreground: 24 5.4% 63.9%;
+--accent: 12 6.5% 15.1%;
+--accent-foreground: 60 9.1% 97.8%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 60 9.1% 97.8%;
+--border: 12 6.5% 15.1%;
+--input: 12 6.5% 15.1%;
+--ring: 35.5 91.7% 32.9%;
+				}
+			}
+		</style>
+  </head>
+  <body>
+    <div class="bg-background text-foreground min-h-screen p-4">
+  <nav class="flex items-center justify-between p-4 bg-card rounded-lg mb-6">
+    <div class="flex items-center space-x-4">
+      <img src="https://placehold.co/32" alt="logo" class="rounded-full">
+      <a href="#" class="text-primary-foreground hover:text-primary">主页</a>
+      <a href="#" class="text-primary-foreground hover:text-primary">体验AI</a>
+      <a href="#" class="text-primary-foreground hover:text-primary">训练</a>
+      <a href="#" class="text-primary-foreground hover:text-primary">实验室</a>
+      <a href="#" class="text-primary-foreground hover:text-primary">作品</a>
+    </div>
+    <div class="flex items-center space-x-4">
+      <input type="text" placeholder="搜索" class="p-2 rounded bg-input text-input placeholder-muted-foreground">
+      <a href="#" class="flex items-center space-x-1 text-primary-foreground hover:text-primary">
+        <img src="https://placehold.co/24x24?text=🔍" alt="search">
+        <span>搜索</span>
+      </a>
+      <a href="#" class="text-primary-foreground hover:text-primary">创作</a>
+      <a href="#" class="text-primary-foreground hover:text-primary">VIP</a>
+      <a href="#" class="text-primary-foreground hover:text-primary">个人</a>
+    </div>
+  </nav>
+  <section class="mb-8">
+    <h2 class="text-xl text-muted-foreground mb-4">精选推荐</h2>
+    <div class="flex space-x-4 overflow-auto p-2 bg-card rounded-lg">
+      <a href="#" class="flex-none w-36 h-24 bg-primary text-primary-foreground rounded-lg p-4 flex items-center justify-center">
+        <img src="https://placehold.co/24x24?text=✨" alt="Recommended">
+        <span>For You</span>
+      </a>
+      <a href="#" class="flex-none w-36 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">模型</a>
+      <a href="#" class="flex-none w-36 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">快捷应用</a>
+      <a href="#" class="flex-none w-36 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">工作流</a>
+      <a href="#" class="flex-none w-36 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">设计模板</a>
+      <a href="#" class="flex-none w-36 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">更多</a>
+    </div>
+  </section>
+  <section class="mb-8">
+    <h2 class="text-xl text-muted-foreground mb-4">免费AI艺术生成器与快捷AI工具</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x100" alt="创意表情包">
+        <p class="text-primary-foreground mt-2">创意表情包</p>
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x100" alt="AI女性生成工具">
+        <p class="text-primary-foreground mt-2">AI女性生成工具</p>
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x100" alt="逼真写真人">
+        <p class="text-primary-foreground mt-2">逼真写真人</p>
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x100" alt="漫画美人">
+        <p class="text-primary-foreground mt-2">漫画美人</p>
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x100" alt="唯美艺术家">
+        <p class="text-primary-foreground mt-2">唯美艺术家</p>
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x100" alt="超真实社交主播（V2)">
+        <p class="text-primary-foreground mt-2">超真实社交主播（V2)</p>
+      </a>
+    </div>
+  </section>
+  <section>
+    <h2 class="text-xl text-muted-foreground mb-4">广场</h2>
+    <div class="flex space-x-4 overflow-auto p-2 bg-card rounded-lg">
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">科幻</a>
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">皮肤风格</a>
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">插画</a>
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">风景</a>
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">SDXL</a>
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">摄影</a>
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">交通</a>
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">动漫</a>
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">写实</a>
+      <a href="#" class="flex-none w-24 h-24 bg-secondary text-secondary-foreground rounded-lg p-4 flex items-center justify-center">卡通</a>
+    </div>
+  </section>
+  <section>
+    <h2 class="text-xl text-muted-foreground mb-4">精选作品</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x150" alt="艺术作品1">
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x150" alt="艺术作品2">
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x150" alt="艺术作品3">
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x150" alt="艺术作品4">
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x150" alt="艺术作品5">
+      </a>
+      <a href="#" class="bg-card p-4 rounded-lg">
+        <img src="https://placehold.co/150x150" alt="艺术作品6">
+      </a>
+    </div>
+  </section>
+</div>
+  </body>
+</html>

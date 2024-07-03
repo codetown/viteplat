@@ -1,0 +1,182 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+		<script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+		<script type="text/javascript">
+			window.tailwind.config = {
+				darkMode: ['class'],
+				theme: {
+					extend: {
+						colors: {
+							border: 'hsl(var(--border))',
+							input: 'hsl(var(--input))',
+							ring: 'hsl(var(--ring))',
+							background: 'hsl(var(--background))',
+							foreground: 'hsl(var(--foreground))',
+							primary: {
+								DEFAULT: 'hsl(var(--primary))',
+								foreground: 'hsl(var(--primary-foreground))'
+							},
+							secondary: {
+								DEFAULT: 'hsl(var(--secondary))',
+								foreground: 'hsl(var(--secondary-foreground))'
+							},
+							destructive: {
+								DEFAULT: 'hsl(var(--destructive))',
+								foreground: 'hsl(var(--destructive-foreground))'
+							},
+							muted: {
+								DEFAULT: 'hsl(var(--muted))',
+								foreground: 'hsl(var(--muted-foreground))'
+							},
+							accent: {
+								DEFAULT: 'hsl(var(--accent))',
+								foreground: 'hsl(var(--accent-foreground))'
+							},
+							popover: {
+								DEFAULT: 'hsl(var(--popover))',
+								foreground: 'hsl(var(--popover-foreground))'
+							},
+							card: {
+								DEFAULT: 'hsl(var(--card))',
+								foreground: 'hsl(var(--card-foreground))'
+							},
+						},
+					}
+				}
+			}
+		</script>
+		<style type="text/tailwindcss">
+			@layer base {
+				:root {
+					--background: 0 0% 100%;
+--foreground: 20 14.3% 4.1%;
+--card: 0 0% 100%;
+--card-foreground: 20 14.3% 4.1%;
+--popover: 0 0% 100%;
+--popover-foreground: 20 14.3% 4.1%;
+--primary: 47.9 95.8% 53.1%;
+--primary-foreground: 26 83.3% 14.1%;
+--secondary: 60 4.8% 95.9%;
+--secondary-foreground: 24 9.8% 10%;
+--muted: 60 4.8% 95.9%;
+--muted-foreground: 25 5.3% 44.7%;
+--accent: 60 4.8% 95.9%;
+--accent-foreground: 24 9.8% 10%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 60 9.1% 97.8%;
+--border: 20 5.9% 90%;
+--input: 20 5.9% 90%;
+--ring: 20 14.3% 4.1%;
+--radius: 0.95rem;
+				}
+				.dark {
+					--background: 20 14.3% 4.1%;
+--foreground: 60 9.1% 97.8%;
+--card: 20 14.3% 4.1%;
+--card-foreground: 60 9.1% 97.8%;
+--popover: 20 14.3% 4.1%;
+--popover-foreground: 60 9.1% 97.8%;
+--primary: 47.9 95.8% 53.1%;
+--primary-foreground: 26 83.3% 14.1%;
+--secondary: 12 6.5% 15.1%;
+--secondary-foreground: 60 9.1% 97.8%;
+--muted: 12 6.5% 15.1%;
+--muted-foreground: 24 5.4% 63.9%;
+--accent: 12 6.5% 15.1%;
+--accent-foreground: 60 9.1% 97.8%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 60 9.1% 97.8%;
+--border: 12 6.5% 15.1%;
+--input: 12 6.5% 15.1%;
+--ring: 35.5 91.7% 32.9%;
+				}
+			}
+		</style>
+  </head>
+  <body>
+    <div class="min-h-screen bg-background text-foreground">
+  <div class="flex">
+    
+    <div class="w-1/6 bg-card p-4">
+      <div class="flex items-center mb-6">
+        <img src="https://placehold.co/24x24?text=📺" alt="logo" class="mr-2" />
+        <span class="text-lg font-bold">腾讯视频</span>
+      </div>
+      <ul class="space-y-4">
+        <li class="text-primary hover:text-primary-foreground cursor-pointer">首页</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">VIP会员</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">中视频</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">电视剧</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">电影</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">综艺</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">动漫</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">少儿</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">NBA</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">纪录片</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">新闻</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">体育</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">爱玩</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">游戏</li>
+        <li class="text-muted-foreground hover:text-primary-foreground cursor-pointer">传家游戏欢乐库</li>
+      </ul>
+    </div>
+    
+    <div class="w-5/6 p-4">
+      
+      <div class="flex items-center mb-6">
+        <input type="text" placeholder="玫瑰的故事" class="w-full p-2 bg-input text-foreground rounded-md" />
+        <button class="ml-2 p-2 bg-primary text-primary-foreground rounded-md">🔍</button>
+      </div>
+      
+      <div class="relative mb-6">
+        <img src="https://placehold.co/800x400" alt="Featured Video" class="w-full rounded-md" />
+        <div class="absolute bottom-4 left-4 text-white">
+          <h2 class="text-2xl font-bold">仙逆</h2>
+          <p>东方玄幻 东方仙侠 逆袭</p>
+          <p>王林快来！婴儿要拜堂了</p>
+          <button class="mt-2 p-2 bg-primary text-primary-foreground rounded-md">播放正片</button>
+        </div>
+      </div>
+      
+      <div class="flex items-center mb-6">
+        <button class="p-2 bg-secondary text-secondary-foreground rounded-md">⬅️</button>
+        <div class="flex overflow-x-auto space-x-4 mx-4">
+          <img src="https://placehold.co/100x150" alt="Carousel Item 1" class="rounded-md" />
+          <img src="https://placehold.co/100x150" alt="Carousel Item 2" class="rounded-md" />
+          <img src="https://placehold.co/100x150" alt="Carousel Item 3" class="rounded-md" />
+          <img src="https://placehold.co/100x150" alt="Carousel Item 4" class="rounded-md" />
+        </div>
+        <button class="p-2 bg-secondary text-secondary-foreground rounded-md">➡️</button>
+      </div>
+      
+      <h2 class="text-xl font-bold mb-4">重磅热播</h2>
+      <div class="grid grid-cols-4 gap-4">
+        <div class="bg-card p-4 rounded-md">
+          <img src="https://placehold.co/200x100" alt="Trending 1" class="w-full rounded-md mb-2" />
+          <h3 class="text-lg font-bold">玫瑰的故事</h3>
+          <p>全36集</p>
+        </div>
+        <div class="bg-card p-4 rounded-md">
+          <img src="https://placehold.co/200x100" alt="Trending 2" class="w-full rounded-md mb-2" />
+          <h3 class="text-lg font-bold">反黑英雄</h3>
+          <p>更新至15集</p>
+        </div>
+        <div class="bg-card p-4 rounded-md">
+          <img src="https://placehold.co/200x100" alt="Trending 3" class="w-full rounded-md mb-2" />
+          <h3 class="text-lg font-bold">朝云暮雨</h3>
+          <p>7.7分</p>
+        </div>
+        <div class="bg-card p-4 rounded-md">
+          <img src="https://placehold.co/200x100" alt="Trending 4" class="w-full rounded-md mb-2" />
+          <h3 class="text-lg font-bold">庆余年第二季</h3>
+          <p>全36集</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
