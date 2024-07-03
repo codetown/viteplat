@@ -51,7 +51,7 @@ export default function () {
   }, []);
   return (
     <div className={classes.container}>
-      <Card className={classes.rightPart} title="页面布局">
+      <Card className={classes.leftPart} title="页面布局">
         {/*<DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="droppableTarget">
             {(provided, snapshot) => (
@@ -69,7 +69,7 @@ export default function () {
       </Card>
       <Card
         title="组件列表"
-        className={classes.leftPart}
+        className={classes.rightPart}
       >
         {/* <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="droppable">
