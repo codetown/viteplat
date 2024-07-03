@@ -1,5 +1,5 @@
 import { Avatar, List } from 'antd'
-import styles from './list.module.scss'
+import classes from './list.module.scss'
 
 export type NoticeIconTabProps = {
   count?: number
@@ -30,7 +30,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
 }: NoticeIconTabProps) => {
   if (!list || list.length === 0) {
     return (
-      <div className={styles.notFound}>
+      <div className={classes.notFound}>
         <img src="https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg" alt="not found" />
         <div>{emptyText}</div>
       </div>
@@ -39,37 +39,37 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
   return (
     <div>
       <List<any>
-        className={styles.list}
+        className={classes.list}
         dataSource={list}
         renderItem={(item, i) => {
           const leftIcon = item.avatar ? (
             typeof item.avatar === 'string' ? (
-              <Avatar className={styles.avatar} src={item.avatar} />
+              <Avatar className={classes.avatar} src={item.avatar} />
             ) : (
-              <span className={styles.iconElement}>{item.avatar}</span>
+              <span className={classes.iconElement}>{item.avatar}</span>
             )
           ) : null
 
           return (
             <List.Item
-              className={styles.item}
+              className={classes.item}
               key={item.key || i}
               onClick={() => {
                 onClick?.(item)
               }}>
               <List.Item.Meta
-                className={styles.meta}
+                className={classes.meta}
                 avatar={leftIcon}
                 title={
-                  <div className={styles.title}>
+                  <div className={classes.title}>
                     {item.title}
-                    <div className={styles.extra}>{item.extra}</div>
+                    <div className={classes.extra}>{item.extra}</div>
                   </div>
                 }
                 description={
                   <div>
-                    <div className={styles.description}>{item.description}</div>
-                    <div className={styles.datetime}>{item.datetime}</div>
+                    <div className={classes.description}>{item.description}</div>
+                    <div className={classes.datetime}>{item.datetime}</div>
                   </div>
                 }
               />
@@ -77,7 +77,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
           )
         }}
       />
-      <div className={styles.bottomBar}>
+      <div className={classes.bottomBar}>
         {showClear ? (
           <div onClick={onClear}>
             {clearText} {title}

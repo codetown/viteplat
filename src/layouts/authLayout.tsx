@@ -4,7 +4,7 @@ import { Badge, Breadcrumb, Layout, Menu, theme } from 'antd'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { asideMenuConfig } from './menuConfig'
 import AvatarDropdown from './components/AvatarDropdown'
-import styles from './layout.module.scss'
+import classes from './layout.module.scss'
 import useGlobalStore from '@/stores/global'
 // import NoticeDropdown from './components/NoticeDropdown'
 import logo from '@/assets/logo2.png'
@@ -24,16 +24,16 @@ export default function MainLayout() {
     token: { colorBgContainer }
   } = theme.useToken()
   return (
-    <Layout className={styles.layout}>
+    <Layout className={classes.layout}>
       <Sider trigger={null} collapsible collapsed={collapsed} collapsedWidth={48} theme="light">
-        <div className={styles.logo}>
+        <div className={classes.logo}>
           <span>
             <img src={logo} />
           </span>
           <strong>Web-Platform</strong>
         </div>
         <Menu
-          className={styles.menu}
+          className={classes.menu}
           mode="inline"
           theme="dark"
           openKeys={openKeys}
@@ -60,7 +60,7 @@ export default function MainLayout() {
             })
           )}
         />
-        <div className={styles.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }}>
+        <div className={classes.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }}>
           {collapsed ? (
             <>
               {/* <span onClick={() => setCollapsed(!collapsed)}>展开</span> */}
@@ -87,9 +87,9 @@ export default function MainLayout() {
             alignItems: 'center'
           }}>
           <Breadcrumb items={[{ title: '首页' }, { title: '用户' }, { title: '列表' }]} />
-          <div className={styles.headerRight}>
+          <div className={classes.headerRight}>
             <Badge count={newMessageCount}>
-              <MessageOutlined className={styles.messageIcon} />
+              <MessageOutlined className={classes.messageIcon} />
             </Badge>
             {/* <NoticeDropdown /> */}
             <AvatarDropdown name={currentUser?.username} avatar={avatar} />

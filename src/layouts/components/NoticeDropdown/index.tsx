@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Tag, message } from 'antd'
 import NoticeIcon from './NoticeIcon'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 import useGlobalStore from '@/stores/global'
 
 export type GlobalHeaderRightProps = {
@@ -103,7 +103,7 @@ const NoticeDropdown: React.FC = () => {
 
   return (
     <NoticeIcon
-      className={styles.action}
+      className={classes.action}
       count={currentUser && currentUser.unreadCount}
       onItemClick={(item) => {
         changeReadState(item.id!)

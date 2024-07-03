@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Card, Input, Table, Form, Button, Space, Select } from 'antd';
 import FilterForm from '@/components/FilterForm';
-import styles from './index.module.scss';
+import classes from './index.module.scss';
 // import avatar from '@/assets/avatar.jpeg';
 import InputForm from '@/components/InputForm';
 import { getMemberList } from '@/services/common';
@@ -107,7 +107,7 @@ export default function () {
             width: 80,
             align: 'center',
             render: (value: any) => {
-                return <img src={value} className={styles.avatar} />;
+                return <img src={value} className={classes.avatar} />;
             },
         },
         {
@@ -117,8 +117,8 @@ export default function () {
                 const textArr = ['未设置', '男生', '女生'];
                 return (
                     <>
-                        <p className={styles.userInfo}>{item.nickName}</p>
-                        <p className={styles.userInfo} style={{ fontSize: 12, color: '#999' }}>
+                        <p className={classes.userInfo}>{item.nickName}</p>
+                        <p className={classes.userInfo} style={{ fontSize: 12, color: '#999' }}>
                             {textArr[item.gender]}
                         </p>
                     </>
@@ -131,8 +131,8 @@ export default function () {
             render: (item: any) => {
                 return (
                     <>
-                        <p className={styles.userInfo}>{item.accountNo}</p>
-                        <p className={styles.userInfo}>{item.email}</p>
+                        <p className={classes.userInfo}>{item.accountNo}</p>
+                        <p className={classes.userInfo}>{item.email}</p>
                     </>
                 );
             },

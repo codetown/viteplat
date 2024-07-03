@@ -1,7 +1,7 @@
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons'
 import { Dropdown, Avatar, MenuProps } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 
 interface AvatarDropdownProps {
   name: string
@@ -31,20 +31,20 @@ const AvatarDropdown: React.FC<AvatarDropdownProps> = (props: { name: string; av
         key: 'zone',
         label: '个人中心',
         icon: <UserOutlined />,
-        className: styles.menu
+        className: classes.menu
       },
       {
         key: 'logout',
         label: '退出登录',
         icon: <LogoutOutlined />,
-        className: styles.menu
+        className: classes.menu
       }
     ]
   }
   return (
     <Dropdown menu={menu}>
-      <span className={`${styles.action} ${styles.account}`}>
-        <Avatar size="small" className={styles.avatar} src={props.avatar} alt="avatar" />
+      <span className={`${classes.action} ${classes.account}`}>
+        <Avatar size="small" className={classes.avatar} src={props.avatar} alt="avatar" />
         <span>{props.name}</span>
       </span>
     </Dropdown>

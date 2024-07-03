@@ -105,9 +105,30 @@ const asideMenuConfig: SiderMenuItemType[] = [
     ]
   },
   {
-    name: '高级上传',
-    path: '/upload-advance',
-    icon: <TableOutlined />,
+    name: '应用配置',
+    icon: <FormOutlined />,
+    children: [
+      {
+        name: '拖拽示例',
+        path: '/app-pages-config/drag-demo'
+      },
+      {
+        name: '创建页面',
+        path: '/app-pages-config/create'
+      },
+      {
+        name: '工作台',
+        path: '/app-pages-config/workbentch'
+      },
+      {
+        name: '相册',
+        path: '/hook-video-demo',
+      },
+      {
+        name: '页面配置',
+        path: '/app-pages-config',
+      }
+    ]
   },
   {
     name: '结果&异常',

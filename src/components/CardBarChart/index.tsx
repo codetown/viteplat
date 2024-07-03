@@ -1,6 +1,6 @@
 import { Card } from 'antd'
 import mock from './mock'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 import { Tiny, TinyLineConfig } from '@ant-design/plots'
 const { Column } = Tiny
 interface CardConfig {
@@ -39,9 +39,9 @@ const CardBarChart: React.FunctionComponent<CardBarChartProps> = (props: CardBar
   }
   return (
     <Card title={title}>
-      <div className={styles.cardSubTitle}>{subTitle}</div>
-      <div className={styles.cardValue}>{value}</div>
-      <div className={styles.cardDes}>
+      <div className={classes.cardSubTitle}>{subTitle}</div>
+      <div className={classes.cardValue}>{value}</div>
+      <div className={classes.cardDes}>
         {des}
         <span>{rate}↑</span>
       </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Card, Modal, Form, Input, List, message } from 'antd';
-import styles from './index.module.scss';
+import classes from './index.module.scss';
 import VideoJsPlayer from '@/components/VideoJS';
 import useVideoStore from '@/stores/video';
 import { getVideoDetail } from '@/services/videos';
@@ -118,7 +118,7 @@ export default function () {
       dataSource={items}
       renderItem={(item: any) => (
         <List.Item>
-          <a className={styles.videoItem} title={item.title} onClick={() => preview(item)}>
+          <a className={classes.videoItem} title={item.title} onClick={() => preview(item)}>
             <img title={item.title} alt={item.title} src={item.poster} />
             <span>{item.title}</span>
           </a>
@@ -127,7 +127,7 @@ export default function () {
     />
   );
   return (
-    <div className={styles.coverCardList}>
+    <div className={classes.coverCardList}>
       <Card bordered={false}>
         <Form
           form={form}
@@ -147,8 +147,8 @@ export default function () {
           </FormItem>
         </Form>
       </Card>
-      <div className={styles.cardList}>{cardList}</div>
-      <Modal className={styles.preview} width={960} open={showPlayer} keyboard={false} maskClosable={false}
+      <div className={classes.cardList}>{cardList}</div>
+      <Modal className={classes.preview} width={960} open={showPlayer} keyboard={false} maskClosable={false}
         forceRender={true} title={currentVideo?.title || ''}
         onCancel={() => {
           playerRef?.current?.pause();

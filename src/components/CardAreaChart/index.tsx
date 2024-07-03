@@ -1,7 +1,7 @@
 import { Card } from 'antd'
 import { Tiny, TinyLineConfig } from '@ant-design/plots'
 import mock from './mock'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 const { Area } = Tiny
 interface CardConfig {
   title: string | React.ReactNode
@@ -44,10 +44,10 @@ const CardAreaChart: React.FunctionComponent<CardAreaChartProps> = (props: CardA
     }
   }
   return (
-    <Card title={title} className={styles.areaChart}>
-      <div className={styles.cardSubTitle}>{subTitle}</div>
-      <div className={styles.cardValue}>{value}</div>
-      <div className={styles.cardDes}>
+    <Card title={title} className={classes.areaChart}>
+      <div className={classes.cardSubTitle}>{subTitle}</div>
+      <div className={classes.cardValue}>{value}</div>
+      <div className={classes.cardDes}>
         {des}
         <span>{rate}↑</span>
       </div>

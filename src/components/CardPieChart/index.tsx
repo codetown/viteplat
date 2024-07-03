@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Radio, Card } from 'antd'
 import type { RadioChangeEvent } from 'antd'
 import { Pie } from '@ant-design/plots'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 
 interface CardConfig {
   title?: string
@@ -94,14 +94,14 @@ const CardPieChart: React.FunctionComponent<CardPieChartProps> = (props: CardPie
   };
   return (
     <Card title={cardConfig.title}>
-      <Radio.Group value={type} onChange={changeType} className={styles.radioGroup} optionType="button">
-        <Radio value="one" className={styles.radioFlex}>
+      <Radio.Group value={type} onChange={changeType} className={classes.radioGroup} optionType="button">
+        <Radio value="one" className={classes.radioFlex}>
           类目一
         </Radio>
-        <Radio value="two" className={styles.radioFlex}>
+        <Radio value="two" className={classes.radioFlex}>
           类目二
         </Radio>
-        <Radio value="three" className={styles.radioFlex}>
+        <Radio value="three" className={classes.radioFlex}>
           类目三
         </Radio>
       </Radio.Group>

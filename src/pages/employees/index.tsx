@@ -4,7 +4,7 @@ import type { ColumnsType } from 'antd/es/table'
 import { CopyOutlined, DeleteOutlined, FormOutlined } from '@ant-design/icons'
 import useEmployeeStore from '@/stores/employee'
 
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 import FilterForm from '@/components/FilterForm'
 
 interface DataType {
@@ -25,7 +25,7 @@ const columns: ColumnsType<DataType> = [
     key: 'info',
     render(_, record) {
       return (
-        <span className={styles.infoBlock}>
+        <span className={classes.infoBlock}>
           <img src={record.avatar} alt="" width="48" height="48" />
           <span>{record.realName}</span>
           <span>{record.mobile}</span>
@@ -83,7 +83,7 @@ export default function Employees() {
 
   const { items, total, current, pageSize, filterFileds, searchEmployees } = useEmployeeStore((state: any) => state)
   useEffect(() => {
-    searchEmployees({current: 1, pageSize: 10 })
+    searchEmployees({ current: 1, pageSize: 10 })
   }, [])
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     console.log('selectedRowKeys changed: ', newSelectedRowKeys)
@@ -143,7 +143,7 @@ export default function Employees() {
         <FilterForm
           fields={fields}
           onFilter={(values: any) => {
-            searchEmployees({ current: 1, pageSize:pageSize }, values)
+            searchEmployees({ current: 1, pageSize: pageSize }, values)
           }}
         />
       }>
@@ -165,7 +165,7 @@ export default function Employees() {
           total,
           onChange: async (current, pageSize) => {
             setLoading(true)
-            await searchEmployees({ pageSize:pageSize, current: current}, filterFileds)
+            await searchEmployees({ pageSize: pageSize, current: current }, filterFileds)
             setLoading(false)
           }
         }}

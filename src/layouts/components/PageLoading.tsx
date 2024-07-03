@@ -1,8 +1,8 @@
-import styles from '../layout.module.scss'
+import classes from '../layout.module.scss'
 import { Spin } from 'antd'
 const PageLoading: React.FC = () => {
   return (
-    <div className={styles.pageLoading}>
+    <div className={classes.pageLoading}>
       <Spin size="large" />
     </div>
   )

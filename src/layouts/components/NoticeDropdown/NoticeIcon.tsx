@@ -2,7 +2,7 @@ import { BellOutlined } from '@ant-design/icons'
 import { Badge, Dropdown, Spin, Tabs } from 'antd'
 import type { NoticeIconTabProps } from './NoticeList'
 import NoticeList from './NoticeList'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 import { useState } from 'react'
 import React from 'react'
 
@@ -64,7 +64,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
     return (
       <>
         <Spin spinning={loading} delay={300}>
-          <Tabs className={styles.tabs} onChange={onTabChange}>
+          <Tabs className={classes.tabs} onChange={onTabChange}>
             {panes}
           </Tabs>
         </Spin>
@@ -76,10 +76,10 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
 
   const [visible, setVisible] = useState<boolean>(false)
   const notificationBox = getNotificationBox()
-  const NoticeBellIcon = bell || <BellOutlined className={styles.icon} />
+  const NoticeBellIcon = bell || <BellOutlined className={classes.icon} />
   const trigger = (
-    <span className={styles.noticeButton}>
-      <Badge count={count} style={{ boxShadow: 'none' }} className={styles.badge}>
+    <span className={classes.noticeButton}>
+      <Badge count={count} style={{ boxShadow: 'none' }} className={classes.badge}>
         {NoticeBellIcon}
       </Badge>
     </span>
@@ -91,7 +91,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
   return (
     <Dropdown
       placement="bottomRight"
-      overlayClassName={styles.popover}
+      overlayClassName={classes.popover}
       trigger={['click']}
       open={visible}
       onOpenChange={setVisible}>

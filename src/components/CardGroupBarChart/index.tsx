@@ -1,6 +1,6 @@
 import { Card } from 'antd'
 import { Column } from '@ant-design/plots';
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 
 interface CardConfig {
   title?: string
@@ -67,7 +67,7 @@ const CardGroupBarChart: React.FunctionComponent<CardGroupBarChartProps> = (
     },
   };
   return (
-    <Card title={cardConfig.title} className={styles.cardGroupBarChart}>
+    <Card title={cardConfig.title} className={classes.cardGroupBarChart}>
       <Column {...config} />
     </Card>
   )

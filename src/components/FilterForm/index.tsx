@@ -1,10 +1,10 @@
 import { Button, Form, Input, Select, Space, DatePicker } from 'antd'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 
 export default function FilterForm(props: any) {
   const [form] = Form.useForm()
   return (
-    <Form form={form} layout="inline" className={styles.filterForm}>
+    <Form form={form} layout="inline" className={classes.filterForm}>
       {props?.fields?.map((item: any, index: number) => {
         let ele = <Input placeholder="请输入" allowClear />
         if (item?.type === 'select') {

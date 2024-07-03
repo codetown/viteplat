@@ -1,6 +1,6 @@
 import { Button, Form, message, Input, Select, DatePicker, Upload, Switch, Radio, Checkbox, InputNumber } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 import { RcFile } from 'antd/es/upload'
 import CropAndUpload from '../CropAndUpload'
 export default function InputForm(props: any) {
@@ -30,7 +30,7 @@ export default function InputForm(props: any) {
         span: 18
       }}
       layout="horizontal"
-      className={styles.inputForm}>
+      className={classes.inputForm}>
       {props?.fields?.map((item: any, index: number) => {
         let ele = <Input placeholder="请输入" maxLength={item?.maxLength} />
         if (item?.type === 'number') {
@@ -92,7 +92,7 @@ export default function InputForm(props: any) {
           </Form.Item>
         )
       })}
-      {props?.onSubmit && <div className={styles.formBottom}>
+      {props?.onSubmit && <div className={classes.formBottom}>
         <Button
           type="primary"
           onClick={(e) => {

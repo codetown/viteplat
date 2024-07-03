@@ -1,5 +1,5 @@
 import { Card, Row, Col, Divider } from 'antd'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 
 interface DataItem {
   name?: string
@@ -33,42 +33,42 @@ const CardRankChart: React.FunctionComponent<CardRankChartProps> = (props: CardR
     <Card title={title}>
       <Row>
         <Col span={12}>
-          <div className={styles.hisMap} />
+          <div className={classes.hisMap} />
         </Col>
         <Col span={6}>
-          <div className={styles.histogram}>
+          <div className={classes.histogram}>
             {dataSource &&
               dataSource.map((item, idx) => (
                 <div
                   key={idx}
                   style={{ marginBottom: 20, display: 'flex', justifyContent: 'flex-start', flexDirection: 'column' }}>
-                  <div className={styles.hisTitle}>{item.name}</div>
+                  <div className={classes.hisTitle}>{item.name}</div>
                   <div style={{ width: '100%', display: 'flex', flexDirection: 'row' }}>
                     <div style={{ backgroundColor: item.color, width: item.rate }} />
-                    <div className={styles.hisRate}>{item.rate}</div>
+                    <div className={classes.hisRate}>{item.rate}</div>
                   </div>
                 </div>
               ))}
           </div>
         </Col>
         <Col span={6}>
-          <div className={styles.subCard}>
-            <Divider type="vertical" className={styles.subDiv} />
-            <div className={styles.subBody}>
-              <div className={styles.subName}>亚洲</div>
+          <div className={classes.subCard}>
+            <Divider type="vertical" className={classes.subDiv} />
+            <div className={classes.subBody}>
+              <div className={classes.subName}>亚洲</div>
               <Divider type="horizontal" />
-              <div className={styles.subMain}>
+              <div className={classes.subMain}>
                 <div>
-                  <div className={styles.subTypeName}>商品类目1</div>
-                  <div className={styles.subTypeValue}>6,123</div>
+                  <div className={classes.subTypeName}>商品类目1</div>
+                  <div className={classes.subTypeValue}>6,123</div>
                 </div>
-                <Divider type="vertical" className={styles.subMainDiv} />
+                <Divider type="vertical" className={classes.subMainDiv} />
                 <div>
-                  <div className={styles.subTypeName}>商品类目2</div>
-                  <div className={styles.subTypeValue}>1,324</div>
+                  <div className={classes.subTypeName}>商品类目2</div>
+                  <div className={classes.subTypeValue}>1,324</div>
                 </div>
               </div>
-              <div className={styles.subFooter}>
+              <div className={classes.subFooter}>
                 <div>周同比</div>
                 <div>45%↑</div>
               </div>

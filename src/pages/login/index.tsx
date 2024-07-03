@@ -1,7 +1,7 @@
 import { Card } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import md5 from 'blueimp-md5'
-import styles from './index.module.scss'
+import classes from './index.module.scss'
 import { Button, Checkbox, Form, Input } from 'antd'
 import { fetchLogin } from '@/services/common'
 import { useNavigate } from 'react-router-dom'
@@ -24,20 +24,20 @@ export default function Login() {
     console.log('Failed:', errorInfo)
   }
   return (
-    <div className={styles.container}>
+    <div className={classes.container}>
       <Card>
-        <div className={styles.content}>
+        <div className={classes.content}>
           <Form
             name="login"
-            className={styles.loginForm}
+            className={classes.loginForm}
             layout="vertical"
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             size="large"
             autoComplete="off">
-            <div className={styles.title}>
-              <img src={logo} className={styles.logo} alt="" />
+            <div className={classes.title}>
+              <img src={logo} className={classes.logo} alt="" />
               <strong>Web-Plat通用管理系统</strong>
             </div>
             <Form.Item name="username" label="账号" rules={[{ required: true, message: '请输入用户名！' }]}>
@@ -56,7 +56,7 @@ export default function Login() {
               登录
             </Button>
           </Form>
-          <div className={styles.infoImg}>
+          <div className={classes.infoImg}>
             <img src="/chahua-1.png" alt="" />
           </div>
         </div>

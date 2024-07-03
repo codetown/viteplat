@@ -68,6 +68,18 @@ const routes: RouteObject[] = [
     element: lazyLoad(lazy(() => import('@/pages/login')))
   },
   {
+    path: 'app-pages-config',
+    element: lazyLoad(lazy(() => import('@/pages/app-pages-config')))
+  },
+  {
+    path: 'app-pages-config/create',
+    element: lazyLoad(lazy(() => import('@/pages/app-pages-config/create')))
+  },
+  {
+    path: 'app-pages-config/drag-demo',
+    element: lazyLoad(lazy(() => import('@/pages/app-pages-config/drag-demo')))
+  },
+  {
     path: '*',
     element: lazyLoad(lazy(() => import('@/pages/error/404')))
   }
