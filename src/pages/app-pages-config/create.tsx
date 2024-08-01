@@ -1,6 +1,6 @@
 import { Button } from "antd"
 import { Link } from "react-router-dom"
-
+import './tailwind.min.css'
 function Trash2Icon(props: any) {
   return (
     <svg
@@ -21,103 +21,6 @@ function Trash2Icon(props: any) {
       <line x1="10" x2="10" y1="11" y2="17" />
       <line x1="14" x2="14" y1="11" y2="17" />
     </svg>
-  )
-}
-
-export default function () {
-  return (
-    <div className="flex h-screen w-full">
-      <div className="bg-background border-r w-64 p-4 flex flex-col gap-4">
-        <div className="text-lg font-medium">组件库</div>
-        <div className="flex flex-col gap-2">
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <NavigationIcon className="w-5 h-5" />
-            <span>导航栏</span>
-          </div>
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <HeadingIcon className="w-5 h-5" />
-            <span>页头</span>
-          </div>
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <FootprintsIcon className="w-5 h-5" />
-            <span>页脚</span>
-          </div>
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <BoxIcon className="w-5 h-5" />
-            <span>按钮</span>
-          </div>
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <ShapesIcon className="w-5 h-5" />
-            <span>表单</span>
-          </div>
-        </div>
-      </div>
-      <div className="flex-1 p-6 relative">
-        <div className="bg-background border rounded-lg h-full w-full overflow-auto">
-          <div className="grid grid-cols-12 gap-4 p-6">
-            <div className="col-span-4 bg-muted rounded-md p-4 cursor-move hover:bg-muted/50 flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <div className="text-lg font-medium">导航栏</div>
-                <Trash2Icon className="w-5 h-5 text-muted-foreground cursor-pointer" />
-              </div>
-              <div className="text-sm text-muted-foreground">这是一个导航栏组件,您可以拖拽到工作区域中。</div>
-            </div>
-            <div className="col-span-6 bg-muted rounded-md p-4 cursor-move hover:bg-muted/50 flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <div className="text-lg font-medium">页头</div>
-                <Trash2Icon className="w-5 h-5 text-muted-foreground cursor-pointer" />
-              </div>
-              <div className="text-sm text-muted-foreground">这是一个页头组件,您可以拖拽到工作区域中。</div>
-            </div>
-            <div className="col-span-2 bg-muted rounded-md p-4 cursor-move hover:bg-muted/50 flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <div className="text-lg font-medium">按钮</div>
-                <Trash2Icon className="w-5 h-5 text-muted-foreground cursor-pointer" />
-              </div>
-              <div className="text-sm text-muted-foreground">这是一个按钮组件,您可以拖拽到工作区域中。</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg-background border-l w-96 p-6 flex flex-col gap-4">
-        <div className="text-lg font-medium">实时预览</div>
-        <div className="bg-muted rounded-lg h-full overflow-auto">
-          <div className="p-6 space-y-4">
-            <div className="bg-card rounded-md p-4">
-              <div className="flex items-center justify-between">
-                <div className="text-lg font-medium">导航栏</div>
-                <div className="flex items-center gap-2">
-                  <Link to="#" className="text-muted-foreground hover:underline">
-                    Home
-                  </Link>
-                  <Link to="#" className="text-muted-foreground hover:underline">
-                    About
-                  </Link>
-                  <Link to="#" className="text-muted-foreground hover:underline">
-                    Contact
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-card rounded-md p-4">
-              <div className="flex items-center justify-between">
-                <div className="text-lg font-medium">页头</div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-2xl font-bold">My App</h1>
-                  <p className="text-muted-foreground">Welcome to my app!</p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-card rounded-md p-4">
-              <div className="flex items-center justify-between">
-                <div className="text-lg font-medium">按钮</div>
-                <Button>Click me</Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   )
 }
 
@@ -226,5 +129,102 @@ function ShapesIcon(props: any) {
       <rect x="3" y="14" width="7" height="7" rx="1" />
       <circle cx="17.5" cy="17.5" r="3.5" />
     </svg>
+  )
+}
+
+export default function pageCreate() {
+  return (
+    <div className="flex h-screen w-full">
+      <div className="bg-background border-r w-64 p-4 flex flex-col gap-4">
+        <div className="text-lg font-medium">组件库</div>
+        <div className="flex flex-col gap-2">
+          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
+            <NavigationIcon className="w-5 h-5" />
+            <span>导航栏</span>
+          </div>
+          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
+            <HeadingIcon className="w-5 h-5" />
+            <span>页头</span>
+          </div>
+          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
+            <FootprintsIcon className="w-5 h-5" />
+            <span>页脚</span>
+          </div>
+          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
+            <BoxIcon className="w-5 h-5" />
+            <span>按钮</span>
+          </div>
+          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
+            <ShapesIcon className="w-5 h-5" />
+            <span>表单</span>
+          </div>
+        </div>
+      </div>
+      <div className="flex-1 p-6 relative">
+        <div className="bg-background border rounded-lg h-full w-full overflow-auto">
+          <div className="grid grid-cols-12 gap-4 p-6">
+            <div className="col-span-4 bg-muted rounded-md p-4 cursor-move hover:bg-muted/50 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <div className="text-lg font-medium">导航栏</div>
+                <Trash2Icon className="w-5 h-5 text-muted-foreground cursor-pointer" />
+              </div>
+              <div className="text-sm text-muted-foreground">这是一个导航栏组件,您可以拖拽到工作区域中。</div>
+            </div>
+            <div className="col-span-6 bg-muted rounded-md p-4 cursor-move hover:bg-muted/50 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <div className="text-lg font-medium">页头</div>
+                <Trash2Icon className="w-5 h-5 text-muted-foreground cursor-pointer" />
+              </div>
+              <div className="text-sm text-muted-foreground">这是一个页头组件,您可以拖拽到工作区域中。</div>
+            </div>
+            <div className="col-span-2 bg-muted rounded-md p-4 cursor-move hover:bg-muted/50 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <div className="text-lg font-medium">按钮</div>
+                <Trash2Icon className="w-5 h-5 text-muted-foreground cursor-pointer" />
+              </div>
+              <div className="text-sm text-muted-foreground">这是一个按钮组件,您可以拖拽到工作区域中。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-background border-l w-96 p-6 flex flex-col gap-4">
+        <div className="text-lg font-medium">实时预览</div>
+        <div className="bg-muted rounded-lg h-full overflow-auto">
+          <div className="p-6 space-y-4">
+            <div className="bg-card rounded-md p-4">
+              <div className="flex items-center justify-between">
+                <div className="text-lg font-medium">导航栏</div>
+                <div className="flex items-center gap-2">
+                  <Link to="#" className="text-muted-foreground hover:underline">
+                    Home
+                  </Link>
+                  <Link to="#" className="text-muted-foreground hover:underline">
+                    About
+                  </Link>
+                  <Link to="#" className="text-muted-foreground hover:underline">
+                    Contact
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="bg-card rounded-md p-4">
+              <div className="flex items-center justify-between">
+                <div className="text-lg font-medium">页头</div>
+                <div className="flex items-center gap-2">
+                  <h1 className="text-2xl font-bold">My App</h1>
+                  <p className="text-muted-foreground">Welcome to my app!</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-card rounded-md p-4">
+              <div className="flex items-center justify-between">
+                <div className="text-lg font-medium">按钮</div>
+                <Button>Click me</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
