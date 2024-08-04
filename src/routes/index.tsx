@@ -80,6 +80,10 @@ const routes: RouteObject[] = [
     element: lazyLoad(lazy(() => import('@/pages/app-pages-config/drag-demo')))
   },
   {
+    path: 'app-pages-config/workbench',
+    element: lazyLoad(lazy(() => import('@/pages/app-pages-config/workbench')))
+  },
+  {
     path: 'ai-platform',
     element: lazyLoad(lazy(() => import('@/layouts/appLayout'))),
     children: [

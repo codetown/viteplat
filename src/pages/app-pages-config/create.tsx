@@ -132,7 +132,7 @@ function ShapesIcon(props: any) {
   )
 }
 
-export default function pageCreate() {
+export default function PageCreate() {
   return (
     <div className="flex h-screen w-full">
       <div className="bg-background border-r w-64 p-4 flex flex-col gap-4">
@@ -218,8 +218,8 @@ export default function pageCreate() {
             </div>
             <div className="bg-card rounded-md p-4">
               <div className="flex items-center justify-between">
-                <div className="text-lg font-medium">按钮</div>
-                <Button>Click me</Button>
+                <Button type="primary">按钮</Button>
+                <Button type="primary">点击</Button>
               </div>
             </div>
           </div>
