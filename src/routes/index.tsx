@@ -55,7 +55,7 @@ const routes: RouteObject[] = [
       },
       {
         path: 'hook-video-demo',
-        element: lazyLoad(lazy(() => import('@/pages/hook-video-demo')))
+        element: lazyLoad(lazy(() => import('@/pages/album')))
       },
       {
         path: 'curd-demo',
@@ -82,6 +82,38 @@ const routes: RouteObject[] = [
   {
     path: 'app-pages-config/workbench',
     element: lazyLoad(lazy(() => import('@/pages/app-pages-config/workbench')))
+  },
+  {
+    path: 'app-pages-config/album',
+    element: lazyLoad(lazy(() => import('@/pages/album')))
+  },
+  {
+    path: 'app-pages-config/album/detail',
+    element: lazyLoad(lazy(() => import('@/pages/album/detail')))
+  },
+  {
+    path: 'app-pages-config/album/photo',
+    element: lazyLoad(lazy(() => import('@/pages/album/photo')))
+  },
+  {
+    path: 'app-pages-config/game-dev',
+    element: lazyLoad(lazy(() => import('@/pages/game-dev')))
+  },
+  {
+    path: 'app-pages-config/game-dev/assets',
+    element: lazyLoad(lazy(() => import('@/pages/game-dev/assets')))
+  },
+  {
+    path: 'app-pages-config/game-dev/asset-list',
+    element: lazyLoad(lazy(() => import('@/pages/game-dev/asset-list')))
+  },
+  {
+    path: 'education',
+    element: lazyLoad(lazy(() => import('@/pages/education')))
+  },
+  {
+    path: 'education/imooc',
+    element: lazyLoad(lazy(() => import('@/pages/education/imooc')))
   },
   {
     path: 'ai-platform',

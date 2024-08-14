@@ -20,7 +20,7 @@ type SiderMenuItemType = {
 }
 const asideMenuConfig: SiderMenuItemType[] = [
   {
-    name: '工作台',
+    name: '控制面板',
     path: '/',
     icon: <DashboardOutlined />
   },
@@ -118,11 +118,11 @@ const asideMenuConfig: SiderMenuItemType[] = [
       },
       {
         name: '工作台',
-        path: '/app-pages-config/workbentch'
+        path: '/app-pages-config/workbench'
       },
       {
         name: '相册',
-        path: '/hook-video-demo',
+        path: '/app-pages-config/album',
       },
       {
         name: '页面配置',

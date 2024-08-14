@@ -1,6 +1,6 @@
 import { Button } from "antd"
 import { Link } from "react-router-dom"
-import './tailwind.min.css'
+import "./tailwind.min.css"
 function CreditCardIcon(props: any) {
     return (
         <svg
@@ -222,7 +222,6 @@ function TableIcon(props: any) {
         </svg>
     )
 }
-
 function BoxIcon(props: any) {
     return (
         <svg
@@ -243,8 +242,7 @@ function BoxIcon(props: any) {
         </svg>
     )
 }
-
-export default function Workbench() {
+export default function () {
     return (
         <div className="flex h-screen w-full flex-col bg-background">
             <header className="flex h-14 items-center justify-between border-b bg-background px-4 sm:px-6">
@@ -267,12 +265,14 @@ export default function Workbench() {
                 </div>
                 <div className="flex items-center gap-2">
                     <Button size="small">
-                        Preview
+                        预览
+                    </Button>
+                    <Button size="small" type="primary">
+                        保存
                     </Button>
                     <Button size="small">
-                        Save
+                        发布
                     </Button>
-                    <Button size="small">Publish</Button>
                 </div>
             </header>
             <div className="flex flex-1 overflow-hidden">
@@ -324,55 +324,53 @@ export default function Workbench() {
                     </div>
                 </aside>
                 <div className="flex-1 overflow-auto p-4 sm:p-6">
-                    <div className="mx-auto grid max-w-4xl grid-cols-12 gap-4">
-                        <div className="col-span-12 rounded-md border bg-background p-4 shadow-sm">
-                            <div className="flex items-center justify-between">
-                                <h3 className="text-lg font-medium">Page Layout</h3>
-                                <div className="flex items-center gap-2">
-                                    <Button >
-                                        <LayoutGridIcon className="h-5 w-5" />
-                                        <span className="sr-only">Grid View</span>
-                                    </Button>
-                                    <Button >
-                                        <ListIcon className="h-5 w-5" />
-                                        <span className="sr-only">List View</span>
-                                    </Button>
-                                    <Button >
-                                        <MaximizeIcon className="h-5 w-5" />
-                                        <span className="sr-only">Maximize</span>
-                                    </Button>
+                    <div className="col-span-12 rounded-md border bg-background p-4 shadow-sm">
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-lg font-medium">Page Layout</h3>
+                            <div className="flex items-center gap-2">
+                                <Button >
+                                    <LayoutGridIcon className="h-5 w-5" />
+                                    <span className="sr-only">Grid View</span>
+                                </Button>
+                                <Button >
+                                    <ListIcon className="h-5 w-5" />
+                                    <span className="sr-only">List View</span>
+                                </Button>
+                                <Button >
+                                    <MaximizeIcon className="h-5 w-5" />
+                                    <span className="sr-only">Maximize</span>
+                                </Button>
+                            </div>
+                        </div>
+                        <div className="mt-4 grid grid-cols-12 gap-4">
+                            <div className="col-span-6 rounded-md border bg-muted/20 p-4 shadow-sm">
+                                <div className="flex flex-col items-center justify-center gap-2">
+                                    <LayoutTemplateIcon className="h-8 w-8 text-muted-foreground" />
+                                    <span className="text-sm font-medium">Hero</span>
                                 </div>
                             </div>
-                            <div className="mt-4 grid grid-cols-12 gap-4">
-                                <div className="col-span-6 rounded-md border bg-muted/20 p-4 shadow-sm">
-                                    <div className="flex flex-col items-center justify-center gap-2">
-                                        <LayoutTemplateIcon className="h-8 w-8 text-muted-foreground" />
-                                        <span className="text-sm font-medium">Hero</span>
-                                    </div>
+                            <div className="col-span-3 rounded-md border bg-muted/20 p-4 shadow-sm">
+                                <div className="flex flex-col items-center justify-center gap-2">
+                                    <NavigationIcon className="h-8 w-8 text-muted-foreground" />
+                                    <span className="text-sm font-medium">Navbar</span>
                                 </div>
-                                <div className="col-span-3 rounded-md border bg-muted/20 p-4 shadow-sm">
-                                    <div className="flex flex-col items-center justify-center gap-2">
-                                        <NavigationIcon className="h-8 w-8 text-muted-foreground" />
-                                        <span className="text-sm font-medium">Navbar</span>
-                                    </div>
+                            </div>
+                            <div className="col-span-3 rounded-md border bg-muted/20 p-4 shadow-sm">
+                                <div className="flex flex-col items-center justify-center gap-2">
+                                    <CreditCardIcon className="h-8 w-8 text-muted-foreground" />
+                                    <span className="text-sm font-medium">Card</span>
                                 </div>
-                                <div className="col-span-3 rounded-md border bg-muted/20 p-4 shadow-sm">
-                                    <div className="flex flex-col items-center justify-center gap-2">
-                                        <CreditCardIcon className="h-8 w-8 text-muted-foreground" />
-                                        <span className="text-sm font-medium">Card</span>
-                                    </div>
+                            </div>
+                            <div className="col-span-4 rounded-md border bg-muted/20 p-4 shadow-sm">
+                                <div className="flex flex-col items-center justify-center gap-2">
+                                    <ShapesIcon className="h-8 w-8 text-muted-foreground" />
+                                    <span className="text-sm font-medium">Form</span>
                                 </div>
-                                <div className="col-span-4 rounded-md border bg-muted/20 p-4 shadow-sm">
-                                    <div className="flex flex-col items-center justify-center gap-2">
-                                        <ShapesIcon className="h-8 w-8 text-muted-foreground" />
-                                        <span className="text-sm font-medium">Form</span>
-                                    </div>
-                                </div>
-                                <div className="col-span-8 rounded-md border bg-muted/20 p-4 shadow-sm">
-                                    <div className="flex flex-col items-center justify-center gap-2">
-                                        <TableIcon className="h-8 w-8 text-muted-foreground" />
-                                        <span className="text-sm font-medium">Table</span>
-                                    </div>
+                            </div>
+                            <div className="col-span-8 rounded-md border bg-muted/20 p-4 shadow-sm">
+                                <div className="flex flex-col items-center justify-center gap-2">
+                                    <TableIcon className="h-8 w-8 text-muted-foreground" />
+                                    <span className="text-sm font-medium">Table</span>
                                 </div>
                             </div>
                         </div>
