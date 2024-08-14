@@ -138,25 +138,35 @@ export default function PageCreate() {
       <div className="bg-background border-r w-64 p-4 flex flex-col gap-4">
         <div className="text-lg font-medium">组件库</div>
         <div className="flex flex-col gap-2">
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <NavigationIcon className="w-5 h-5" />
-            <span>导航栏</span>
+          <div className="rounded-md border bg-background p-4 shadow-sm transition-all hover:shadow-md">
+            <div className="flex flex-col items-center justify-center gap-2">
+              <NavigationIcon className="h-8 w-8 text-muted-foreground" />
+              <span>导航栏</span>
+            </div>
           </div>
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <HeadingIcon className="w-5 h-5" />
-            <span>页头</span>
+          <div className="rounded-md border bg-background p-4 shadow-sm transition-all hover:shadow-md">
+            <div className="flex flex-col items-center justify-center gap-2">
+              <HeadingIcon className="h-8 w-8 text-muted-foreground" />
+              <span>页头</span>
+            </div>
           </div>
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <FootprintsIcon className="w-5 h-5" />
-            <span>页脚</span>
+          <div className="rounded-md border bg-background p-4 shadow-sm transition-all hover:shadow-md">
+            <div className="flex flex-col items-center justify-center gap-2">
+              <FootprintsIcon className="h-8 w-8 text-muted-foreground" />
+              <span>页脚</span>
+            </div>
           </div>
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <BoxIcon className="w-5 h-5" />
-            <span>按钮</span>
+          <div className="rounded-md border bg-background p-4 shadow-sm transition-all hover:shadow-md">
+            <div className="flex flex-col items-center justify-center gap-2">
+              <BoxIcon className="h-8 w-8 text-muted-foreground" />
+              <span>按钮</span>
+            </div>
           </div>
-          <div className="bg-muted rounded-md p-2 cursor-grab hover:bg-muted/50 flex items-center gap-2">
-            <ShapesIcon className="w-5 h-5" />
-            <span>表单</span>
+          <div className="rounded-md border bg-background p-4 shadow-sm transition-all hover:shadow-md">
+            <div className="flex flex-col items-center justify-center gap-2">
+              <ShapesIcon className="h-8 w-8 text-muted-foreground" />
+              <span>表单</span>
+            </div>
           </div>
         </div>
       </div>
@@ -218,8 +228,8 @@ export default function PageCreate() {
             </div>
             <div className="bg-card rounded-md p-4">
               <div className="flex items-center justify-between">
-                <Button type="primary">按钮</Button>
-                <Button type="primary">点击</Button>
+              <Button type="primary">按钮</Button>
+              <Button type="primary">点击</Button>
               </div>
             </div>
           </div>
