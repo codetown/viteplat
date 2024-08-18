@@ -2,6 +2,7 @@ import { Button, Card, Input, Select } from "antd"
 import { Link } from "react-router-dom"
 import "../app-pages-config/tailwind.min.css"
 import { libres } from "@/mock/data"
+import classes from './index.module.scss'
 export default function GameDev() {
     return (
         <div className="flex flex-col w-full min-h-screen">
@@ -30,81 +31,69 @@ export default function GameDev() {
                     </Button>
                 </div>
             </header>
-            <main className="flex-1 grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 p-4 md:p-6">
-                <div className="hidden md:block">
-                    <div className="sticky top-4 space-y-6">
-                        <div className="grid gap-2">
-                            <h3 className="text-lg font-semibold">Categories</h3>
-                            <div className="grid gap-2">
-                                <Link
-                                    to="#"
-                                    className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted/50"
+            <main className={classes.main}>
+                <div className={classes.sidebar}>
+                    <h3 className="text-lg font-semibold">Categories</h3>
+                    <div className="grid gap-2">
+                        <Link
+                            to="#"
+                            className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted/50"
 
-                                >
-                                    <Scale3dIcon className="w-5 h-5" />
-                                    <span>3D Models</span>
-                                </Link>
-                                <Link
-                                    to="#"
-                                    className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted/50"
+                        >
+                            <Scale3dIcon className="w-5 h-5" />
+                            <span>3D Models</span>
+                        </Link>
+                        <Link
+                            to="#"
+                            className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted/50"
 
-                                >
-                                    <ImageIcon className="w-5 h-5" />
-                                    <span>Textures</span>
-                                </Link>
-                                <Link
-                                    to="#"
-                                    className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted/50"
+                        >
+                            <ImageIcon className="w-5 h-5" />
+                            <span>Textures</span>
+                        </Link>
+                        <Link
+                            to="#"
+                            className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted/50"
 
-                                >
-                                    <FileAudioIcon className="w-5 h-5" />
-                                    <span>Audio</span>
-                                </Link>
-                                <Link
-                                    to="#"
-                                    className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted/50"
+                        >
+                            <FileAudioIcon className="w-5 h-5" />
+                            <span>Audio</span>
+                        </Link>
+                        <Link
+                            to="#"
+                            className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted/50"
 
-                                >
-                                    <TypeIcon className="w-5 h-5" />
-                                    <span>Fonts</span>
-                                </Link>
-                            </div>
+                        >
+                            <TypeIcon className="w-5 h-5" />
+                            <span>Fonts</span>
+                        </Link>
+                    </div>
+                    <h3 className="text-lg font-semibold">Filters</h3>
+                    <div className="grid gap-2">
+                        <div className="flex items-center justify-between">
+                            <span>Price</span>
+                            <Select options={[{ value: 'all', label: 'All' }, { value: 'free', label: 'Free' }, { value: 'paid', label: 'Paid' }]} value={'all'}>
+                            </Select>
                         </div>
-                        <div className="grid gap-2">
-                            <h3 className="text-lg font-semibold">Filters</h3>
-                            <div className="grid gap-2">
-                                <div className="flex items-center justify-between">
-                                    <span>Price</span>
-                                    <Select options={[{ value: 'all', label: 'All' }, { value: 'free', label: 'Free' }, { value: 'paid', label: 'Paid' }]} value={'all'}>
-                                    </Select>
-                                </div>
-                                <div className="flex items-center justify-between">
-                                    <span>License</span>
-                                    <Select options={[{ value: 'all', label: 'All' }, { value: 'commercial', label: 'Commercial' }, { value: 'personal', label: 'Personal' }]} value={'all'}>
-                                    </Select>
-                                </div>
-                            </div>
+                        <div className="flex items-center justify-between">
+                            <span>License</span>
+                            <Select options={[{ value: 'all', label: 'All' }, { value: 'commercial', label: 'Commercial' }, { value: 'personal', label: 'Personal' }]} value={'all'}>
+                            </Select>
                         </div>
                     </div>
                 </div>
-                <div className="grid gap-6">
-                    <div className="grid gap-2">
-                        <h2 className="text-2xl font-bold">Featured Assets</h2>
-                        <p className="text-muted-foreground">Handpicked assets to kickstart your game development.</p>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {libres.map((libre, index) => (<Card className="group" key={`game-asset-${index}`}>
-                            <Link to="/" className="absolute inset-0 z-10">
-                                <span className="sr-only">View asset</span>
-                            </Link>
-                            <img
-                                src={libre.iconUrl}
-                                alt="Asset Thumbnail"
-                                width={450}
-                                height={300}
-                                className="rounded-t-lg w-full aspect-[3/2] object-cover group-hover:opacity-80 transition-opacity"
-                            />
-                            <div className="p-4 bg-background">
+                <div className={classes.content}>
+                    <div className={classes.module}>
+                        <h2>Featured Assets</h2>
+                        <p>Handpicked assets to kickstart your game development.</p>
+                        <div className={classes.cardList}>
+                            {libres.map((libre, index) => (<Card key={`game-asset-${index}`}>
+                                <img
+                                    src={libre.iconUrl}
+                                    alt="Asset Thumbnail"
+                                    width={450}
+                                    height={300}
+                                />
                                 <div className="flex items-center justify-between">
                                     <div className="grid gap-1">
                                         <h3 className="font-semibold line-clamp-1">{libre.appName}</h3>
@@ -113,90 +102,43 @@ export default function GameDev() {
                                             <span>$9.99</span>
                                         </div>
                                     </div>
-                                    <Button className="hover:bg-muted/50">
+                                    <Button>
                                         <PlusIcon className="w-5 h-5" />
                                     </Button>
                                 </div>
-                            </div>
-                        </Card>))
-                        }
+                            </Card>))
+                            }
+                        </div>
                     </div>
-                    <div className="grid gap-2">
-                        <h2 className="text-2xl font-bold">Community Creations</h2>
-                        <p className="text-muted-foreground">Check out what other developers have shared.</p>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <Card className="group">
-                            <Link to="/" className="absolute inset-0 z-10">
-                                <span className="sr-only">View asset</span>
-                            </Link>
-                            <img
-                                src="/placeholder.svg"
-                                alt="Asset Thumbnail"
-                                width={450}
-                                height={300}
-                                className="rounded-t-lg w-full aspect-[3/2] object-cover group-hover:opacity-80 transition-opacity"
-                            />
-                            <div className="p-4 bg-background">
-                                <div className="flex items-center justify-between">
-                                    <div className="grid gap-1">
-                                        <h3 className="font-semibold line-clamp-1">Pixel Art Tileset</h3>
-                                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                            <UserIcon className="w-4 h-4" />
-                                            <span>@gamedev_artist</span>
+                    <div className={classes.module}>
+                        <h2>Community Creations</h2>
+                        <p>Check out what other developers have shared.</p>
+                        <div className={classes.cardList}>
+                            {libres.map((libre, index) => (
+                                <Card key={`game-asset-${index+1}`}>
+                                    <img
+                                        src={libre.iconUrl}
+                                        alt="Asset Thumbnail"
+                                        width={450}
+                                        height={300}
+                                    />
+                                    <div className="p-4 bg-background">
+                                        <div className="flex items-center justify-between">
+                                            <div className="grid gap-1">
+                                                <h3 className="font-semibold line-clamp-1">{libre.appName}</h3>
+                                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                                    <UserIcon className="w-4 h-4" />
+                                                    <span>@gamedev_artist</span>
+                                                </div>
+                                            </div>
+                                            <Button className="hover:bg-muted/50">
+                                                <PlusIcon className="w-5 h-5" />
+                                            </Button>
                                         </div>
                                     </div>
-                                    <Button className="hover:bg-muted/50">
-                                        <PlusIcon className="w-5 h-5" />
-                                    </Button>
-                                </div>
-                            </div>
-                        </Card>
-                        <Card className="group">
-                            <Link to="/" className="absolute inset-0 z-10">
-                                <span className="sr-only">View asset</span>
-                            </Link>
-                            <img
-                                src="/placeholder.svg"
-                                alt="Asset Thumbnail"
-                                width={450}
-                                height={300}
-                                className="rounded-t-lg w-full aspect-[3/2] object-cover group-hover:opacity-80 transition-opacity"
-                            />
-                            <div className="p-4 bg-background">
-                                <div className="flex items-center justify-between">
-                                    <div className="grid gap-1">
-                                        <h3 className="font-semibold line-clamp-1">Futuristic UI Kit</h3>
-                                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                            <UserIcon className="w-4 h-4" />
-                                            <span>@ui_designer</span>
-                                        </div>
-                                    </div>
-                                    <Button className="hover:bg-muted/50">
-                                        <PlusIcon className="w-5 h-5" />
-                                    </Button>
-                                </div>
-                            </div>
-                        </Card>
-                        <Card className="group">
-                            <Link to="/" className="absolute inset-0 z-10">
-                                <span className="sr-only">View asset</span>
-                            </Link>
-                            <img
-                                src="/placeholder.svg"
-                                alt="Asset Thumbnail"
-                                width={450}
-                                height={300}
-                                className="rounded-t-lg w-full aspect-[3/2] object-cover group-hover:opacity-80 transition-opacity"
-                            />
-                            <div className="p-4 bg-background">
-                                <div className="flex items-center justify-between">
-                                    <div className="grid gap-1">
-                                        <h3 />
-                                    </div>
-                                </div>
-                            </div>
-                        </Card>
+                                </Card>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </main>

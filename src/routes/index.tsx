@@ -84,27 +84,27 @@ const routes: RouteObject[] = [
     element: lazyLoad(lazy(() => import('@/pages/app-pages-config/workbench')))
   },
   {
-    path: 'app-pages-config/album',
+    path: 'album',
     element: lazyLoad(lazy(() => import('@/pages/album')))
   },
   {
-    path: 'app-pages-config/album/detail',
+    path: 'album/detail',
     element: lazyLoad(lazy(() => import('@/pages/album/detail')))
   },
   {
-    path: 'app-pages-config/album/photo',
+    path: 'album/photo',
     element: lazyLoad(lazy(() => import('@/pages/album/photo')))
   },
   {
-    path: 'app-pages-config/game-dev',
+    path: 'game-dev',
     element: lazyLoad(lazy(() => import('@/pages/game-dev')))
   },
   {
-    path: 'app-pages-config/game-dev/assets',
+    path: 'game-dev/assets',
     element: lazyLoad(lazy(() => import('@/pages/game-dev/assets')))
   },
   {
-    path: 'app-pages-config/game-dev/asset-list',
+    path: 'game-dev/asset-list',
     element: lazyLoad(lazy(() => import('@/pages/game-dev/asset-list')))
   },
   {

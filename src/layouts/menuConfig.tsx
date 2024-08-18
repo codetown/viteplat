@@ -121,12 +121,20 @@ const asideMenuConfig: SiderMenuItemType[] = [
         path: '/app-pages-config/workbench'
       },
       {
-        name: '相册',
-        path: '/app-pages-config/album',
-      },
-      {
         name: '页面配置',
         path: '/app-pages-config',
+      },
+      {
+        name: '相册',
+        path: '/album',
+      },
+      {
+        name: '游戏开发素材',
+        path: '/game-dev',
+      },
+      {
+        name: '在线教育',
+        path: '/education',
       }
     ]
   },
