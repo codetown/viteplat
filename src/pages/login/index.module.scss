@@ -2,58 +2,77 @@
   height: 100vh;
   overflow: auto;
   background-color: #0066DD;
-  :global(.ant-card){
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:calc(50vh - 240px);
-    width:64%;
-    min-width:320px;
-    max-width:800px;
+
+  :global(.ant-card) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: calc(50vh - 240px);
+    width: 64%;
+    min-width: 320px;
+    max-width: 800px;
     overflow: hidden;
   }
-  :global(.ant-card-body){
-    padding:0;
+
+  :global(.ant-card-body) {
+    padding: 0;
   }
-  .title{
+
+  :global(.ant-input:-internal-autofill-selected) {
+    box-shadow: inset 0 0 0 1000px #fff !important;
+  }
+
+  :global(.ant-input:-internal-autofill-selected:focus) {
+    box-shadow: inset 0 0 0 1000px #fff !important;
+  }
+
+  .title {
     display: flex;
     align-items: center;
-    margin-bottom:24px;
-    .logo{
-      width:48px;
-      height:48px;
-      margin-right:8px;
-      margin-top:2px;
+    margin-bottom: 24px;
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      margin-right: 8px;
+      margin-top: 2px;
     }
-    strong{
+
+    strong {
       font-size: 24px;
       white-space: nowrap;
       font-weight: 600;
     }
   }
-  .content{
+
+  .content {
     display: flex;
     flex-wrap: wrap;
-    .loginForm{
-      width:50%;
-      min-width:240px;
-      padding:32px;
+
+    .loginForm {
+      width: 50%;
+      min-width: 240px;
+      padding: 32px;
+
       // background-color: #2244cc;
-      :global(.ant-form-item){
-        margin-bottom:4px;
+      :global(.ant-form-item) {
+        margin-bottom: 4px;
       }
-      :global(.ant-form-item-label>label){
-        height:28px;
+
+      :global(.ant-form-item-label>label) {
+        height: 28px;
       }
     }
-    >.infoImg{
-      width:50%;
+
+    >.infoImg {
+      width: 50%;
       min-width: 240px;
       display: flex;
-      align-items:end;
+      align-items: end;
       justify-content: center;
       flex-direction: column;
-      img{
-        width:100%;
+
+      img {
+        width: 100%;
       }
     }
   }

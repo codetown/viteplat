@@ -11,12 +11,37 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 dayjs.locale('zh-cn')
 /**解决antd时间组件国际化不彻底问题 End**/
-
+import { css } from '@emotion/css';
 import routes from '@/routes'
 import './index.scss'
+const linearGradientButton = css`
+    &.ant-btn-primary:not([disabled]):not(.ant-btn-dangerous) {
+      border-width: 0;
+
+      > span {
+        position: relative;
+      }
+
+      &::before {
+        content: '';
+        background: linear-gradient(135deg, #6253E1, #04BEFE);
+        position: absolute;
+        inset: 0;
+        opacity: 1;
+        transition: all 0.3s;
+        border-radius: inherit;
+      }
+
+      &:hover::before {
+        opacity: 0;
+      }
+    }
+  `;
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <ConfigProvider locale={zhCN}>
+    <ConfigProvider locale={zhCN} button={{
+      className: linearGradientButton,
+    }}>
       <App>
         <RouterProvider router={routes} />
       </App>

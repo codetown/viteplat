@@ -68,6 +68,10 @@ const routes: RouteObject[] = [
     element: lazyLoad(lazy(() => import('@/pages/login')))
   },
   {
+    path: 'login-new',
+    element: lazyLoad(lazy(() => import('@/pages/login/login-new')))
+  },
+  {
     path: 'app-pages-config',
     element: lazyLoad(lazy(() => import('@/pages/app-pages-config')))
   },
@@ -114,6 +118,10 @@ const routes: RouteObject[] = [
   {
     path: 'education/imooc',
     element: lazyLoad(lazy(() => import('@/pages/education/imooc')))
+  },
+  {
+    path: 'education/exam',
+    element: lazyLoad(lazy(() => import('@/pages/education/exam')))
   },
   {
     path: 'ai-platform',

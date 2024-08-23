@@ -52,7 +52,7 @@ export default function Album() {
           </div>
         </div>
       </nav>
-      <main className="container max-w-6xl px-4 md:px-6 py-12 md:py-16 lg:py-20">
+      <main className="container max-w-6xl px-4 md:px-6 py-12 md:py-16 lg:py-20" style={{ margin: '0 auto', maxWidth: 1600 }}>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {libres.map((libre: any, index: number) => (<Link key={`libre-${index + 1}`}
             to={libre.iconUrl}
