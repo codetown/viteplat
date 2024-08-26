@@ -38,7 +38,7 @@ export default function Login() {
             autoComplete="off">
             <div className={classes.title}>
               <img src={logo} className={classes.logo} alt="" />
-              <strong>Web-Plat通用管理系统</strong>
+              <strong>通用后台管理系统</strong>
             </div>
             <Form.Item name="username" label="账号" rules={[{ required: true, message: '请输入用户名！' }]}>
               <Input prefix={<UserOutlined />} />

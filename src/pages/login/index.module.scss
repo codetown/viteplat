@@ -14,7 +14,7 @@
   }
 
   :global(.ant-card-body) {
-    padding: 0;
+    padding:48px 64px;
   }
 
   :global(.ant-input:-internal-autofill-selected) {
@@ -51,7 +51,7 @@
     .loginForm {
       width: 50%;
       min-width: 240px;
-      padding: 32px;
+      padding-right:64px;
 
       // background-color: #2244cc;
       :global(.ant-form-item) {

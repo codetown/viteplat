@@ -50,17 +50,29 @@
         .loginForm {
             width: 50%;
             min-width: 240px;
-            padding: 32px;
+            padding:32px 64px 80px 64px;
+            :global(.ant-input-affix-wrapper-lg){
+                padding:11px 13px;
+            }
+            :global(.ant-btn-lg){
+                height:48px;
+            } 
         }
 
         >.infoImg {
             width: 50%;
             min-width: 240px;
             box-sizing: border-box;
-            background-color:rgb(29, 78, 216);
+            background-color:#3554e4;
+            // background-color:rgb(29, 78, 216);
             color:#fff;
+            position: relative;
             >div{
                 padding:32px;
+                margin-bottom:32px;
+                position:absolute;
+                top:0;
+                z-index:2;
                 h2{
                     margin-top: 0;
                 }
@@ -81,7 +93,9 @@
             img {
                 width: 100%;
                 display: block;
-                margin-top:-100px;
+                bottom:0;
+                position: absolute;
+                z-index:1;
             }
         }
     }
