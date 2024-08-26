@@ -6,13 +6,15 @@ export default function PriceCard(props: any) {
     const { title, image } = props
     return (
         <div className={classes.priceCard}>
-            <Link to="/">
-                预览
-            </Link>
+            <div className={classes.assetViewer}>
             <img
                 src={image}
                 alt="Asset Thumbnail"
             />
+            <Link to="/game-dev/assets">
+                预览
+            </Link>
+            </div>
             <h3>{title}</h3>
             <p>
                 <UserIcon />

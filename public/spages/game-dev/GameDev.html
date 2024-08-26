@@ -1,0 +1,160 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+	<script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+	<script type="text/javascript">
+		window.tailwind.config = {
+			darkMode: ['class'],
+			theme: {
+				extend: {
+					colors: {
+						border: 'hsl(var(--border))',
+						input: 'hsl(var(--input))',
+						ring: 'hsl(var(--ring))',
+						background: 'hsl(var(--background))',
+						foreground: 'hsl(var(--foreground))',
+						primary: {
+							DEFAULT: 'hsl(var(--primary))',
+							foreground: 'hsl(var(--primary-foreground))'
+						},
+						secondary: {
+							DEFAULT: 'hsl(var(--secondary))',
+							foreground: 'hsl(var(--secondary-foreground))'
+						},
+						destructive: {
+							DEFAULT: 'hsl(var(--destructive))',
+							foreground: 'hsl(var(--destructive-foreground))'
+						},
+						muted: {
+							DEFAULT: 'hsl(var(--muted))',
+							foreground: 'hsl(var(--muted-foreground))'
+						},
+						accent: {
+							DEFAULT: 'hsl(var(--accent))',
+							foreground: 'hsl(var(--accent-foreground))'
+						},
+						popover: {
+							DEFAULT: 'hsl(var(--popover))',
+							foreground: 'hsl(var(--popover-foreground))'
+						},
+						card: {
+							DEFAULT: 'hsl(var(--card))',
+							foreground: 'hsl(var(--card-foreground))'
+						},
+					},
+				}
+			}
+		}
+	</script>
+	<link rel="stylesheet" href="tailwind.min.css"/>
+	<style type="text/tailwindcss">
+		@layer base {
+				:root {
+					--background: 0 0% 100%;
+--foreground: 20 14.3% 4.1%;
+--card: 0 0% 100%;
+--card-foreground: 20 14.3% 4.1%;
+--popover: 0 0% 100%;
+--popover-foreground: 20 14.3% 4.1%;
+--primary: 47.9 95.8% 53.1%;
+--primary-foreground: 26 83.3% 14.1%;
+--secondary: 60 4.8% 95.9%;
+--secondary-foreground: 24 9.8% 10%;
+--muted: 60 4.8% 95.9%;
+--muted-foreground: 25 5.3% 44.7%;
+--accent: 60 4.8% 95.9%;
+--accent-foreground: 24 9.8% 10%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 60 9.1% 97.8%;
+--border: 20 5.9% 90%;
+--input: 20 5.9% 90%;
+--ring: 20 14.3% 4.1%;
+--radius: 0.95rem;
+				}
+				.dark {
+					--background: 20 14.3% 4.1%;
+--foreground: 60 9.1% 97.8%;
+--card: 20 14.3% 4.1%;
+--card-foreground: 60 9.1% 97.8%;
+--popover: 20 14.3% 4.1%;
+--popover-foreground: 60 9.1% 97.8%;
+--primary: 47.9 95.8% 53.1%;
+--primary-foreground: 26 83.3% 14.1%;
+--secondary: 12 6.5% 15.1%;
+--secondary-foreground: 60 9.1% 97.8%;
+--muted: 12 6.5% 15.1%;
+--muted-foreground: 24 5.4% 63.9%;
+--accent: 12 6.5% 15.1%;
+--accent-foreground: 60 9.1% 97.8%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 60 9.1% 97.8%;
+--border: 12 6.5% 15.1%;
+--input: 12 6.5% 15.1%;
+--ring: 35.5 91.7% 32.9%;
+				}
+			}
+		</style>
+</head>
+
+<body>
+
+	<header class="bg-primary text-primary-foreground p-4">
+		<div class="container mx-auto">
+			<h1 class="text-3xl font-bold">Game Dev Resource Hub</h1>
+			<p class="text-muted-foreground">Essential Resources for Indie Game Developers</p>
+		</div>
+	</header>
+
+	<main class="container mx-auto py-8 px-4">
+
+		<section class="mb-8">
+			<img src="https://placehold.co/1200x400" alt="featured game development resources"
+				class="w-full h-auto rounded-lg" />
+		</section>
+
+		<section>
+			<h2 class="text-2xl font-bold mb-4">Top Resources</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+				<div class="bg-card p-4 rounded-lg shadow-md">
+					<img src="https://placehold.co/300x200" alt="graphics resource"
+						class="w-full h-auto rounded-lg mb-4" />
+					<h3 class="text-lg font-bold text-card-foreground">Graphics Assets</h3>
+					<p class="text-muted-foreground">High-quality sprites, textures, and backgrounds for your game.</p>
+					<a href="#" class="text-primary mt-2 inline-block">Explore Graphics &rarr;</a>
+				</div>
+
+				<div class="bg-card p-4 rounded-lg shadow-md">
+					<img src="https://placehold.co/300x200" alt="audio resource"
+						class="w-full h-auto rounded-lg mb-4" />
+					<h3 class="text-lg font-bold text-card-foreground">Audio Effects</h3>
+					<p class="text-muted-foreground">Immersive sound effects and music to enhance the gaming experience.
+					</p>
+					<a href="#" class="text-primary mt-2 inline-block">Explore Audio &rarr;</a>
+				</div>
+
+				<div class="bg-card p-4 rounded-lg shadow-md">
+					<img src="https://placehold.co/300x200" alt="code snippets resource"
+						class="w-full h-auto rounded-lg mb-4" />
+					<h3 class="text-lg font-bold text-card-foreground">Code Snippets</h3>
+					<p class="text-muted-foreground">Reusable code snippets and libraries for rapid development.</p>
+					<a href="#" class="text-primary mt-2 inline-block">Explore Code Snippets &rarr;</a>
+				</div>
+
+			</div>
+		</section>
+	</main>
+
+	<footer class="bg-secondary text-secondary-foreground p-4 mt-8">
+		<div class="container mx-auto text-center">
+			<p>&copy; 2023 Game Dev Resource Hub. All rights reserved.</p>
+			<a href="#" class="text-primary hover:underline">Privacy Policy</a> | <a href="#"
+				class="text-primary hover:underline">Terms of Service</a>
+		</div>
+	</footer>
+</body>
+
+</html>

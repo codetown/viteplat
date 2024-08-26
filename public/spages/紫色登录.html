@@ -1,0 +1,163 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+		<script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+		<script type="text/javascript">
+			window.tailwind.config = {
+				darkMode: ['class'],
+				theme: {
+					extend: {
+						colors: {
+							border: 'hsl(var(--border))',
+							input: 'hsl(var(--input))',
+							ring: 'hsl(var(--ring))',
+							background: 'hsl(var(--background))',
+							foreground: 'hsl(var(--foreground))',
+							primary: {
+								DEFAULT: 'hsl(var(--primary))',
+								foreground: 'hsl(var(--primary-foreground))'
+							},
+							secondary: {
+								DEFAULT: 'hsl(var(--secondary))',
+								foreground: 'hsl(var(--secondary-foreground))'
+							},
+							destructive: {
+								DEFAULT: 'hsl(var(--destructive))',
+								foreground: 'hsl(var(--destructive-foreground))'
+							},
+							muted: {
+								DEFAULT: 'hsl(var(--muted))',
+								foreground: 'hsl(var(--muted-foreground))'
+							},
+							accent: {
+								DEFAULT: 'hsl(var(--accent))',
+								foreground: 'hsl(var(--accent-foreground))'
+							},
+							popover: {
+								DEFAULT: 'hsl(var(--popover))',
+								foreground: 'hsl(var(--popover-foreground))'
+							},
+							card: {
+								DEFAULT: 'hsl(var(--card))',
+								foreground: 'hsl(var(--card-foreground))'
+							},
+						},
+					}
+				}
+			}
+		</script>
+		<style type="text/tailwindcss">
+			@layer base {
+				:root {
+					--background: 0 0% 100%;
+--foreground: 224 71.4% 4.1%;
+--card: 0 0% 100%;
+--card-foreground: 224 71.4% 4.1%;
+--popover: 0 0% 100%;
+--popover-foreground: 224 71.4% 4.1%;
+--primary: 262.1 83.3% 57.8%;
+--primary-foreground: 210 20% 98%;
+--secondary: 220 14.3% 95.9%;
+--secondary-foreground: 220.9 39.3% 11%;
+--muted: 220 14.3% 95.9%;
+--muted-foreground: 220 8.9% 46.1%;
+--accent: 220 14.3% 95.9%;
+--accent-foreground: 220.9 39.3% 11%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 210 20% 98%;
+--border: 220 13% 91%;
+--input: 220 13% 91%;
+--ring: 262.1 83.3% 57.8%;
+				}
+				.dark {
+					--background: 224 71.4% 4.1%;
+--foreground: 210 20% 98%;
+--card: 224 71.4% 4.1%;
+--card-foreground: 210 20% 98%;
+--popover: 224 71.4% 4.1%;
+--popover-foreground: 210 20% 98%;
+--primary: 263.4 70% 50.4%;
+--primary-foreground: 210 20% 98%;
+--secondary: 215 27.9% 16.9%;
+--secondary-foreground: 210 20% 98%;
+--muted: 215 27.9% 16.9%;
+--muted-foreground: 217.9 10.6% 64.9%;
+--accent: 215 27.9% 16.9%;
+--accent-foreground: 210 20% 98%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 210 20% 98%;
+--border: 215 27.9% 16.9%;
+--input: 215 27.9% 16.9%;
+--ring: 263.4 70% 50.4%;
+				}
+			}
+		</style>
+  </head>
+  <body>
+    <div class="min-h-screen flex items-center justify-center bg-black text-white">
+  <div class="max-w-4xl w-full flex rounded-lg overflow-hidden shadow-lg">
+    
+    <div class="w-1/2 bg-gradient-to-br from-purple-500 to-purple-700 p-10 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center mb-8">
+          <img aria-hidden="true" alt="logo" src="https://placehold.co/24x24?text=💻" class="mr-2"/>
+          <span class="text-xl font-semibold">First Brackets</span>
+        </div>
+        <h1 class="text-4xl font-bold mb-4">Learn to code. Interactively. For free.</h1>
+        <button class="mt-4 bg-black text-white py-2 px-4 rounded-lg flex items-center">
+          <img aria-hidden="true" alt="play button" src="https://placehold.co/16x16?text=▶️" class="mr-2"/>
+          Watch demo
+        </button>
+      </div>
+      <nav class="flex justify-between text-sm text-zinc-300">
+        <a href="#" class="hover:text-white">Home</a>
+        <a href="#" class="hover:text-white">Tour</a>
+        <a href="#" class="hover:text-white">Courses</a>
+        <a href="#" class="hover:text-white">Articles</a>
+        <a href="#" class="hover:text-white">Blog</a>
+      </nav>
+    </div>
+    
+    <div class="w-1/2 bg-zinc-900 p-10">
+      <h2 class="text-xl font-semibold mb-4">Join over 25 million learners from around the globe</h2>
+      <p class="text-zinc-400 mb-6">
+        Master the languages of the web: HTML, CSS, and JavaScript. This path will prepare you to build basic websites and then build interactive web apps.
+      </p>
+      <form>
+        <div class="mb-4">
+          <label for="email" class="block text-zinc-400 mb-2">Email</label>
+          <input id="email" type="email" class="w-full p-2 bg-zinc-800 text-white rounded border border-zinc-700 focus:ring-2 focus:ring-purple-500" />
+        </div>
+        <div class="mb-4">
+          <label for="username" class="block text-zinc-400 mb-2">Username</label>
+          <input id="username" type="text" class="w-full p-2 bg-zinc-800 text-white rounded border border-zinc-700 focus:ring-2 focus:ring-purple-500" />
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-zinc-400 mb-2">Password</label>
+          <input id="password" type="password" class="w-full p-2 bg-zinc-800 text-white rounded border border-zinc-700 focus:ring-2 focus:ring-purple-500" />
+        </div>
+        <div class="mb-6 flex items-center">
+          <input id="terms" type="checkbox" class="mr-2"/>
+          <label for="terms" class="text-zinc-400">I agree to all statements included in <a href="#" class="text-purple-500 underline">Terms of Use</a></label>
+        </div>
+        <button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">Start coding now</button>
+      </form>
+      <div class="mt-6 flex justify-between items-center text-zinc-400">
+        <p>Or continue with social profile</p>
+        <div class="flex space-x-4">
+          <img aria-hidden="true" alt="google" src="https://placehold.co/24x24?text=G"/>
+          <img aria-hidden="true" alt="facebook" src="https://placehold.co/24x24?text=F"/>
+          <img aria-hidden="true" alt="twitter" src="https://placehold.co/24x24?text=T"/>
+          <img aria-hidden="true" alt="github" src="https://placehold.co/24x24?text=GH"/>
+        </div>
+      </div>
+      <p class="mt-6 text-zinc-400 text-center">
+        Already a member? <a href="#" class="text-purple-500 underline">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
+  </body>
+</html>

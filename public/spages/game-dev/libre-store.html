@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>开源软件中心</title>
+  <style>
+    main {
+      display: block;
+      width: 1280px;
+      margin: 0 auto;
+    }
+
+    .cate-list,
+    .app-list {
+      margin-bottom: 48px;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 24px;
+      row-gap: 24px;
+    }
+
+    .cate-card {
+      box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+      background-color: rgb(255, 255, 255);
+      border: 1px rgb(229, 231, 235) solid;
+      border-radius: 0.5rem;
+      padding: 24px;
+      width: calc(25% - 68px);
+      /* box-sizing: border-box; */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cate-card>img {
+      width: 100%;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .cate-card>h2 {
+      margin: 0 0 0.5rem 0;
+    }
+
+    .cate-card>p {
+      margin: 0 0 1rem 0;
+      color: rgb(120, 113, 108);
+    }
+
+    .cate-card>a {
+      margin-top:auto;
+      border-radius: 0.5rem;
+      background-color: rgb(245, 245, 244);
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      color: rgb(28, 25, 23);
+      width: fit-content;
+    }
+
+    .app-card {
+      overflow: hidden;
+      color: rgb(9, 9, 11);
+      background-color: rgb(255, 255, 255);
+      border: 1px rgb(229, 231, 235) solid;
+      box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+      transition-duration: 0.15s;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 8px;
+      transform: matrix(1, 0, 0, 1, 0, 0);
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      width: calc(25% - 20px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-card>img {
+      width: 100%;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .app-card>strong {
+      padding: 8px 16px;
+      display: block;
+      font-size: 1.125rem;
+    }
+
+    .app-card>p {
+      padding: 0 1rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      margin: 0;
+      color: rgb(120, 113, 108);
+    }
+
+    .app-card>span {
+      display: block;
+      padding: 0.875rem 1rem;
+      margin-top:auto;
+    }
+
+    .app-card>span>a {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: black;
+      border-radius: 0.375rem;
+      color: white;
+      cursor: pointer;
+      display: inline-block;
+      user-select: none;
+    }
+
+    .app-card>span>a:hover {
+      background-color: grey;
+    }
+  </style>
+  <script src="./vue.global.js"></script>
+</head>
+
+<body>
+  <main id="app">
+    <div class="cate-list">
+      <div class="cate-card" v-for="item in homeData.items">
+        <img :src="item.iconUrl" alt="" />
+        <h2>{{item.appName}}</h2>
+        <p>
+          {{item.appDescription}}
+        </p>
+        <a href="">Learn More</a>
+      </div>
+    </div>
+    <div class="app-list">
+      <div class="app-card" v-for="item in homeData.items">
+        <img :src="item.iconUrl" alt="" />
+        <strong>{{item.appName}}</strong>
+        <p>{{item.appDescription}}</p>
+        <span><a>Download</a></span>
+      </div>
+    </div>
+  </main>
+  <script src="./js/mock.js"></script>
+  <script>
+    const { createApp, ref } = Vue;
+    createApp({
+      setup() {
+        const message = ref("Hello vue,你好吗!");
+        const homeData = ref({
+          items: libres,
+          total: 20,
+        });
+        const change = () => {
+          message.value = "Vue修改成功!";
+        };
+        return {
+          message,
+          change,
+          homeData,
+        };
+      },
+    }).mount("#app");
+  </script>
+</body>
+
+</html>

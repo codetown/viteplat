@@ -1,0 +1,83 @@
+header,footer{
+    background:linear-gradient(#6340ff, #9f89ff);
+    height:64px;
+    display: flex;
+    align-items: center;
+    padding-left:24px;
+    padding-right:24px;
+}
+
+header>a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color:#fff;
+}
+
+header>nav{
+    margin-left:auto;
+    display: flex;
+    align-items: center;
+}
+
+header>nav>a{
+    color:#fff;
+    text-decoration: none;
+}
+
+main{
+    min-height: calc(100vh - 128px);
+    margin:0;
+}
+
+main>section>h2{
+    margin:0;
+    padding:24px;
+}
+
+.card-list{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+}
+
+@media screen and (min-width: 35.5em){
+    .card-list>div{
+        width:20em;
+    }
+}
+
+@media screen and (min-width: 48em){
+    .card-list>div{
+        width:20em;
+    }
+}
+
+@media screen and (min-width: 64em){
+    .card-list>div{
+        width:32em;
+    }
+}
+
+@media screen and (min-width: 80em){
+    .card-list>div{
+        width:36em;
+    }
+}
+
+@media screen and (min-width: 120em){
+    .card-list>div{
+        width:36em;
+    }
+}
+
+@media screen and (min-width: 160em){
+    .card-list>div{
+        width:24em;
+    }
+}
+
+@media screen and (min-width: 240em){
+    .card-list>div{
+        width:24em;
+    }
+}

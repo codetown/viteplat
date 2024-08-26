@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/tailwind.css">
+</head>
+
+<body>
+  <div
+    class="flex flex-col md:flex-row bg-white dark:bg-zinc-900 rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+    <div class="md:w-1/2 p-8 bg-gradient-to-r from-purple-500 to-blue-500 text-white">
+      <h1 class="text-2xl font-bold mb-4">ModelScope</h1>
+      <h2 class="text-xl font-bold mb-4">AI开源社区 构建绿色未来</h2>
+      <p class="mb-4">汇聚机器学习领域中最先进的开源模型，为开发者提供简单易用的模型构建、训练、部署等一站式产品服务，让模型应用更简单</p>
+    </div>
+    <div class="md:w-1/2 p-8">
+      <h2 class="text-2xl font-bold mb-6">Welcome to <span class="text-blue-500">ModelScope</span></h2>
+      <form>
+        <div class="mb-4">
+          <label class="block text-zinc-700 dark:text-zinc-300 mb-2" for="username">账户名</label>
+          <input class="w-full p-3 border rounded-lg" type="text" id="username" placeholder="请输入账户名，使用字母开头，6-20位字母或数字">
+        </div>
+        <div class="mb-4">
+          <label class="block text-zinc-700 dark:text-zinc-300 mb-2" for="password">密码</label>
+          <div class="relative">
+            <input class="w-full p-3 border rounded-lg" type="password" id="password"
+              placeholder="6-20个字母数字或标点符号，且至少包含两种">
+            <button type="button" class="absolute inset-y-0 right-0 p-3">
+              <img aria-hidden="true" alt="eye" src="https://placehold.co/20x20" />
+            </button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-zinc-700 dark:text-zinc-300 mb-2" for="confirm-password">确认密码</label>
+          <div class="relative">
+            <input class="w-full p-3 border rounded-lg" type="password" id="confirm-password" placeholder="请再次输入密码">
+            <button type="button" class="absolute inset-y-0 right-0 p-3">
+              <img aria-hidden="true" alt="eye" src="https://placehold.co/20x20" />
+            </button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-zinc-700 dark:text-zinc-300 mb-2" for="captcha">验证码</label>
+          <div class="flex items-center">
+            <input class="w-full p-3 border rounded-lg" type="text" id="captcha" placeholder="请输入图片验证码">
+            <img class="ml-4" src="https://placehold.co/100x40" alt="captcha">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="inline-flex items-center">
+            <input type="checkbox" class="form-checkbox">
+            <span class="ml-2 text-zinc-700 dark:text-zinc-300">我已阅读，并同意 <a href="#" class="text-blue-500">《服务条款》</a> <a
+                href="#" class="text-blue-500">《隐私条款》</a></span>
+          </label>
+        </div>
+        <button class="w-full bg-zinc-300 text-zinc-700 p-3 rounded-lg" type="submit">注册</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
