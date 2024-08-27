@@ -7,61 +7,131 @@
     <title>{{ .Title }}</title>
     <meta name="keywords" content="Game Assets" />
     <meta name="description" content="Game Assets" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/base-min.css"/>
+    <link rel="stylesheet" href="mybase.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="favicon.ico" />
+    <script src="./vue.global.js"></script>
 </head>
 
 <body>
-    <header>
-        <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m7.5 4.27 9 5.15"></path>
-                <path
-                    d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z">
-                </path>
-                <path d="m3.3 7 8.7 5 8.7-5"></path>
-                <path d="M12 22V12"></path>
-            </svg>
-            <span data-id="2">Game Assets</span>
-        </a>
-        <nav>
-            <a href="#">
-                Characters
-            </a>
-            <a href="#">
-                Backgrounds
-            </a>
-            <a href="#">
-                Audio
-            </a>
-            <a href="#">
-                Submit Asset
-            </a>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Game Assets</h2>
-            <p>Game Assets</p>
-            <div class="card-list">
-                <div class="card">
-                </div>
+    <div id="app">
+        <header id="header">
+            <div class="container">
+                <a href="#" class="site-name">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m7.5 4.27 9 5.15"></path>
+                        <path
+                            d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z">
+                        </path>
+                        <path d="m3.3 7 8.7 5 8.7-5"></path>
+                        <path d="M12 22V12"></path>
+                    </svg>
+                    <strong>Game Assets</strong>
+                </a>
+                <nav>
+                    <a href="#">
+                        Characters
+                    </a>
+                    <a href="#">
+                        Backgrounds
+                    </a>
+                    <a href="#">
+                        Audio
+                    </a>
+                    <a href="#">
+                        3D Models
+                    </a>
+                </nav>
             </div>
-        </section>
-    </main>
-    <footer>
-        <p>© 2024 Game Assets. All rights reserved.</p>
-        <nav>
-            <a href="#">
-                Terms of Service
-            </a>
-            <a href="#">
-                Privacy
-            </a>
-        </nav>
-    </footer>
+        </header>
+        <div class="poster">
+            <section>
+                <div class="container poster-inner">
+                    <h1>Share Your Game Assets</h1>
+                    <p>Contribute your own game assets to the community and help other developers bring their projects
+                        to life.</p>
+                    <a class="black-button" href="/game-dev/asset-list">Submit Asset</a>
+                </div>
+            </section>
+        </div>
+        <main class="container">
+            <section>
+                <div class="module-title">
+                    <h2>免费素材下载</h2>
+                    <p>本列表里的素材可以完全商用</p>
+                    <a href="">view all</a>
+                </div>
+                <div class="gutter-grid">
+                    <div class="app-card" v-for="item in homeData.items">
+                        <img :src="item.iconUrl" alt="" />
+                        <strong>{{item.appName}}</strong>
+                        <p>{{item.appDescription}}</p>
+                        <span><a>Download</a></span>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="module-title">
+                    <h2>商用素材购买</h2>
+                    <p>本列表里的素材需付费购买</p>
+                    <a href="">view all</a>
+                </div>
+                <div class="gutter-grid">
+                    <div class="cate-card" v-for="item in homeData.items">
+                        <img :src="item.iconUrl" alt="" />
+                        <h3>{{item.appName}}</h3>
+                        <p>
+                            {{item.appDescription}}
+                        </p>
+                        <a href="">Learn More</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>© 2024 Game Assets. All rights reserved.</p>
+            <nav>
+                <a href="#">
+                    Terms of Service
+                </a>
+                <a href="#">
+                    Privacy
+                </a>
+            </nav>
+        </footer>
+    </div>
+    <script src="./mock.js"></script>
+    <script>
+        const { createApp, ref } = Vue;
+        createApp({
+            setup() {
+                const message = ref("Hello vue,你好吗!");
+                const homeData = ref({
+                    items: libres,
+                    total: 20,
+                });
+                const change = () => {
+                    message.value = "Vue修改成功!";
+                };
+                return {
+                    message,
+                    change,
+                    homeData,
+                };
+            },
+        }).mount("#app");
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('header');
+            if (window.scrollY > 64) { // 当滚动超过50像素时，固定导航栏
+                navbar.classList.add('sticky');
+            } else {
+                navbar.classList.remove('sticky'); // 否则移除固定类
+            }
+        });
+    </script>
 </body>
 
 </html>

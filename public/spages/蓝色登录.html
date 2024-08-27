@@ -2,147 +2,54 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-		<script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
-		<script type="text/javascript">
-			window.tailwind.config = {
-				darkMode: ['class'],
-				theme: {
-					extend: {
-						colors: {
-							border: 'hsl(var(--border))',
-							input: 'hsl(var(--input))',
-							ring: 'hsl(var(--ring))',
-							background: 'hsl(var(--background))',
-							foreground: 'hsl(var(--foreground))',
-							primary: {
-								DEFAULT: 'hsl(var(--primary))',
-								foreground: 'hsl(var(--primary-foreground))'
-							},
-							secondary: {
-								DEFAULT: 'hsl(var(--secondary))',
-								foreground: 'hsl(var(--secondary-foreground))'
-							},
-							destructive: {
-								DEFAULT: 'hsl(var(--destructive))',
-								foreground: 'hsl(var(--destructive-foreground))'
-							},
-							muted: {
-								DEFAULT: 'hsl(var(--muted))',
-								foreground: 'hsl(var(--muted-foreground))'
-							},
-							accent: {
-								DEFAULT: 'hsl(var(--accent))',
-								foreground: 'hsl(var(--accent-foreground))'
-							},
-							popover: {
-								DEFAULT: 'hsl(var(--popover))',
-								foreground: 'hsl(var(--popover-foreground))'
-							},
-							card: {
-								DEFAULT: 'hsl(var(--card))',
-								foreground: 'hsl(var(--card-foreground))'
-							},
-						},
-					}
-				}
-			}
-		</script>
-		<style type="text/tailwindcss">
-			@layer base {
-				:root {
-					--background: 0 0% 100%;
---foreground: 224 71.4% 4.1%;
---card: 0 0% 100%;
---card-foreground: 224 71.4% 4.1%;
---popover: 0 0% 100%;
---popover-foreground: 224 71.4% 4.1%;
---primary: 262.1 83.3% 57.8%;
---primary-foreground: 210 20% 98%;
---secondary: 220 14.3% 95.9%;
---secondary-foreground: 220.9 39.3% 11%;
---muted: 220 14.3% 95.9%;
---muted-foreground: 220 8.9% 46.1%;
---accent: 220 14.3% 95.9%;
---accent-foreground: 220.9 39.3% 11%;
---destructive: 0 84.2% 60.2%;
---destructive-foreground: 210 20% 98%;
---border: 220 13% 91%;
---input: 220 13% 91%;
---ring: 262.1 83.3% 57.8%;
-				}
-				.dark {
-					--background: 224 71.4% 4.1%;
---foreground: 210 20% 98%;
---card: 224 71.4% 4.1%;
---card-foreground: 210 20% 98%;
---popover: 224 71.4% 4.1%;
---popover-foreground: 210 20% 98%;
---primary: 263.4 70% 50.4%;
---primary-foreground: 210 20% 98%;
---secondary: 215 27.9% 16.9%;
---secondary-foreground: 210 20% 98%;
---muted: 215 27.9% 16.9%;
---muted-foreground: 217.9 10.6% 64.9%;
---accent: 215 27.9% 16.9%;
---accent-foreground: 210 20% 98%;
---destructive: 0 62.8% 30.6%;
---destructive-foreground: 210 20% 98%;
---border: 215 27.9% 16.9%;
---input: 215 27.9% 16.9%;
---ring: 263.4 70% 50.4%;
-				}
-			}
-		</style>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="flex min-h-screen items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-500 p-6">
-  <div class="flex w-full max-w-4xl overflow-hidden rounded-lg bg-white shadow-lg">
-    <div class="w-1/2 p-8">
-      <div class="mb-8 text-center">
-        <img src="https://placehold.co/40x40" alt="birdoo logo" class="mx-auto mb-2">
-        <h1 class="text-3xl font-bold text-zinc-800">Welcome to</h1>
-        <h2 class="text-4xl font-bold text-zinc-900">birdoo</h2>
+    <div class="min-h-screen flex items-center justify-center bg-blue-600 dark:bg-zinc-800">
+  <div class="bg-white dark:bg-zinc-900 rounded-lg shadow-lg overflow-hidden flex w-11/12 md:w-4/5 lg:max-w-4xl">
+    <div class="w-full md:w-1/2 p-8">
+      <div class="mb-8">
+        <img src="https://placehold.co/40x40" alt="Logo" class="inline-block">
+        <h2 class="text-3xl font-bold mt-4">Welcome to</h2>
+        <h1 class="text-4xl font-bold text-zinc-800 dark:text-zinc-200">birdoo</h1>
       </div>
       <form>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-zinc-700" for="username">Username</label>
-          <input type="text" id="username" class="mt-1 block w-full rounded-md border-zinc-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="PaoloSpaz">
+          <label for="username" class="block text-zinc-700 dark:text-zinc-300">Username</label>
+          <input type="text" id="username" class="w-full p-2 border rounded mt-1" value="PaoloSpaz1">
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-zinc-700" for="password">Password</label>
-          <input type="password" id="password" class="mt-1 block w-full rounded-md border-zinc-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="********">
+          <label for="password" class="block text-zinc-700 dark:text-zinc-300">Password</label>
+          <input type="password" id="password" class="w-full p-2 border rounded mt-1" value="********">
         </div>
-        <div class="mb-6 flex items-center justify-between">
+        <div class="flex items-center justify-between mb-4">
           <label class="flex items-center">
-            <input type="checkbox" class="h-4 w-4 rounded border-zinc-300 text-indigo-600 focus:ring-indigo-500">
-            <span class="ml-2 text-sm text-zinc-600">Remember me</span>
+            <input type="checkbox" class="form-checkbox">
+            <span class="ml-2 text-zinc-700 dark:text-zinc-300">Remember me</span>
           </label>
-          <a href="#" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot Password?</a>
+          <a href="#" class="text-blue-500 dark:text-blue-400">Forgot Password?</a>
         </div>
-        <button class="w-full rounded-md bg-indigo-600 py-2 text-white hover:bg-indigo-500">LOGIN</button>
+        <button class="w-full bg-blue-500 dark:bg-blue-700 text-white p-2 rounded">LOGIN</button>
       </form>
-      <div class="mt-6 text-center text-sm text-zinc-600">
-        Don't have an account? <a href="#" class="text-indigo-600 hover:text-indigo-500">Sign up</a>
+      <div class="mt-4 text-center">
+        <p class="text-zinc-700 dark:text-zinc-300">Don't have an account? <a href="#" class="text-blue-500 dark:text-blue-400">Sign up</a></p>
       </div>
-      <div class="mt-4 text-center text-xs text-zinc-500">
-        FAQ | Features | Support
+      <div class="mt-4 text-center text-zinc-500 dark:text-zinc-400">
+        <a href="#" class="mr-2">FAQ</a> | 
+        <a href="#" class="mx-2">Features</a> | 
+        <a href="#" class="ml-2">Support</a>
       </div>
     </div>
-    <div class="hidden w-1/2 bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-white lg:block">
-      <h3 class="mb-4 text-2xl font-bold">About Birdoo</h3>
-      <p class="mb-4 text-sm">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-      </p>
-      <h4 class="mb-2 text-xl font-bold">Features</h4>
-      <ul class="list-disc pl-5 text-sm">
+    <div class="w-full md:w-1/2 bg-blue-700 dark:bg-zinc-800 text-white p-8 relative">
+      <h2 class="text-2xl font-bold mb-4">About Birdoo</h2>
+      <p class="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+      <h3 class="text-xl font-bold mb-2">Features</h3>
+      <ul class="list-disc list-inside mb-4">
         <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-        <li>Lorem Ipsum has been the industry's standard dummy text.</li>
+        <li>Lorem Ipsum has been the industry's standard</li>
         <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
       </ul>
-      <div class="mt-8 flex justify-center">
-        <img src="https://placehold.co/150x100" alt="illustration of a farm with animals and a barn">
-      </div>
+      <img src="https://placehold.co/300x100" alt="Illustration" class="absolute bottom-0 right-0">
     </div>
   </div>
 </div>

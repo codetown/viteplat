@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,18 +64,12 @@
         section:nth-child(odd) {
             background-color: #eaeaea;
         }
-        section>h2 {
+
+        section h2 {
             margin-bottom: 1rem;
             font-size: 32px;
         }
-        section>p {
-            margin-bottom: 1rem;
-            font-size: 14px;
-        }
-        section>img{
-            display: block;
-            margin-bottom: 2em;
-        }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -98,29 +92,14 @@
         nav a:hover::after {
             width: 100%;
         }
-        .data-block{
-            display:flex;
-            width: 100%;
-            justify-content: space-between;
-        }
-        .data-block>div{
-            width:20%;
-            height:180px;
-            border-radius: 8px;
-        }
-        .data-block>div:nth-child(1){
-            background:linear-gradient(24deg,#ffddaa,#ff6666);
-        }
-        .data-block>div:nth-child(2){
-            background:linear-gradient(24deg,#88ddee,#0088ff);
-        }
-        .data-block>div:nth-child(3){
-            background:linear-gradient(24deg,#ffee88,#ee9966);
-        }
-        .data-block>div:nth-child(4){
-            background:linear-gradient(24deg,#ddeeff,#bb66ee);
-        }
     </style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... 之前的头部内容保持不变 ... -->
 </head>
 <body>
 
@@ -140,25 +119,21 @@
 <main>
     <section id="section1" class="section">
         <h2>首页</h2>
-        <img src="images/banner-4.png" alt="首页图片" style="max-width: 100%; height: auto;"/>
         <p>
-            欢迎来到我们的高级导航网站！我们致力于为您提供最新资讯、优质服务与便捷的导航体验。 
+            欢迎来到我们的高级导航网站！我们致力于为您提供最新资讯、优质服务与便捷的导航体验。
+            <br>
+            <img src="images/home-image-placeholder.jpg" alt="首页图片" style="max-width: 100%; height: auto;">
         </p>
-        <div class="data-block">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
     </section>
 
     <section id="section2" class="section">
         <h2>新闻</h2>
         <article>
             <h3>最新科技动态</h3>
-            <img src="images/banner-5.png" alt="新闻图片" style="max-width: 100%; height: auto;"/>
             <p>
                 今日，AI领域取得重大突破，研究人员开发出能自主学习新技能的AI模型。
+                <br>
+                <img src="images/news-image-placeholder.jpg" alt="新闻图片" style="max-width: 100%; height: auto;">
             </p>
             <p>更多新闻...</p>
         </article>
@@ -166,23 +141,32 @@
 
     <section id="section3" class="section">
         <h2>联系我们</h2>
-        <img src="images/banner-6.png" alt="关于我们图片" style="max-width: 100%; height: auto;"/>
         <address>
             <p>地址：虚拟街1号，云端城</p>
             <p>电话：+86-123-4567-890</p>
             <p>Email：contact@example.com</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.041049558872!2d140.6849225!3d35.6955175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c3b3f6f6d91%3A0x4f7b475df55a234b!2sTokyo%2C+Japan!5e0!3m2!1sen!2sus!4v1649677451421!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </address>
     </section>
 
     <section id="section4" class="section">
         <h2>关于</h2>
-        <img src="images/banner-7.png" alt="关于我们图片" style="max-width: 100%; height: auto;"/>
         <p>
             我们是一家成立于2020年的创新科技公司，专注于开发用户友好的在线平台和服务。
             团队由一群充满激情的开发者、设计师和市场专家组成，共同致力于创造有意义的数字体验。
+            <br>
+            <img src="images/about-image-placeholder.jpg" alt="关于我们图片" style="max-width: 100%; height: auto;">
         </p>
     </section>
 </main>
+
+<footer>
+    <!-- ... 之前的底部内容保持不变 ... -->
+</footer>
+
+<!-- ... 之前的脚本内容保持不变 ... -->
+</body>
+</html>
 
 <footer>
     <p>&copy; 2023 高级导航网站. All rights reserved.</p>
