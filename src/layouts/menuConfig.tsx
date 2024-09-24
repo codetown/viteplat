@@ -1,11 +1,12 @@
 import {
   WarningOutlined,
-  FormOutlined,
   DashboardOutlined,
   UserOutlined,
   VideoCameraOutlined,
   TeamOutlined,
   AppstoreOutlined,
+  SettingOutlined,
+  SolutionOutlined,
   // SettingOutlined,
   // DatabaseOutlined,
   // UploadOutlined
@@ -80,7 +81,7 @@ const asideMenuConfig: SiderMenuItemType[] = [
   {
     name: '功能示例',
     path: '/form-example',
-    icon: <FormOutlined />,
+    icon:<SolutionOutlined />,
     children: [
       {
         name: '单个表单',
@@ -106,7 +107,7 @@ const asideMenuConfig: SiderMenuItemType[] = [
   },
   {
     name: '应用配置',
-    icon: <FormOutlined />,
+    icon: <SettingOutlined />,
     children: [
       {
         name: '拖拽示例',

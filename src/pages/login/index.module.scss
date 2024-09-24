@@ -14,14 +14,22 @@
   }
 
   :global(.ant-card-body) {
-    padding:48px 64px;
+    padding: 48px 64px;
   }
 
   :global(.ant-input:-internal-autofill-selected) {
     box-shadow: inset 0 0 0 1000px #fff !important;
   }
 
+  :global(.ant-input:-internal-autofill-previewed) {
+    box-shadow: inset 0 0 0 1000px #fff !important;
+  }
+
   :global(.ant-input:-internal-autofill-selected:focus) {
+    box-shadow: inset 0 0 0 1000px #fff !important;
+  }
+
+  :global(.ant-input:-internal-autofill-previewed:focus) {
     box-shadow: inset 0 0 0 1000px #fff !important;
   }
 
@@ -51,7 +59,7 @@
     .loginForm {
       width: 50%;
       min-width: 240px;
-      padding-right:64px;
+      padding-right: 64px;
 
       // background-color: #2244cc;
       :global(.ant-form-item) {
