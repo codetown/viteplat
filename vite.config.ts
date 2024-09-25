@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), svgr()],
   base: './',
   build: {
-    sourcemap: false,
+    sourcemap: false
   },
   resolve: {
     alias: {
@@ -18,12 +18,13 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "./src/assets/scss/varible.scss";',
-        modifyVars: {
-          'primary-color': '#1DA57A',
-          'link-color': '#1DA57A',
-          'border-radius-base': '2px'
-        }
+        api: 'modern-compiler',
+        additionalData: `
+        @import "@/assets/scss/variables.scss";
+        $primary-color:#1DA57A;
+        $link-color:#1DA57A;
+        $border-radius-base:2px;
+        `
       }
     },
     modules: {
