@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "../app/pages-config/tailwind.min.css"
+import "@/pages/app/pages-config/tailwind.min.css"
 import { libres } from "@/mock/data"
 export default function Album() {
   return (

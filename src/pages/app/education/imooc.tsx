@@ -1,7 +1,7 @@
 import { CalendarIcon, LockIcon, MailsIcon, SearchIcon, SettingsIcon, StarIcon } from "@/components/Icons"
 import { Input, Avatar } from "antd"
 import { Link } from "react-router-dom"
-import "../app/pages-config/tailwind.min.css"
+import "@/pages/app/pages-config/tailwind.min.css"
 // import styles from './index.module.scss'
 // import { libres } from "@/mock/data"
 
