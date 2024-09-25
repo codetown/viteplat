@@ -32,24 +32,24 @@ const asideMenuConfig: SiderMenuItemType[] = [
     children: [
       {
         name: '管理员',
-        path: '/administrators',
+        path: '/system/administrators',
         icon: <UserOutlined />
       },
       {
         name: '角色管理',
-        path: '/system/role'
+        path: '/system/roles'
       },
       {
         name: '权限管理',
-        path: '/system/permission'
+        path: '/system/permissions'
       },
       {
         name: '系统配置',
-        path: '/web-config'
+        path: '/system/web-config'
       },
       {
         name: '数据字典',
-        path: '/options'
+        path: '/system/options'
       }
     ]
   },
@@ -70,38 +70,38 @@ const asideMenuConfig: SiderMenuItemType[] = [
   // },
   {
     name: '员工管理',
-    path: '/employees',
+    path: '/app/employees',
     icon: <TeamOutlined />
   },
   {
     name: '视频列表',
-    path: '/videos',
+    path: '/app/videos',
     icon: <VideoCameraOutlined />
   },
   {
     name: '功能示例',
-    path: '/form-example',
+    path: '/demo/form-example',
     icon:<SolutionOutlined />,
     children: [
       {
         name: '单个表单',
-        path: '/form'
+        path: '/demo/form'
       },
       {
         name: '表单列表',
-        path: '/form-list'
+        path: '/demo/form-list'
       },
       {
         name: '高级上传',
-        path: '/upload-advance'
+        path: '/demo/upload-advance'
       },
       {
         name: '视频播放',
-        path: '/hook-video-demo',
+        path: '/demo/hook-video-demo',
       },
       {
         name: 'Curd Demo',
-        path: '/curd-demo',
+        path: '/demo/curd',
       }
     ]
   },
@@ -111,31 +111,31 @@ const asideMenuConfig: SiderMenuItemType[] = [
     children: [
       {
         name: '拖拽示例',
-        path: '/app-pages-config/drag-demo'
+        path: '/app/pages-config/drag-demo'
       },
       {
         name: '创建页面',
-        path: '/app-pages-config/create'
+        path: '/app/pages-config/create'
       },
       {
         name: '工作台',
-        path: '/app-pages-config/workbench'
+        path: '/app/pages-config/workbench'
       },
       {
         name: '页面配置',
-        path: '/app-pages-config',
+        path: '/app/pages-config',
       },
       {
         name: '相册',
-        path: '/album',
+        path: '/app/album',
       },
       {
         name: '游戏开发素材',
-        path: '/game-dev',
+        path: '/app/game-dev',
       },
       {
         name: '在线教育',
-        path: '/education',
+        path: '/app/education',
       }
     ]
   },

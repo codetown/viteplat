@@ -1,6 +1,6 @@
 import { Button } from "antd"
 import { Link } from "react-router-dom"
-import "../app-pages-config/tailwind.min.css"
+import "../app/pages-config/tailwind.min.css"
 export default function Photo() {
     return (
         <div className="flex flex-col h-screen">

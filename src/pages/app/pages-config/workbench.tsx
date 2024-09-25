@@ -242,7 +242,7 @@ function BoxIcon(props: any) {
         </svg>
     )
 }
-export default function () {
+export default function Workbench() {
     return (
         <div className="flex h-screen w-full flex-col bg-background">
             <header className="flex h-14 items-center justify-between border-b bg-background px-4 sm:px-6">

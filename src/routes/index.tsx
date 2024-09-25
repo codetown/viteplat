@@ -18,48 +18,56 @@ const routes: RouteObject[] = [
         element: lazyLoad(lazy(() => import('@/pages/home')))
       },
       {
-        path: 'form',
-        element: lazyLoad(lazy(() => import('@/pages/form')))
+        path: 'system/administrators',
+        element: lazyLoad(lazy(() => import('@/pages/system/administrators')))
       },
       {
-        path: 'form-list',
-        element: lazyLoad(lazy(() => import('@/pages/form-list')))
+        path: 'system/roles',
+        element: lazyLoad(lazy(() => import('@/pages/system/roles')))
       },
       {
-        path: 'administrators',
-        element: lazyLoad(lazy(() => import('@/pages/administrators')))
+        path: 'system/permissions',
+        element: lazyLoad(lazy(() => import('@/pages/system/permissions')))
       },
       {
-        path: 'web-config',
-        element: lazyLoad(lazy(() => import('@/pages/web-config')))
+        path: 'system/web-config',
+        element: lazyLoad(lazy(() => import('@/pages/system/web-config')))
       },
       {
-        path: 'options',
-        element: lazyLoad(lazy(() => import('@/pages/options')))
+        path: 'system/options',
+        element: lazyLoad(lazy(() => import('@/pages/system/options')))
       },
       {
-        path: 'employees',
-        element: lazyLoad(lazy(() => import('@/pages/employees')))
+        path: 'demo/form',
+        element: lazyLoad(lazy(() => import('@/pages/demo/form')))
       },
       {
-        path: 'videos',
-        element: lazyLoad(lazy(() => import('@/pages/videos')))
+        path: 'demo/form-list',
+        element: lazyLoad(lazy(() => import('@/pages/demo/form-list')))
+      },
+      {
+        path: 'demo/upload-advance',
+        element: lazyLoad(lazy(() => import('@/pages/demo/upload-advance')))
+      },
+      {
+        path: 'demo/hook-video-demo',
+        element: lazyLoad(lazy(() => import('@/pages/demo/hook-video-demo')))
+      },
+      {
+        path: 'demo/curd',
+        element: lazyLoad(lazy(() => import('@/pages/demo/curd')))
+      },
+      {
+        path: 'app/employees',
+        element: lazyLoad(lazy(() => import('@/pages/app/employees')))
+      },
+      {
+        path: 'app/videos',
+        element: lazyLoad(lazy(() => import('@/pages/app/videos')))
       },
       {
         path: 'success',
         element: lazyLoad(lazy(() => import('@/pages/success')))
-      },
-      {
-        path: 'upload-advance',
-        element: lazyLoad(lazy(() => import('@/pages/upload-advance')))
-      },
-      {
-        path: 'hook-video-demo',
-        element: lazyLoad(lazy(() => import('@/pages/album')))
-      },
-      {
-        path: 'curd-demo',
-        element: lazyLoad(lazy(() => import('@/pages/curd-demo')))
       }
     ]
   },
@@ -72,56 +80,56 @@ const routes: RouteObject[] = [
     element: lazyLoad(lazy(() => import('@/pages/login/login-new')))
   },
   {
-    path: 'app-pages-config',
-    element: lazyLoad(lazy(() => import('@/pages/app-pages-config')))
+    path: 'app/pages-config',
+    element: lazyLoad(lazy(() => import('@/pages/app/pages-config')))
   },
   {
-    path: 'app-pages-config/create',
-    element: lazyLoad(lazy(() => import('@/pages/app-pages-config/create')))
+    path: 'app/pages-config/create',
+    element: lazyLoad(lazy(() => import('@/pages/app/pages-config/create')))
   },
   {
-    path: 'app-pages-config/drag-demo',
-    element: lazyLoad(lazy(() => import('@/pages/app-pages-config/drag-demo')))
+    path: 'app/pages-config/drag-demo',
+    element: lazyLoad(lazy(() => import('@/pages/app/pages-config/drag-demo')))
   },
   {
-    path: 'app-pages-config/workbench',
-    element: lazyLoad(lazy(() => import('@/pages/app-pages-config/workbench')))
+    path: 'app/pages-config/workbench',
+    element: lazyLoad(lazy(() => import('@/pages/app/pages-config/workbench')))
   },
   {
-    path: 'album',
-    element: lazyLoad(lazy(() => import('@/pages/album')))
+    path: 'app/album',
+    element: lazyLoad(lazy(() => import('@/pages/app/album')))
   },
   {
-    path: 'album/detail',
-    element: lazyLoad(lazy(() => import('@/pages/album/detail')))
+    path: 'app/album/detail',
+    element: lazyLoad(lazy(() => import('@/pages/app/album/detail')))
   },
   {
-    path: 'album/photo',
-    element: lazyLoad(lazy(() => import('@/pages/album/photo')))
+    path: 'app/album/photo',
+    element: lazyLoad(lazy(() => import('@/pages/app/album/photo')))
   },
   {
-    path: 'game-dev',
-    element: lazyLoad(lazy(() => import('@/pages/game-dev')))
+    path: 'app/game-dev',
+    element: lazyLoad(lazy(() => import('@/pages/app/game-dev')))
   },
   {
-    path: 'game-dev/assets',
-    element: lazyLoad(lazy(() => import('@/pages/game-dev/assets')))
+    path: 'app/game-dev/assets',
+    element: lazyLoad(lazy(() => import('@/pages/app/game-dev/assets')))
   },
   {
-    path: 'game-dev/asset-list',
-    element: lazyLoad(lazy(() => import('@/pages/game-dev/asset-list')))
+    path: 'app/game-dev/asset-list',
+    element: lazyLoad(lazy(() => import('@/pages/app/game-dev/asset-list')))
   },
   {
-    path: 'education',
-    element: lazyLoad(lazy(() => import('@/pages/education')))
+    path: 'app/education',
+    element: lazyLoad(lazy(() => import('@/pages/app/education')))
   },
   {
-    path: 'education/imooc',
-    element: lazyLoad(lazy(() => import('@/pages/education/imooc')))
+    path: 'app/education/imooc',
+    element: lazyLoad(lazy(() => import('@/pages/app/education/imooc')))
   },
   {
-    path: 'education/exam',
-    element: lazyLoad(lazy(() => import('@/pages/education/exam')))
+    path: 'app/education/exam',
+    element: lazyLoad(lazy(() => import('@/pages/app/education/exam')))
   },
   {
     path: 'ai-platform',
@@ -129,7 +137,7 @@ const routes: RouteObject[] = [
     children: [
       {
         path: 'home',
-        element: lazyLoad(lazy(() => import('@/pages/app-pages-config/drag-demo')))
+        element: lazyLoad(lazy(() => import('@/pages/app/pages-config/drag-demo')))
       }
     ]
   },
