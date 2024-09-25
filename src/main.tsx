@@ -15,7 +15,7 @@ import { css } from '@emotion/css';
 import routes from '@/routes'
 import './index.scss'
 const linearGradientButton = css`
-    &.ant-btn-primary:not([disabled]):not(.ant-btn-dangerous) {
+    &.ant-btn-primary:not([disabled]):not(.ant-btn-dangerous):not(.ant-btn-link) {
       border-width: 0;
 
       > span {
