@@ -1,7 +1,7 @@
 import {useEffect } from 'react';
 import { Modal, Input, Form, Switch } from 'antd';
-import { getOptionDetail } from '@/services/options'
-export default function (props:any) {
+
+export default function (props) {
   const [form] = Form.useForm();
   const onSubmit = () => {
     console.info("onSubmit=>")
@@ -12,50 +12,54 @@ export default function (props:any) {
       })
       .catch((errorInfo) => {
         console.info('errorInfo', errorInfo);
+        /*
+        errorInfo:
+        {
+        values: {
+            username: 'username',
+            password: 'password',
+        },
+        errorFields: [
+            { name: ['password'], errors: ['Please input your Password!'] },
+        ],
+        outOfDate: false,
+        }
+        */
       });
   };
 
   useEffect(() => {
-    if (props?.rowData) {
-      console.info("rowData=>",props?.rowData);
+    if (props && props.optionId) {
       getOptionDetail({
-        id: props.rowData.id,
-      }).then((res:any) => {
-        console.info("res=>",res);
+        id: props.optionId,
+      }).then((res) => {
         if (res.code === 200) {
           const formData = {
             ...form.getFieldsValue(),
           };
           Object.keys(formData).forEach((key) => {
-            if(key==='isDefault'){
-              formData[key] =res.data[key]>0;
-            }else{
-              formData[key] = res.data[key];
-            }
+            formData[key] = res.data[key];
           });
-          console.info("formData=>",formData);
           form.setFieldsValue(formData);
         }
       });
-    }else{
-      form.resetFields();
     }
-  }, [props?.rowData]);
+  }, []);
 
   return (
     <Modal
-      forceRender
-      getContainer={false}
-      open={props.open}
+      open={props.visible}
       title="添加或编辑"
+      getContainer={false}
       onOk={onSubmit}
-      okButtonProps={{
+      okBnProps={{
         loading:props?.saving,
       }}
       onCancel={props.onCancel}
     >
       <Form
       form={form}
+        layout="vertial"
         labelCol={{
           span: 6,
         }}

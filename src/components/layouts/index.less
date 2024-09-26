@@ -1,0 +1,175 @@
+.slider {
+  overflow: auto;
+  height: 100vh;
+}
+.rightPart{
+  flex:1;
+}
+.logo {
+  /*border-right:1px solid #666;*/
+  height: 64px;
+  padding: 6px 8px;
+  overflow: hidden;
+  background-color: #f2f2ff;
+  font-size: 0;
+  display: flex;
+}
+
+.logo>img {
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+}
+
+.logo>span {
+  font-size: 24px;
+  color: #3080ff;
+  font-weight: 700;
+  line-height: 46px;
+  white-space: nowrap;
+}
+
+.administrator {
+  overflow: hidden;
+  padding: 8px 7px;
+  display: flex;
+  border-bottom: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+}
+
+.administrator>div>span,
+.administrator>div>strong {
+  display: block;
+  line-height: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.administrator>div>strong {
+  font-size: 16px;
+}
+
+.administrator>div>span {
+  font-size: 13px;
+}
+
+.administrator>img {
+  width: 48px;
+  height: 49px;
+  margin-right: 12px;
+  border-radius: 4px;
+}
+
+.header {
+  background-color: #3080ff;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.headerMenu {
+  height: 64px;
+  line-height: 32px;
+  overflow: hidden;
+  display: flex;
+  padding-top: 16px;
+}
+
+.headerMenu>a {
+  line-height: 32px;
+  height: 32px;
+  overflow: hidden;
+  padding: 0 16px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.headerMenu a>span {
+  margin-right: 4px;
+}
+
+.headerMenu a:hover {
+  background-color: #0066ee;
+}
+
+.headerSpace {
+  width: calc(100% - 320px);
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+
+  :global {
+
+    .ant-breadcrumb {
+      color: #eeeeff;
+    }
+
+    .ant-breadcrumb strong {
+      color: #fff;
+    }
+  }
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: color 0.3s;
+  color: #fff;
+  width: 60px;
+}
+
+.menu {
+  height: calc(100vh - 134px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 6px;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 4px;
+  background: #c8c8c8;
+}
+
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  border-radius: 10px;
+  background: #e6e6e6;
+}
+
+.content {
+  height: calc(100vh - 104px);
+  padding: 16px;
+  overflow: overlay;
+  min-width: 640px;
+  width: 100%;
+  background-color: #f0f2f5;
+
+  :global {
+    .ant-card {
+      height: 100%;
+    }
+  }
+}
+
+.footer {
+  height: 40px;
+  line-height: 32px;
+  text-align: center;
+  padding: 0;
+  background-color: #fff;
+  color: #444;
+  overflow: hidden;
+  border-top: 2px solid #00aaff;
+}

@@ -67,16 +67,16 @@ pnpm add prettier eslint-config-prettier eslint-plugin-prettier sass -D
 ```
 
 ```js
-module.exports = {  
-    printWidth: 120,  
-    tabWidth: 2,  
-    useTabs: false,  
-    semi: false,  
-    singleQuote: true,  
-    jsxSingleQuote: false,  
-    jsxBracketSameLine: true,  
-    trailingComma: 'none',  
-    bracketSpacing: true  
+module.exports = {
+  printWidth: 120,
+  tabWidth: 2,
+  useTabs: false,
+  semi: false,
+  singleQuote: true,
+  jsxSingleQuote: false,
+  jsxBracketSameLine: true,
+  trailingComma: 'none',
+  bracketSpacing: true
 }
 ```
 
@@ -180,15 +180,31 @@ vite构建工具的配置项，在这里可以使用一些第三方插件，做�
 
 ## 需要解决的问题
 
-0. 登录推出功能联调  
+0. 登录推出功能联调
 
 1. 左侧导航菜单，和路由之间的转换  
-登录后获取路由数据  
+   登录后获取路由数据
 
-2. 左侧菜单根据访问url路径设置打开的和激活的菜单项  
+2. 左侧菜单根据访问url路径设置打开的和激活的菜单项
 
-3. 登录页面重构和布局  
+3. 登录页面重构和布局
 
-4. 登录接口返回的路由数据  
+4. 登录接口返回的路由数据
 
-5. 完成面包屑功能  
+5. 完成面包屑功能
+
+## 开发计划
+
+1.动态加载菜单树  
+2.完成整个登录退出  
+3.编写修改密码忘记密码  
+4.完成图片验证码以及校验  
+5.编写修改个人资料上传个人图片  
+6.视频管理增删查改  
+7.商品信息增删查改8.图片库信息增删查改  
+9.页面布局管理之幻灯片管理  
+10.加载页面，404页面，505页面整合  
+11.面包屑导航逻辑重新编写  
+12.找回密码功能  
+13.上传文件功能需要重新写一下  
+14.权限管理，角色管理，菜单管理，用户管理

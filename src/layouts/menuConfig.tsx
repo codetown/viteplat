@@ -69,16 +69,6 @@ const asideMenuConfig: SiderMenuItemType[] = [
   //   icon: <DatabaseOutlined />
   // },
   {
-    name: '员工管理',
-    path: '/app/employees',
-    icon: <TeamOutlined />
-  },
-  {
-    name: '视频列表',
-    path: '/app/videos',
-    icon: <VideoCameraOutlined />
-  },
-  {
     name: '功能示例',
     path: '/demo/form-example',
     icon:<SolutionOutlined />,
@@ -106,9 +96,23 @@ const asideMenuConfig: SiderMenuItemType[] = [
     ]
   },
   {
-    name: '应用配置',
+    name: '应用示例',
     icon: <SettingOutlined />,
     children: [
+      {
+        name: '员工管理',
+        path: '/app/employees',
+        icon: <TeamOutlined />
+      },
+      {
+        name: '视频列表',
+        path: '/app/videos',
+        icon: <VideoCameraOutlined />
+      },
+      {
+        name: '工作流',
+        path: '/app/workflows'
+      },
       {
         name: '拖拽示例',
         path: '/app/pages-config/drag-demo'

@@ -117,19 +117,19 @@ export function getAdmins(params: any): Promise<RepsonseData> {
 // };
 
 // fakeLogin 登录
-export async function fakeLogin(params:any) {
+export async function fakeLogin(params: any) {
   return request('/api/v1/plt/login', {
     method: 'POST',
-    data: params,
-  });
+    data: params
+  })
 }
 
 // getCaptcha 获取登录验证码
-export async function getCaptcha(params:any) {
+export async function getCaptcha(params: any) {
   return request(`/api/v1/get-captcha`, {
     method: 'POST',
-    data: params,
-  });
+    data: params
+  })
 }
 
 // logout 退出系统
@@ -137,41 +137,54 @@ export async function fakeLogout(params: any) {
   return request('/api/v1/logout', {
     method: 'DELETE',
     params
-  });
-};
+  })
+}
 
 // getMemberDetail 获取用户信息详情
-export async function getMemberDetail(id:number) {
+export async function getMemberDetail(id: number) {
   return request(`/api/v1/members/${id}`, {
     method: 'GET'
-  });
-};
+  })
+}
 
 // getMemberList 获取用户信息列表
-export async function getMemberList(params:any) {
+export async function getMemberList(params: any) {
   return request('/api/v1/members', {
     method: 'GET',
     params
-  });
-};
+  })
+}
 
-export function pureParams(params:any,deleteZero:boolean = false){
-  const realParams:any = {}
-  Object.keys(params).forEach(key=>{
-    const condition1 = ['current','pageSize'].includes(key)
-    let condition2 = params[key]===undefined||params[key]===null||params[key]===''|| Number.isNaN(params[key])
-    if (deleteZero){
-      condition2=condition2||(params[key]===0)
+export function pureParams(params: any, deleteZero: boolean = false) {
+  const realParams: any = {}
+  Object.keys(params).forEach((key) => {
+    const condition1 = ['current', 'pageSize'].includes(key)
+    let condition2 =
+      params[key] === undefined || params[key] === null || params[key] === '' || Number.isNaN(params[key])
+    if (deleteZero) {
+      condition2 = condition2 || params[key] === 0
     }
-    if((!condition1)&&(!condition2)){
-      realParams[key]=params[key]
+    if (!condition1 && !condition2) {
+      realParams[key] = params[key]
     }
-    if(key==='current'){
-      realParams['page']=params.current
+    if (key === 'current') {
+      realParams['page'] = params.current
     }
-    if(key==='pageSize'){
-      realParams['per_page']=params.pageSize
+    if (key === 'pageSize') {
+      realParams['per_page'] = params.pageSize
     }
   })
   return realParams
+}
+
+// getAdmins获取菜单树
+export async function postAndUpload(url: string, params: any) {
+  return request(url, {
+    method: 'POST',
+    data: params
+    // headers:{
+    //   "Content-Type": "multipart/form-data"
+    // },
+    // requestType: 'form'
+  })
 }

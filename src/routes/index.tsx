@@ -66,6 +66,10 @@ const routes: RouteObject[] = [
         element: lazyLoad(lazy(() => import('@/pages/app/videos')))
       },
       {
+        path: 'app/workflows',
+        element: lazyLoad(lazy(() => import('@/pages/app/workflows')))
+      },
+      {
         path: 'success',
         element: lazyLoad(lazy(() => import('@/pages/success')))
       }
