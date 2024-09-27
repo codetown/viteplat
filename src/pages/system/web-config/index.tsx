@@ -3,7 +3,7 @@ import { Card, Input, Table, Form, Button, Space, Select } from 'antd';
 import FilterForm from '@/components/FilterForm';
 import classes from './index.module.scss';
 // import avatar from '@/assets/avatar.jpeg';
-import InputForm from '@/components/InputForm';
+
 import { getMemberList } from '@/services/common';
 
 export default function () {
@@ -68,37 +68,7 @@ export default function () {
         type: "rangePicker"
     },
     ];
-    const fields2 = [{
-        label: "工作名",
-        name: "flowName",
-        type: "input"
-    },
-    {
-        label: "状态",
-        name: "status",
-        type: "select",
-        options: [
-            { label: "未启用", value: 0 },
-            { label: "已启用", value: 1 }
-        ]
-    },
-    {
-        label: "头像",
-        name: "avatar",
-        type: "upload",
-        maxCount: 1
-    },
-    {
-        label: "截至日期",
-        name: "deadline",
-        type: "datePicker"
-    },
-    {
-        label: "创建日期",
-        name: "createdTime",
-        type: "rangePicker"
-    },
-    ];
+    
     const columns: any[] = [
         {
             title: '头像',
@@ -229,9 +199,6 @@ export default function () {
                     search(values);
                 }}
             />
-            <InputForm fields={fields2} onSubmit={(data: any) => {
-                console.info("data=>", data);
-            }} />
         </Card>
     );
 };

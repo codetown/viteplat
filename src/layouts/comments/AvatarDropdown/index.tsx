@@ -25,6 +25,9 @@ const AvatarDropdown: React.FC<AvatarDropdownProps> = (props: { name: string; av
       if (key === 'logout') {
         logout()
       }
+      if(key === 'zone'){
+        navigate({pathname:'system/zone'})
+      }
     },
     items: [
       {

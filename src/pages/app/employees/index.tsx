@@ -56,18 +56,19 @@ const columns: ColumnsType<DataType> = [
   },
   {
     title: '操作',
+    width:90,
     render() {
       return (
         <>
-          <Button type="link" icon={<FormOutlined />} title="编辑">
+          <Button type="link" size='small' icon={<FormOutlined />} title="编辑">
             编辑
           </Button>
-          <Button type="link" icon={<DeleteOutlined />} title="删除">
+          <Button type="link" size='small' icon={<DeleteOutlined />} title="删除">
             删除
           </Button>
-          <Button type="link" icon={<CopyOutlined title="查看" />}>
+          {/* <Button type="link" size='small' icon={<CopyOutlined title="查看" />}>
             查看
-          </Button>
+          </Button> */}
           {/* <FormOutlined />
           <DeleteOutlined />
           <CopyOutlined /> */}
@@ -155,6 +156,7 @@ export default function Employees() {
       </div> */}
       <Table
         rowKey="id"
+        size='small'
         rowSelection={rowSelection}
         loading={loading}
         columns={columns}

@@ -5,6 +5,11 @@
         overflow: hidden;
     }
 
+    :global(.ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item::before) {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
     :global(.ant-upload-list.ant-upload-list-picture-card) {
         position: relative;
 
