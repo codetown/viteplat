@@ -178,13 +178,12 @@ export function pureParams(params: any, deleteZero: boolean = false) {
 }
 
 // getAdmins获取菜单树
-export async function postAndUpload(url: string, params: any) {
+export async function postUpload(url: string, params: any) {
   return request(url, {
     method: 'POST',
-    data: params
-    // headers:{
-    //   "Content-Type": "multipart/form-data"
-    // },
-    // requestType: 'form'
+    data: params,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
   })
 }

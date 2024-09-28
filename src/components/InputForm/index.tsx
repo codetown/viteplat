@@ -1,25 +1,10 @@
-import { Button, Form, message, Input, Select, DatePicker, Upload, Switch, Radio, Checkbox, InputNumber } from 'antd'
+import { Button, Form, Input, Select, DatePicker, Upload, Switch, Radio, Checkbox, InputNumber } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import classes from './index.module.scss'
-import { RcFile } from 'antd/es/upload'
 import CropAndUpload from '../CropAndUpload'
 export default function InputForm(props: any) {
   const [form] = Form.useForm()
-  const beforeUpload = (file: RcFile) => {
-    const isJpgOrPng = ['image/jpeg', 'image/png'].includes(file.type)
 
-    if (!isJpgOrPng) {
-      message.error('仅支持JPG和PNG格式的图片!')
-    }
-
-    const isLt2M = file.size / 1024 / 1024 < 2
-
-    if (!isLt2M) {
-      message.error('图片大小不的大于2MB!')
-    }
-
-    return isJpgOrPng && isLt2M
-  }
   return (
     <Form
       form={form}
@@ -58,7 +43,7 @@ export default function InputForm(props: any) {
           ele = <DatePicker.RangePicker placeholder={['开始时间', '结束时间']} format="YYYY-MM-DD" />
         }
         if (item?.type === 'image') {
-          ele = <CropAndUpload beforeUpload={item?.beforeUpload} onPreview={item?.beforeUpload} />
+          ele = <CropAndUpload valuePropName={item.name} beforeUpload={item?.beforeUpload} onPreview={item?.onPreview} onChange={item?.onChange} customRequest={item?.customRequest} />
         }
         if (item?.type === 'upload') {
           ele = (
@@ -66,7 +51,7 @@ export default function InputForm(props: any) {
               action={item?.action}
               listType="picture-card"
               maxCount={item?.maxCount}
-              beforeUpload={beforeUpload}
+              beforeUpload={item?.beforeUpload}
               onChange={item?.onChange}>
               <div>
                 <PlusOutlined />
@@ -86,7 +71,7 @@ export default function InputForm(props: any) {
             name={item?.name}
             rules={item?.rules}
             key={`input-form-${item?.name}-${index}`}
-          // valuePropName={item?.name}
+            valuePropName={item.type=='image'?item?.name:undefined}
           >
             {ele}
           </Form.Item>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card, message, Form, Button } from 'antd';
 import FilterForm from '@/components/FilterForm';
 import CropAndUpload from '@/components/CropAndUpload';
-import { postAndUpload } from '@/services/common';
+import { postUpload } from '@/services/common';
 const WorkFlow = () => {
   const [form] = Form.useForm();
   const search = (params:any) => {
@@ -12,6 +12,7 @@ const WorkFlow = () => {
   useEffect(() => {
     search({ current: 1, pageSize: 10 });
   }, []);
+  
   const fields = [{
     label: "工作名",
     name: "flowName",
@@ -115,14 +116,11 @@ const WorkFlow = () => {
       title={filterForm}
     >
       {/* {imageUrl&&<img src={imageUrl} alt="" width="500" height="500"/>} */}
-      {/* <InputForm fields={fields2} onSubmit={(data: any) => {
-                console.info("data=>", data);
-            }} /> */}
       {/* {fileList.map((item:any, index:number) => (item?.thumbUrl && <img key={index + 1} width="200" height="200" src={item?.thumbUrl} />))} */}
 
       <Form form={form}>
-        <Form.Item name="images" valuePropName="images" label="相册" rules={[{required:true,message:'请选择上传文件'}]} getValueFromEvent={(e:any) => e}>
-          <CropAndUpload valuePropName="images" beforeUpload={beforeUpload} onPreview={onPreview} handleChange={handleChange} customRequest={customRequest} />
+        <Form.Item name="images" valuePropName="images" label="相册" rules={[{required:true,message:'请选择上传文件'}]}>
+          <CropAndUpload valuePropName="images" beforeUpload={beforeUpload} onPreview={onPreview} onChange={handleChange} customRequest={customRequest} />
         </Form.Item>
         <Button onClick={async () => {
           // const checkResult= await form.validateFields();
@@ -134,7 +132,7 @@ const WorkFlow = () => {
           });
           formData.append("file", formFields.images.file.originFileObj);
           console.info("formFields=>",formFields)
-            postAndUpload('/api/v1/upload-test', formData).then(res => {
+            postUpload('/api/v1/upload-test', formData).then(res => {
               console.info("res=>", res);
             }).catch(e => {
               console.info("e=>", e)

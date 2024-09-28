@@ -17,12 +17,11 @@ export default function () {
         total: 0,
         showTotal: (total: number) => `共${total}条`,
     });
-    const [form] = Form.useForm();
     const searchForm = useRef<any>();
     const search = (params: any) => {
         setLoading(true);
         getMemberList({
-            ...form.getFieldsValue(),
+            // ...form.getFieldsValue(),
             current: params?.current || 1,
             pageSize: params?.pageSize || 10,
         }).then((res: any) => {
@@ -138,47 +137,6 @@ export default function () {
                 console.info(formData);
                 search(formData)
             }} />
-            <Form className="searchForm" layout="inline" form={form}>
-                <Form.Item label="登录名" name="account_no">
-                    <Input placeholder="请输入用户名" />
-                </Form.Item>
-                <Form.Item label="手机号" name="mobile">
-                    <Input placeholder="请输入用户名" />
-                </Form.Item>
-                <Form.Item label="性别" name="gender">
-                    <Select style={{ width: 100 }} placeholder="请选择性别" allowClear>
-                        <Select.Option value={2}>女</Select.Option>
-                        <Select.Option value={1}>男</Select.Option>
-                    </Select>
-                </Form.Item>
-                <Form.Item label="状态" name="status">
-                    <Select style={{ width: 100 }} placeholder="请选择状态" allowClear>
-                        <Select.Option value={2}>已停用</Select.Option>
-                        <Select.Option value={1}>正常</Select.Option>
-                    </Select>
-                </Form.Item>
-                <Form.Item>
-                    <Space>
-                        <Button
-                            loading={loading}
-                            type="primary"
-                            onClick={() => {
-                                search({ current: 1 });
-                            }}
-                        >
-                            查询
-                        </Button>
-                        <Button
-                            onClick={() => {
-                                form.resetFields();
-                                search({ current: 1 });
-                            }}
-                        >
-                            重置
-                        </Button>
-                    </Space>
-                </Form.Item>
-            </Form>
         </div>
     );
     return (
@@ -192,7 +150,7 @@ export default function () {
                 loading={loading}
                 size="small"
                 rowKey="id"
-                scroll={{ y: document.body.clientHeight - tableHeight - 186 }}
+                scroll={{ y: document.body.clientHeight - tableHeight - 200}}
                 pagination={pagination}
                 onChange={(values) => {
                     console.info('changeValues', values);
