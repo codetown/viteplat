@@ -19,6 +19,7 @@ interface DataType {
 
 const genderArr = ['未知', '男', '女']
 const statusArr = ['未知', '启用', '禁用']
+const prefix="https://jscdn.httpcn.com/p/hancheng/content/images/pic/guoxue/shuihuzhuan/shz_"
 const columns: ColumnsType<DataType> = [
   {
     title: '姓名',
@@ -26,7 +27,7 @@ const columns: ColumnsType<DataType> = [
     render(_, record) {
       return (
         <span className={classes.infoBlock}>
-          <img src={record.avatar} alt="" width="48" height="48" />
+          <img src={`${prefix}${record.avatar}.png`} alt="" width="48" height="48"  onError={(e)=>{e.currentTarget.src = '/loginbg2.jpg'}}/>
           <span>{record.realName}</span>
           <span>{record.mobile}</span>
           {/* {JSON.stringify(record)} */}

@@ -1,23 +1,27 @@
-.infoBlock{
-    overflow:hidden;
+.infoBlock {
+    overflow: hidden;
     display: block;
-    >img{
-        float:left;
-        height:48px;
-        width:48px;
-        margin-right:8px;
+
+    >img {
+        float: left;
+        height: 48px;
+        width: 48px;
+        margin-right: 8px;
         border-radius: 8px;
         overflow: hidden;
+        border: 2px solid #cccc00;
     }
-    >span{
+
+    >span {
         display: block;
-        height:24px;
+        height: 24px;
         line-height: 24px;
     }
 }
-.infoBlock::after{
-    content:'.';
+
+.infoBlock::after {
+    content: '.';
     font-size: 0;
-    clear:both;
+    clear: both;
     display: block;
 }
