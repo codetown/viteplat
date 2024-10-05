@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Button, Card, Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
-import { CopyOutlined, DeleteOutlined, FormOutlined } from '@ant-design/icons'
+import { DeleteOutlined, FormOutlined } from '@ant-design/icons'
 import useEmployeeStore from '@/stores/employee'
 
 import classes from './index.module.scss'
