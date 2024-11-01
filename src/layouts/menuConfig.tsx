@@ -22,7 +22,7 @@ type SiderMenuItemType = {
 const asideMenuConfig: SiderMenuItemType[] = [
   {
     name: '控制面板',
-    path: '/',
+    path: '/home',
     icon: <DashboardOutlined />
   },
   {
@@ -70,7 +70,7 @@ const asideMenuConfig: SiderMenuItemType[] = [
   // },
   {
     name: '功能示例',
-    path: '/demo/form-example',
+    path: '/demo',
     icon:<SolutionOutlined />,
     children: [
       {
