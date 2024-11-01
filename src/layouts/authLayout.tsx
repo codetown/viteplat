@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { MenuFoldOutlined, MenuUnfoldOutlined, MessageOutlined } from '@ant-design/icons'
 import { Badge, Breadcrumb, Layout, Menu, theme } from 'antd'
 import { Link, Outlet, useLocation } from 'react-router-dom'
