@@ -20,7 +20,7 @@ export default defineConfig({
       scss: {
         api: 'modern-compiler',
         additionalData: `
-        @import "@/assets/scss/variables.scss";
+        @use "@/assets/scss/variables.scss";
         $primary-color:#1DA57A;
         $link-color:#1DA57A;
         $border-radius-base:2px;
