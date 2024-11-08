@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
-import { Breadcrumb, Layout, Menu, theme } from 'antd'
-import { Link, Outlet, useLocation } from 'react-router-dom'
-import { asideMenuConfig } from './menuConfig'
-import AvatarDropdown from './components/AvatarDropdown'
-import classes from './pretty-layout.module.scss'
+
+import { 
+  // Breadcrumb,
+  // , Menu, theme,
+   Layout
+} from 'antd'
+
+// import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+// import { Link, Outlet, useLocation } from 'react-router-dom'
+// import { asideMenuConfig } from './menuConfig'
+// import AvatarDropdown from './components/AvatarDropdown'
+// import classes from './pretty-layout.module.scss'
+
 const { Header, Sider, Content } = Layout
 // const loopMenuItem=(routes)=>{
   const headerStyle: React.CSSProperties = {
@@ -45,12 +51,12 @@ const { Header, Sider, Content } = Layout
   };
 // }
 const PrettyLayout = () => {
-  const [collapsed, setCollapsed] = useState(false)
-  const [openKeys, setOpenKeys] = useState<string[]>(JSON.parse(localStorage.getItem('openKeys') || '[]'))
-  const myLocation = useLocation()
-  const {
-    token: { colorBgContainer }
-  } = theme.useToken()
+  // const [collapsed, setCollapsed] = useState(false)
+  // const [openKeys, setOpenKeys] = useState<string[]>(JSON.parse(localStorage.getItem('openKeys') || '[]'))
+  // const myLocation = useLocation()
+  // const {
+  //   token: { colorBgContainer }
+  // } = theme.useToken()
   return (
     // <Layout className={classes.layout}>
     //   <Header

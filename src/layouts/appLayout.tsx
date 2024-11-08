@@ -1,41 +1,41 @@
-import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined
-} from '@ant-design/icons'
+// import {
+//   LaptopOutlined,
+//   NotificationOutlined,
+//   UserOutlined
+// } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { Breadcrumb, Layout, Menu, theme } from 'antd'
 import { Outlet } from 'react-router-dom'
 import classes from './app-layout.module.scss'
-import { createElement } from 'react'
-const { Header, Content, Sider } = Layout
+// import { createElement } from 'react'
+const { Header, Content } = Layout
 
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
   key,
   label: `模块名 ${key}`
 }))
 
-const items2: MenuProps['items'] = [
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined
-].map((icon, index) => {
-  const key = String(index + 1)
+// const items2: MenuProps['items'] = [
+//   UserOutlined,
+//   LaptopOutlined,
+//   NotificationOutlined
+// ].map((icon, index) => {
+//   const key = String(index + 1)
 
-  return {
-    key: `sub${key}`,
-    icon: createElement(icon),
-    label: `subnav ${key}`,
+//   return {
+//     key: `sub${key}`,
+//     icon: createElement(icon),
+//     label: `subnav ${key}`,
 
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1
-      return {
-        key: subKey,
-        label: `option${subKey}`
-      }
-    })
-  }
-})
+//     children: new Array(4).fill(null).map((_, j) => {
+//       const subKey = index * 4 + j + 1
+//       return {
+//         key: subKey,
+//         label: `option${subKey}`
+//       }
+//     })
+//   }
+// })
 
 export default function appLayout() {
   const {

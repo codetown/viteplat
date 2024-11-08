@@ -87,10 +87,10 @@ const routes: RouteObject[] = [
     path: 'login-new',
     element: lazyLoad(lazy(() => import('@/pages/login/login-new')))
   },
-  {
-    path: 'app/pages-config',
-    element: lazyLoad(lazy(() => import('@/pages/app/pages-config')))
-  },
+  // {
+  //   path: 'app/pages-config',
+  //   element: lazyLoad(lazy(() => import('@/pages/app/pages-config')))
+  // },
   {
     path: 'app/pages-config/create',
     element: lazyLoad(lazy(() => import('@/pages/app/pages-config/create')))
