@@ -3,11 +3,10 @@ import { MenuFoldOutlined, MenuUnfoldOutlined, MessageOutlined } from '@ant-desi
 import { Badge, Breadcrumb, Layout, Menu, theme } from 'antd'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { asideMenuConfig } from './menuConfig'
-import AvatarDropdown from './comments/AvatarDropdown'
+import AvatarDropdown from './components/AvatarDropdown'
 import styles from './layout.module.scss'
-import { ItemType } from 'antd/es/menu/hooks/useItems'
 import useGlobalStore from '@/stores/global'
-// import NoticeDropdown from './comments/NoticeDropdown'
+// import NoticeDropdown from './components/NoticeDropdown'
 import logo from '@/assets/logo2.png'
 import avatar from '@/assets/logo1.png'
 
@@ -58,7 +57,7 @@ export default function MainLayout() {
                   })) || undefined,
                 label:
                   item.children && item.children.length > 0 ? item.name : <Link to={item.path || '/'}>{item.name}</Link>
-              }) as ItemType
+              })
           )}
         />
         <div className={styles.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }}>

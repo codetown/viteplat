@@ -3,9 +3,8 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Breadcrumb, Layout, Menu, theme } from 'antd'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { asideMenuConfig } from './menuConfig'
-import AvatarDropdown from './comments/AvatarDropdown'
+import AvatarDropdown from './components/AvatarDropdown'
 import styles from './layout.module.scss'
-import { ItemType } from 'antd/es/menu/hooks/useItems'
 const { Header, Sider, Content } = Layout
 // const loopMenuItem=(routes)=>{
 
@@ -51,7 +50,7 @@ const App: React.FC = () => {
                   })) || undefined,
                 label:
                   item.children && item.children.length > 0 ? item.name : <Link to={item.path || '/'}>{item.name}</Link>
-              }) as ItemType
+              })
           )}
         />
         <div className={styles.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }}>

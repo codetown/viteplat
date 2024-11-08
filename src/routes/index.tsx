@@ -141,7 +141,7 @@ const routes: RouteObject[] = [
   },
   {
     path: 'ai-platform',
-    element: lazyLoad(lazy(() => import('@/layouts/appLayout'))),
+    element: lazyLoad(lazy(() => import('@/layouts/prettyLayout'))),
     children: [
       {
         path: 'home',

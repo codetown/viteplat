@@ -16,16 +16,12 @@
   }
 }
 
-.action > span {
+.action>span {
   vertical-align: middle;
 }
 
-.account > .avatar {
+.account>.avatar {
   margin-right: 8px;
   vertical-align: top;
   background: rgba(255, 255, 255, 0.85);
-}
-
-.menu {
-  min-width: 160px;
 }

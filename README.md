@@ -124,7 +124,7 @@ vite构建工具的配置项，在这里可以使用一些第三方插件，做�
 
 ```tsx
 // src/router/lazyLoad.tsx文件
-// import PageLoading from '@/layouts/PageLoading'
+// import PageLoading from '@/layouts/pageLoading'
 // import { Suspense } from 'react'
 
 // export default function lazyLoad(Component: React.LazyExoticComponent<() => JSX.Element>) {

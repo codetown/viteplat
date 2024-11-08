@@ -1,5 +1,6 @@
 .layout {
-  height: 100%;
+  height: calc(100% - 32px);
+  padding: 16px;
 }
 
 .logo {
@@ -66,6 +67,8 @@
   overflow-y: auto;
   width: 100%;
   padding: 8px;
+  border-radius: 8px;
+  margin: 16px auto;
 }
 
 :global(.ant-menu-inline .ant-menu-sub.ant-menu-inline) {
