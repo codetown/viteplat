@@ -42,6 +42,10 @@ const routes: RouteObject[] = [
         element: lazyLoad(lazy(() => import('@/pages/system/options')))
       },
       {
+        path: 'demo/welcome',
+        element: lazyLoad(lazy(() => import('@/pages/demo/welcome')))
+      },
+      {
         path: 'demo/form',
         element: lazyLoad(lazy(() => import('@/pages/demo/form')))
       },
@@ -54,8 +58,8 @@ const routes: RouteObject[] = [
         element: lazyLoad(lazy(() => import('@/pages/demo/upload-advance')))
       },
       {
-        path: 'demo/hook-video-demo',
-        element: lazyLoad(lazy(() => import('@/pages/demo/hook-video-demo')))
+        path: 'demo/profile',
+        element: lazyLoad(lazy(() => import('@/pages/demo/profile')))
       },
       {
         path: 'demo/curd',
@@ -87,10 +91,6 @@ const routes: RouteObject[] = [
     path: 'login-new',
     element: lazyLoad(lazy(() => import('@/pages/login/login-new')))
   },
-  // {
-  //   path: 'app/pages-config',
-  //   element: lazyLoad(lazy(() => import('@/pages/app/pages-config')))
-  // },
   {
     path: 'app/pages-config/create',
     element: lazyLoad(lazy(() => import('@/pages/app/pages-config/create')))

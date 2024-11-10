@@ -86,8 +86,8 @@ const asideMenuConfig: SiderMenuItemType[] = [
         path: '/demo/upload-advance'
       },
       {
-        name: '视频播放',
-        path: '/demo/hook-video-demo',
+        name: '商品详情',
+        path: '/demo/profile',
       },
       {
         name: 'Curd Demo',
