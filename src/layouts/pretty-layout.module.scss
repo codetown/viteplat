@@ -1,6 +1,7 @@
 .layout {
-  height: calc(100% - 32px);
+  height:100vh;
   padding: 16px;
+  background-color: #f2f2f2;
 }
 
 .logo {
@@ -46,6 +47,20 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.header{
+  border-radius:6px;
+  padding: 16px;
+  display: flex;
+  align-items:center;
+  margin-bottom:16px;
+}
+.body{
+  height:calc(100vh - 128px);
+  background: transparent;
+}
+.sider{
+  margin-right:16px;
+}
 .headerRight {
   margin-left: auto;
   display: flex;
@@ -62,13 +77,13 @@
 }
 
 .menu {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 192px);
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
   padding: 8px;
   border-radius: 8px;
-  margin: 16px auto;
+  margin-bottom:16px;
 }
 
 :global(.ant-menu-inline .ant-menu-sub.ant-menu-inline) {
@@ -96,8 +111,9 @@
 }
 
 .siderBottom {
-  height: 36px;
+  height: 48px;
   background-color: #102539;
+  border-radius: 6px;
   display: flex;
   cursor: pointer;
   user-select: none;

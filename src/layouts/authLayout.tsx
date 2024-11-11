@@ -57,7 +57,10 @@ export default function MainLayout() {
             icon: item.icon,
             children:
               item?.children?.map((child) => {
-                if (child.path && myLocation.pathname.indexOf(child.path) != -1) {
+                console.info("mypath=>",myLocation.pathname,child.path)
+                const mainPath=`${myLocation.pathname}/`;
+                const subPath=`${child.path}/`
+                if (child.path && mainPath.indexOf(subPath) != -1) {
                   breadData.push({ title: item.name })
                   breadData.push({ title: child.name })
                   if (child.path != myLocation.pathname) {
@@ -109,14 +112,7 @@ export default function MainLayout() {
             <AvatarDropdown name={currentUser?.username} avatar={avatar} />
           </div>
         </Header>
-        <Content
-          style={{
-            margin: '16px 0 16px 16px',
-            paddingRight: 16,
-            minHeight: 280,
-            overflowX: 'hidden',
-            overflowY: 'auto'
-          }}>
+        <Content className={classes.content}>
           <Outlet />
         </Content>
       </Layout>
