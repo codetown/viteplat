@@ -16,6 +16,8 @@ const useGlobalStore = create((set) => ({
     }
   ],
   currentUser: { username: '管理员', loginAccount: '15152318082', unreadCount: 98 },
+  breadData:[{title:'首页'}],
+  menuData:[],
   setGlobalState(state: any) {
     set(state)
   }
