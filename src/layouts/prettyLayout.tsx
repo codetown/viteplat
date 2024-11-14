@@ -12,38 +12,6 @@ import avatar from '@/assets/logo1.png'
 import { BreadcrumbItemType, BreadcrumbSeparatorType } from 'antd/es/breadcrumb/Breadcrumb'
 
 const { Header, Sider, Content } = Layout
-
-// const headerStyle: React.CSSProperties = {
-//   textAlign: 'center',
-//   color: '#fff',
-//   height: 64,
-//   paddingInline: 48,
-//   lineHeight: '64px',
-//   backgroundColor: '#4096ff',
-//   marginBottom: 16,
-//   borderRadius: 8,
-// };
-
-// const contentStyle: React.CSSProperties = {
-//   textAlign: 'center',
-//   minHeight: 120,
-//   lineHeight: '120px',
-//   color: '#fff',
-//   backgroundColor: '#0958d9',
-//   borderRadius: 8,
-//   height:'calc(100vh - 112px)'
-// };
-
-// const siderStyle: React.CSSProperties = {
-//   textAlign: 'center',
-//   lineHeight: '120px',
-//   color: '#fff',
-//   backgroundColor: '#1677ff',
-//   marginRight:16,
-//   borderRadius: 8,
-//   height:'calc(100vh - 112px)'
-// };
-// }
 const PrettyLayout = () => {
   const [collapsed, setCollapsed] = useState(false)
   const [openKeys, setOpenKeys] = useState<string[]>(JSON.parse(localStorage.getItem('openKeys') || '[]'))
@@ -69,7 +37,9 @@ const PrettyLayout = () => {
           </span>
           <strong>Web-Platform</strong>
         </div>
+        <div className={classes.headerCenter}>
         <Breadcrumb items={breadData} />
+        </div>
         <div className={classes.headerRight}>
           <Badge count={newMessageCount}>
             <MessageOutlined className={classes.messageIcon} />
@@ -79,7 +49,7 @@ const PrettyLayout = () => {
         </div>
       </Header>
       <Layout className={classes.body}>
-        <Sider trigger={null} collapsible collapsed={collapsed} collapsedWidth={48} theme="light" className={classes.sider}>
+        <Sider trigger={null} collapsible collapsed={collapsed} collapsedWidth={48} className={classes.sider}>
           <Menu
             className={classes.menu}
             mode="inline"
@@ -123,7 +93,6 @@ const PrettyLayout = () => {
           <div className={classes.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }}>
             {collapsed ? (
               <>
-                {/* <span onClick={() => setCollapsed(!collapsed)}>展开</span> */}
                 <span onClick={() => setCollapsed(!collapsed)} title="展开">
                   <MenuUnfoldOutlined />
                 </span>

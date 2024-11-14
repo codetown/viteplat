@@ -1,0 +1,36 @@
+.topBar {
+    display: flex;
+    height: 64px;
+    align-items: center;
+    background-color: #001529;
+
+    .actions {
+        display: flex;
+        gap: 16px;
+        margin-left: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 64px);
+    background-color: #000c17;
+}
+
+.toolBar {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sideBar {
+    width: 80px;
+    height: 100%;
+}
+
+.canvas {
+    flex: 1;
+}

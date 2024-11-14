@@ -108,6 +108,10 @@ const routes: RouteObject[] = [
     element: lazyLoad(lazy(() => import('@/pages/app/album')))
   },
   {
+    path: 'app/annotation-3d',
+    element: lazyLoad(lazy(() => import('@/pages/app/annotation-3d')))
+  },
+  {
     path: 'app/album/detail',
     element: lazyLoad(lazy(() => import('@/pages/app/album/detail')))
   },

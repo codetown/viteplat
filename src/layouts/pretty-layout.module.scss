@@ -1,5 +1,5 @@
 .layout {
-  height:100vh;
+  height: 100vh;
   padding: 16px;
   background-color: #f2f2f2;
 }
@@ -10,8 +10,6 @@
   overflow: hidden;
   will-change: filter;
   padding: 0 16px;
-  border-bottom: 1px solid #f2f2f2;
-  border-right: 1px solid #f2f2f2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -47,20 +45,28 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.header{
-  border-radius:6px;
+.header {
+  border-radius: 6px;
   padding: 16px;
   display: flex;
-  align-items:center;
-  margin-bottom:16px;
+  align-items: center;
+  margin-bottom: 16px;
 }
-.body{
-  height:calc(100vh - 128px);
+
+.body {
+  height: calc(100vh - 128px);
   background: transparent;
 }
-.sider{
-  margin-right:16px;
+
+.sider {
+  margin-right: 16px;
+  background: transparent;
 }
+
+.headerCenter {
+  padding: 0 24px
+}
+
 .headerRight {
   margin-left: auto;
   display: flex;
@@ -77,13 +83,13 @@
 }
 
 .menu {
-  height: calc(100vh - 192px);
+  height: calc(100% - 64px);
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
   padding: 8px;
   border-radius: 8px;
-  margin-bottom:16px;
+  margin-bottom: 16px;
 }
 
 :global(.ant-menu-inline .ant-menu-sub.ant-menu-inline) {
