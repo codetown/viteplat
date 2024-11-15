@@ -14,10 +14,16 @@
 }
 
 .toolBar {
-    width: 80px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    width: 56px;
+    height: calc(100% - 48px);
+    // display: flex;
+    // flex-direction: column;
+    padding-top:24px;
+    padding-bottom:24px;
+    .iconButtonBox{
+        margin-bottom:16px;
+        text-align: center;
+    }
 }
 
 .sideBar {
