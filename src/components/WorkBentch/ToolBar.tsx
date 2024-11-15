@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import classes from './index.module.scss'
-import { Button } from 'antd'
+import { Button, Tooltip } from 'antd'
+import { SearchOutlined } from '@ant-design/icons'
 export default function (props: any) {
 
   console.info('props=>', props)
@@ -15,7 +16,10 @@ export default function (props: any) {
 
   return <div className={classes.toolBar}>
     <div className={classes.actions}>
-    {actions.map((item: any,index:number)=><Button ghost key={`action-btn-${index+1}`} onClick={item?.action}>{item.label}</Button>)}
+    {actions.map((item: any,index:number)=>(
+      <Tooltip title={item.label}>
+      <Button ghost icon={<SearchOutlined />} key={`action-btn-${index+1}`} onClick={item?.action}/>
+      </Tooltip>))}
     </div>
   </div>
 }
