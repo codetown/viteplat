@@ -1,7 +1,10 @@
 import { StrictMode } from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 import { App, ConfigProvider } from 'antd'
 import { RouterProvider } from 'react-router-dom'
+import { createStyles } from 'antd-style';
+import routes from '@/routes'
+import './index.scss'
 // import type { Locale } from 'antd/es/locale';
 // import enUS from 'antd/locale/en_US';
 import zhCN from 'antd/locale/zh_CN'
@@ -11,11 +14,10 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 dayjs.locale('zh-cn')
 /**解决antd时间组件国际化不彻底问题 End**/
-import { css } from '@emotion/css';
-import routes from '@/routes'
-import './index.scss'
-const linearGradientButton = css`
-    &.ant-btn-primary:not([disabled]):not(.ant-btn-dangerous):not(.ant-btn-link) {
+
+const useStyle = createStyles(({ prefixCls, css }) => ({
+  linearGradientButton: css`
+    &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
       border-width: 0;
 
       > span {
@@ -24,7 +26,7 @@ const linearGradientButton = css`
 
       &::before {
         content: '';
-        background: linear-gradient(135deg, #6253E1, #04BEFE);
+        background: linear-gradient(135deg, #6253e1, #04befe);
         position: absolute;
         inset: 0;
         opacity: 1;
@@ -36,15 +38,22 @@ const linearGradientButton = css`
         opacity: 0;
       }
     }
-  `;
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  `,
+}));
+
+const MyAntDesignApp = () => {
+  const { styles } = useStyle();
+  return (<ConfigProvider locale={zhCN} button={{
+    className: styles.linearGradientButton,
+  }}>
+    <App>
+      <RouterProvider router={routes} />
+    </App>
+  </ConfigProvider>)
+}
+
+createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <ConfigProvider locale={zhCN} button={{
-      className: linearGradientButton,
-    }}>
-      <App>
-        <RouterProvider router={routes} />
-      </App>
-    </ConfigProvider>
+    <MyAntDesignApp />
   </StrictMode>
 )

@@ -118,29 +118,33 @@ const asideMenuConfig: SiderMenuItemType[] = [
         path: '/app/pages-config/drag-demo'
       },
       {
-        name: '创建页面',
-        path: '/app/pages-config/create'
-      },
-      {
-        name: '工作台',
-        path: '/app/pages-config/workbench'
-      },
-      {
-        name: '页面配置',
-        path: '/app/pages-config',
-      },
-      {
-        name: '相册',
-        path: '/app/album',
-      },
-      {
-        name: '游戏开发素材',
-        path: '/app/game-dev',
-      },
-      {
-        name: '在线教育',
-        path: '/app/education',
+        name: '3D点云标注',
+        path: '/ai-platform/annotation-3d'
       }
+      // {
+      //   name: '创建页面',
+      //   path: '/app/pages-config/create'
+      // },
+      // {
+      //   name: '工作台',
+      //   path: '/app/pages-config/workbench'
+      // },
+      // {
+      //   name: '页面配置',
+      //   path: '/app/pages-config',
+      // },
+      // {
+      //   name: '相册',
+      //   path: '/app/album',
+      // },
+      // {
+      //   name: '游戏开发素材',
+      //   path: '/app/game-dev',
+      // },
+      // {
+      //   name: '在线教育',
+      //   path: '/app/education',
+      // }
     ]
   },
   {

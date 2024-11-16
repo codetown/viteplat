@@ -104,53 +104,17 @@ const routes: RouteObject[] = [
     element: lazyLoad(lazy(() => import('@/pages/app/pages-config/workbench')))
   },
   {
-    path: 'app/album',
-    element: lazyLoad(lazy(() => import('@/pages/app/album')))
-  },
-  {
-    path: 'app/annotation-3d',
-    element: lazyLoad(lazy(() => import('@/pages/app/annotation-3d')))
-  },
-  {
-    path: 'app/album/detail',
-    element: lazyLoad(lazy(() => import('@/pages/app/album/detail')))
-  },
-  {
-    path: 'app/album/photo',
-    element: lazyLoad(lazy(() => import('@/pages/app/album/photo')))
-  },
-  {
-    path: 'app/game-dev',
-    element: lazyLoad(lazy(() => import('@/pages/app/game-dev')))
-  },
-  {
-    path: 'app/game-dev/assets',
-    element: lazyLoad(lazy(() => import('@/pages/app/game-dev/assets')))
-  },
-  {
-    path: 'app/game-dev/asset-list',
-    element: lazyLoad(lazy(() => import('@/pages/app/game-dev/asset-list')))
-  },
-  {
-    path: 'app/education',
-    element: lazyLoad(lazy(() => import('@/pages/app/education')))
-  },
-  {
-    path: 'app/education/imooc',
-    element: lazyLoad(lazy(() => import('@/pages/app/education/imooc')))
-  },
-  {
-    path: 'app/education/exam',
-    element: lazyLoad(lazy(() => import('@/pages/app/education/exam')))
-  },
-  {
     path: 'ai-platform',
     element: lazyLoad(lazy(() => import('@/layouts/prettyLayout'))),
     children: [
       {
         path: 'home',
         element: lazyLoad(lazy(() => import('@/pages/app/pages-config/drag-demo')))
-      }
+      },
+      {
+        path: 'annotation-3d',
+        element: lazyLoad(lazy(() => import('@/pages/app/annotation-3d')))
+      },
     ]
   },
   {
