@@ -35,6 +35,9 @@ export default function () {
             <TopBar actions={topActions}/>
             <div className={classes.container}>
                 <ToolBar actions={topActions}/>
+                <div>
+                    读取PCD
+                </div>
             </div>
         </div>
     );
