@@ -41,7 +41,9 @@ export default function () {
                 <ToolBar actions={topActions}/>
                 <ImageList dataSource={imageData}/>
                 <div className={classes.canvasBox}>
+                    <div className={classes.canvasBody}>
                     读取PCD
+                    </div>
                 </div>
             </div>
         </div>
