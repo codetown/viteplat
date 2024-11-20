@@ -16,7 +16,7 @@
     "@dnd-kit/modifiers": "^7.0.0",
     "@dnd-kit/sortable": "^8.0.0",
     "@dnd-kit/utilities": "^3.2.2",
-    "@emotion/css": "^11.13.4",
+    "@emotion/css": "^11.13.5",
     "@types/video.js": "^7.3.58",
     "antd": "^5.22.1",
     "antd-img-crop": "^4.23.0",
@@ -32,11 +32,11 @@
     "zustand": "^5.0.1"
   },
   "devDependencies": {
-    "@types/node": "^22.9.0",
+    "@types/node": "^22.9.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "@typescript-eslint/eslint-plugin": "^8.14.0",
-    "@typescript-eslint/parser": "^8.14.0",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
     "@vitejs/plugin-react-swc": "^3.7.1",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
