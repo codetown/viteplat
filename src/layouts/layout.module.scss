@@ -65,9 +65,12 @@
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
-  padding: 8px;
+  padding:8px;
 }
-
+:global(.ant-menu-inline-collapsed){
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
 :global(.ant-menu-inline .ant-menu-sub.ant-menu-inline) {
   border-radius: 10px;
 }

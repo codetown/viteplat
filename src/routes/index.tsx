@@ -92,16 +92,21 @@ const routes: RouteObject[] = [
     element: lazyLoad(lazy(() => import('@/pages/login/login-new')))
   },
   {
-    path: 'app/pages-config/create',
-    element: lazyLoad(lazy(() => import('@/pages/app/pages-config/create')))
-  },
-  {
-    path: 'app/pages-config/drag-demo',
-    element: lazyLoad(lazy(() => import('@/pages/app/pages-config/drag-demo')))
-  },
-  {
-    path: 'app/pages-config/workbench',
-    element: lazyLoad(lazy(() => import('@/pages/app/pages-config/workbench')))
+    path: 'app/',
+    element: lazyLoad(lazy(() => import('@/layouts/appLayout'))),
+    children: [
+      {
+        path: 'pages-config/create',
+        element: lazyLoad(lazy(() => import('@/pages/app/pages-config/create')))
+      },
+      {
+        path: 'pages-config/drag-demo',
+        element: lazyLoad(lazy(() => import('@/pages/app/pages-config/drag-demo')))
+      },
+      {
+        path: 'pages-config/workbench',
+        element: lazyLoad(lazy(() => import('@/pages/app/pages-config/workbench')))
+      }]
   },
   {
     path: 'ai-platform',

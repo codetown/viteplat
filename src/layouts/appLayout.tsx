@@ -10,10 +10,10 @@ import classes from './app-layout.module.scss'
 import { createElement } from 'react'
 const { Header,Sider, Content } = Layout
 
-const topItems: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
-  key,
-  label: `模块名 ${key}`
-}))
+// const topItems: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
+//   key,
+//   label: `模块名 ${key}`
+// }))
 
 const leftItems: MenuProps['items'] = [
   UserOutlined,
@@ -27,13 +27,13 @@ const leftItems: MenuProps['items'] = [
     icon: createElement(icon),
     label: `subnav ${key}`,
 
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1
-      return {
-        key: subKey,
-        label: `option${subKey}`
-      }
-    })
+    // children: new Array(4).fill(null).map((_, j) => {
+    //   const subKey = index * 4 + j + 1
+    //   return {
+    //     key: subKey,
+    //     label: `option${subKey}`
+    //   }
+    // })
   }
 })
 
@@ -46,17 +46,18 @@ export default function appLayout() {
     <Layout>
       <Header className={classes.header}>
         <div className={classes.logo} />
-        <Menu
+        {/* <Menu
           style={{ flex: 1 }}
           mode="horizontal"
           defaultSelectedKeys={['2']}
           items={topItems}
-        />
+        /> */}
       </Header>
       <Layout>
-        <Sider width={200} style={{ background: colorBgContainer }}>
+        <Sider trigger={null} collapsedWidth={56} collapsed={true}>
           <Menu
             mode="inline"
+            theme="dark"
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
             style={{ height: '100%', borderRight: 0 }}
