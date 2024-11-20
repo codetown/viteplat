@@ -61,7 +61,7 @@ export default function MainLayout() {
   }, [pathname])
   return (
     <Layout className={classes.layout}>
-      <Sider trigger={null} collapsible collapsed={collapsed} collapsedWidth={48} theme="dark">
+      <Sider trigger={null} collapsible collapsed={collapsed} collapsedWidth={48} theme="light">
         <div className={classes.logo}>
           <span>
             <img src={logo} />
