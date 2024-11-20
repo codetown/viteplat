@@ -38,23 +38,26 @@ export default function MainLayout() {
   }, [])
   useEffect(() => {
     const temp: any[] = [{ title: '首页' }]
-    asideMenuConfig.forEach((item) => {
-      if (item.path == pathname) {
-        temp.push({ title: item.name })
-      }
-      item?.children?.forEach((child) => {
-        const mainPath = `${pathname}/`;
-        if (child.path && mainPath.indexOf(`${child.path}/`) != -1) {
+    const newPath=`${pathname}`
+    if(newPath!==''&&newPath!=='/'&&newPath!=='home'){
+      asideMenuConfig.forEach((item) => {
+        if (item.path == pathname) {
           temp.push({ title: item.name })
-          temp.push({ title: child.name })
-          if (child.path != pathname) {
-            temp[temp.length - 1].href = child.path
-            temp.push({ title: `${child.name}详情` })
-          }
         }
+        item?.children?.forEach((child) => {
+          const mainPath = `${pathname}/`;
+          if (child.path && mainPath.indexOf(`${child.path}/`) != -1) {
+            temp.push({ title: item.name })
+            temp.push({ title: child.name })
+            if (child.path != pathname) {
+              temp[temp.length - 1].href = child.path
+              temp.push({ title: `${child.name}详情` })
+            }
+          }
+        })
       })
-    })
-    setGlobalState({ breadData: temp })
+      setGlobalState({ breadData: temp })
+    }
   }, [pathname])
   return (
     <Layout className={classes.layout}>

@@ -1,14 +1,16 @@
 import classes from '../index.module.scss'
-import { Button } from 'antd'
-import { SearchOutlined } from '@ant-design/icons'
-const colors=['primary','danger','default']
+import { Button, Tooltip } from 'antd'
+import { ApartmentOutlined, BarChartOutlined, CalculatorOutlined, CodeOutlined, FormOutlined } from '@ant-design/icons'
 export default function (props: any) {
   const { actions } = props
+  const icons=[<FormOutlined />,<BarChartOutlined />,<ApartmentOutlined />,<CalculatorOutlined />,<CodeOutlined />]
   return <div className={classes.toolBar}>
     <div className={classes.actions}>
       {actions.map((item: any, index: number) => (
         <div className={classes.iconButtonBox} key={`action-btn-${index + 1}`} title={item?.disabledText ?? item.label}>
-          <Button color={colors[index%3] as ("primary" | "danger" | "default" | undefined) } variant='outlined' ghost disabled={!(!item?.disabledText)} icon={<SearchOutlined />} onClick={item?.action} />
+          <Tooltip title={item.label}>
+          <Button color="primary" variant='text' disabled={!(!item?.disabledText)} icon={icons[index]} onClick={item?.action} />
+          </Tooltip>
         </div>
       ))}
     </div>
