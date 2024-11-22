@@ -109,8 +109,8 @@ const routes: RouteObject[] = [
       }]
   },
   {
-    path: 'ai-platform',
-    element: lazyLoad(lazy(() => import('@/layouts/prettyLayout'))),
+    path: 'ai',
+    element: lazyLoad(lazy(() => import('@/layouts/wrokbenchLayout'))),
     children: [
       {
         path: 'home',

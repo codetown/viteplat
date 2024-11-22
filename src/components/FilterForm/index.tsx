@@ -17,7 +17,7 @@ export default function FilterForm(props: any) {
           ele = <DatePicker.RangePicker placeholder={['开始时间', '结束时间']} format="YYYY-MM-DD" allowClear />
         }
         return (
-          <Form.Item label={item?.label} name={item?.name} key={`${item?.name}-${index}`}>
+          <Form.Item label={item?.label} name={item?.name} key={`${item?.name}-${index}`} layout="vertical">
             {ele}
           </Form.Item>
         )

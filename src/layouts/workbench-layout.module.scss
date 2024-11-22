@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  background-color: #3366ff;
+  height: 48px;
+
+  .logo {
+    width: 200px;
+  }
+}
+
+.body {
+  height: calc(100vh - 48px);
+}

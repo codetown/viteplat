@@ -5,8 +5,11 @@ import {
   VideoCameraOutlined,
   TeamOutlined,
   AppstoreOutlined,
-  SettingOutlined,
   SolutionOutlined,
+  ControlOutlined,
+  RocketOutlined,
+  ProfileOutlined,
+  SnippetsOutlined,
   // SettingOutlined,
   // DatabaseOutlined,
   // UploadOutlined
@@ -53,21 +56,6 @@ const asideMenuConfig: SiderMenuItemType[] = [
       }
     ]
   },
-  // {
-  //   name: '管理员',
-  //   path: '/administrators',
-  //   icon: <UserOutlined />
-  // },
-  // {
-  //   name: '平台配置',
-  //   path: '/web-config',
-  //   icon: <SettingOutlined />
-  // },
-  // {
-  //   name: '数据字典',
-  //   path: '/options',
-  //   icon: <DatabaseOutlined />
-  // },
   {
     name: '功能示例',
     path: '/demo',
@@ -97,7 +85,7 @@ const asideMenuConfig: SiderMenuItemType[] = [
   },
   {
     name: '应用示例',
-    icon: <SettingOutlined />,
+    icon: <SnippetsOutlined />,
     children: [
       {
         name: '员工管理',
@@ -116,35 +104,51 @@ const asideMenuConfig: SiderMenuItemType[] = [
       {
         name: '拖拽示例',
         path: '/app/pages-config/drag-demo'
+      }
+    ]
+  },
+  {
+    name: '配置类项目',
+    icon: <ControlOutlined />,
+    children: [
+      {
+        name: '创建页面',
+        path: '/app/pages-config/create'
       },
       {
-        name: '3D点云标注',
-        path: '/ai-platform/annotation-3d'
+        name: '工作台',
+        path: '/app/pages-config/workbench'
+      },
+      {
+        name: '页面配置',
+        path: '/app/pages-config',
+      },
+      {
+        name: '相册',
+        path: '/app/album',
+      },
+      {
+        name: '游戏开发素材',
+        path: '/app/game-dev',
+      },
+      {
+        name: '在线教育',
+        path: '/app/education',
       }
-      // {
-      //   name: '创建页面',
-      //   path: '/app/pages-config/create'
-      // },
-      // {
-      //   name: '工作台',
-      //   path: '/app/pages-config/workbench'
-      // },
-      // {
-      //   name: '页面配置',
-      //   path: '/app/pages-config',
-      // },
-      // {
-      //   name: '相册',
-      //   path: '/app/album',
-      // },
-      // {
-      //   name: '游戏开发素材',
-      //   path: '/app/game-dev',
-      // },
-      // {
-      //   name: '在线教育',
-      //   path: '/app/education',
-      // }
+    ]
+  },
+  {
+    name: 'AI项目',
+    icon: <RocketOutlined />,
+    children: [
+      {
+        name: '3D 点云标注',
+        path: '/ai/annotation-3d'
+      },
+      {
+        name: 'YOLO数据集',
+        path: '/ai/yolo-datasets'
+      }
     ]
   },
   {
