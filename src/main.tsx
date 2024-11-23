@@ -43,11 +43,14 @@ const useStyle = createStyles(({ prefixCls, css }) => ({
 
 const MyAntDesignApp = () => {
   const { styles } = useStyle();
-  return (<ConfigProvider 
+  return (<ConfigProvider
     locale={zhCN} 
-    // theme={{ 
-    //   algorithm: theme.darkAlgorithm
-    // }} 
+    theme={{ 
+      // algorithm: theme.darkAlgorithm
+      token:{
+        controlHeight:36,
+      }
+    }} 
     button={{
     className: styles.linearGradientButton,
   }}>

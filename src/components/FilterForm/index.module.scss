@@ -1,11 +1,12 @@
 .filterForm {
-    gap: 16px;
+    gap: 24px;
     padding: 16px 0 12px 0;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    // display: flex;
+    // flex-wrap: wrap;
 
     :global(>.ant-form-item) {
-        width: calc(20% - 16px);
+        // width: calc(20% - 16px);
         display: inline-flex;
         flex-direction: column;
         position: relative;
@@ -42,7 +43,6 @@
         background-color: #fff;
         padding: 0 6px !important;
         border-radius: 6px;
-        color: rgba(0, 0, 0, 0.6);
         font-size: 1rem;
         line-height: 1.4375em;
         display: block;
@@ -54,14 +54,83 @@
         z-index: 1;
         user-select: none;
         pointer-events: auto;
-        transform: translate(8px, -9px) scale(0.75);
+        transform: translate(8px, -10px) scale(0.9);
         padding: 0px;
         white-space: nowrap;
         overflow: hidden;
-        transition: color 200ms cubic-bezier(0, 0, 0.2, 1), transform 200ms cubic-bezier(0, 0, 0.2, 1), max-width 200ms cubic-bezier(0, 0, 0.2, 1);
+
+        // transition: color 200ms cubic-bezier(0, 0, 0.2, 1), transform 200ms cubic-bezier(0, 0, 0.2, 1), max-width 200ms cubic-bezier(0, 0, 0.2, 1);
+        >label {
+            font-weight: normal !important;
+            color: rgba(0, 0, 0, 0.64) !important;
+        }
 
         >label::after {
             display: none;
         }
     }
 }
+
+/***自适应和响应式开始***/
+@media screen and (min-width: 768px) {
+    .filterForm {
+        grid-template-columns: repeat(2, calc(50% - 12px));
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .filterForm {
+        grid-template-columns: repeat(3, calc(33.3333% - 16px));
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .filterForm {
+        grid-template-columns: repeat(4, calc(25% - 18px));
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .filterForm {
+        grid-template-columns: repeat(4, calc(25% - 18px));
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .filterForm {
+        grid-template-columns: repeat(5, calc(20% - 19.2px));
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .filterForm {
+        grid-template-columns: repeat(5, calc(20% - 19.2px));
+    }
+}
+
+/* 1920px 每行5个*/
+@media screen and (min-width: 2560px) {
+    .filterForm {
+        grid-template-columns: repeat(5, calc(20% - 19.2px));
+    }
+}
+
+/* 2560px 每行8个*/
+@media screen and (min-width: 3840px) {
+    .filterForm {
+        grid-template-columns: repeat(8, calc(12.5% - 21px));
+    }
+}
+
+// /* 3840px 每行12个*/
+// @media screen and (min-width: 3840px) {
+//     .container {
+//         max-width: 3600px;
+//         /* 根据设计需求调整最大宽度 */
+//     }
+
+//     .filterForm {
+//         grid-template-columns: repeat(12, calc(8.3333% - 22px));
+//     }
+// }
