@@ -6,8 +6,9 @@ import {
 import type { MenuProps } from 'antd'
 import { Layout, Menu, theme } from 'antd'
 import { Outlet } from 'react-router-dom'
-import classes from './workbench-layout.module.scss'
 import { createElement } from 'react'
+import classes from './workbench-layout.module.scss'
+
 const { Header,Sider, Content } = Layout
 
 const leftItems: MenuProps['items'] = [
@@ -45,7 +46,7 @@ export default function WorkbenchLayout() {
       <Layout className={classes.body}>
         <Sider collapsed={true} collapsedWidth={48} theme='dark'>
           <Menu
-            tehme="dark"
+            theme="dark"
             mode="inline"
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
