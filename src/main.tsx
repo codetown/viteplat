@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { App, ConfigProvider, theme } from 'antd'
+import { App, ConfigProvider } from 'antd'
 import { RouterProvider } from 'react-router-dom'
 import { createStyles } from 'antd-style';
 import routes from '@/routes'
@@ -45,7 +45,7 @@ const MyAntDesignApp = () => {
   const { styles } = useStyle();
   return (<ConfigProvider
     locale={zhCN} 
-    theme={{ 
+    // theme={{ 
       // algorithm: theme.darkAlgorithm,
       // components:
       //   {Menu:{
@@ -55,7 +55,7 @@ const MyAntDesignApp = () => {
       // token:{
       //   controlHeight:36,
       // }
-    }} 
+    // }} 
     button={{
     className: styles.linearGradientButton,
   }}>
