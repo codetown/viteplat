@@ -4,7 +4,7 @@ import classes from './index.module.scss'
 export default function FilterForm(props: any) {
   const [form] = Form.useForm()
   return (
-    <Form form={form} layout="inline" className={classes.filterForm}>
+    <Form form={form} layout="vertical" className={classes.filterForm} size='large'>
       {props?.fields?.map((item: any, index: number) => {
         let ele = <Input placeholder="请输入" allowClear />
         if (item?.type === 'select') {
@@ -17,13 +17,13 @@ export default function FilterForm(props: any) {
           ele = <DatePicker.RangePicker placeholder={['开始时间', '结束时间']} format="YYYY-MM-DD" allowClear />
         }
         return (
-          <Form.Item label={item?.label} name={item?.name} key={`${item?.name}-${index}`} layout="vertical">
+          <Form.Item label={item?.label} name={item?.name} key={`${item?.name}-${index}`}>
             {ele}
           </Form.Item>
         )
       })}
       <Form.Item>
-        <Space>
+        <div className={classes.btnGrp}>
           <Button
             type="primary"
             tabIndex={0}
@@ -43,7 +43,7 @@ export default function FilterForm(props: any) {
             }}>
             重置
           </Button>
-        </Space>
+          </div>
       </Form.Item>
     </Form>
   )

@@ -46,10 +46,15 @@ const MyAntDesignApp = () => {
   return (<ConfigProvider
     locale={zhCN} 
     theme={{ 
-      // algorithm: theme.darkAlgorithm
-      token:{
-        controlHeight:36,
-      }
+      // algorithm: theme.darkAlgorithm,
+      // components:
+      //   {Menu:{
+      //     controlHeight:32,
+      //   }}
+      // ,
+      // token:{
+      //   controlHeight:36,
+      // }
     }} 
     button={{
     className: styles.linearGradientButton,

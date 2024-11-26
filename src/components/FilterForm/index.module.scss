@@ -2,11 +2,8 @@
     gap: 24px;
     padding: 16px 0 12px 0;
     display: grid;
-    // display: flex;
-    // flex-wrap: wrap;
-
     :global(>.ant-form-item) {
-        // width: calc(20% - 16px);
+        font-size: 0.875rem !important;
         display: inline-flex;
         flex-direction: column;
         position: relative;
@@ -18,9 +15,8 @@
     }
 
     :global(.ant-form-item-control) {
-        font-size: 1rem;
-        line-height: 1.4375em;
-        letter-spacing: 0.00938em;
+        font-size: 0.875rem;
+        line-height: 1.375em;
         color: rgba(0, 0, 0, 0.87);
         box-sizing: border-box;
         cursor: text;
@@ -32,7 +28,9 @@
     }
 
     :global(.ant-form-item-control-input) {
-        width: 100%;
+        // transform: scale(0.875);
+        // width: 112.5%;
+        width:100%;
     }
 
     :global(.ant-picker) {
@@ -67,6 +65,13 @@
 
         >label::after {
             display: none;
+        }
+    }
+    .btnGrp{
+        display: flex;
+        gap:24px;
+        button{
+            width:96px;
         }
     }
 }
