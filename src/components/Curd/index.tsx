@@ -1,7 +1,8 @@
-import { Button, Card, Drawer, Modal, Space, Table } from 'antd'
+import { Button, Card, Modal, Space, Table } from 'antd'
 import FilterForm from '@/components/FilterForm'
 import InputForm from '../InputForm';
 
+// 表格fileds/columns，查询表单fileds/columns，写入数据表单（创建和修改）
 export default function Curd(props: any) {
 
     const {
@@ -15,8 +16,8 @@ export default function Curd(props: any) {
         loading,
         modalOpen,
         setModalOpen,
-        drawerOpen,
-        setDrawerOpen
+        // drawerOpen,
+        // setDrawerOpen
     } = props;
 
     const fields = [
@@ -75,7 +76,7 @@ export default function Curd(props: any) {
                 <Table
                     rowKey="id"
                     loading={loading}
-                    columns={columns}
+                    columns={columns}                                                        
                     dataSource={items}
                     pagination={{
                         current,
@@ -92,11 +93,11 @@ export default function Curd(props: any) {
             }}>
                 <InputForm fields={fields} />
             </Modal>
-            <Drawer open={drawerOpen} maskClosable={false} keyboard={false} onClose={() => {
+            {/*<Drawer open={drawerOpen} maskClosable={false} keyboard={false} onClose={() => {
                 setDrawerOpen(false);
             }}>
                 <InputForm fields={fields} />
-            </Drawer>
+            </Drawer>*/}
         </>
     )
 }
