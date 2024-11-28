@@ -65,12 +65,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
-  padding-top:8px;
-  padding-bottom:8px;
-}
-.menu{
-  padding-left:8px;
-  padding-right:9px;
+  padding:8px 13px 8px 9px;
 }
 :global(.ant-menu-inline-collapsed){
   padding-left:0 !important;
