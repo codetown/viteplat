@@ -5,6 +5,7 @@ import FilterForm from '@/components/FilterForm'
 import InputForm from '@/components/InputForm';
 import { useEffect } from "react"
 import { removeEmployee } from "@/services/employees";
+import dayjs from "dayjs";
 const genderArr = ['未知', '男', '女']
 const statusArr = ['未知', '启用', '禁用']
 const filterFileds = [
@@ -48,6 +49,16 @@ const filterFileds = [
         type: 'rangePicker'
     }
 ]
+const getTypeByName=(columns:any[],name:string)=>{
+    let columnType=''
+    for (let index = 0; index < columns.length; index++) {
+        if(columns[index].name==name){
+            columnType=columns[index].type;
+            break;
+        }        
+    }
+    return columnType;
+}
 const inputFields = [
     {
         label: '姓名',
@@ -157,7 +168,20 @@ export default function CurdDemo() {
                         loading={loading}
                         fields={filterFileds}
                         onFilter={(values: any) => {
-                            searchEmployees({ current: 1, pageSize: pageSize }, values)
+                            const searchParams:any={}
+                            for (const key in values) {
+                                if (Object.prototype.hasOwnProperty.call(values, key)&&(values[key]||values[key]===0||values[key]==='')) {
+                                    // const lowerKey=key.toLowerCase()
+                                    if(getTypeByName(filterFileds,key)==='rangePicker'&&values[key]?.length===2&&(key.indexOf('Range')>0||key.indexOf('Date')>0||key.indexOf('Time')>0||key.indexOf('At')>0))
+                                    {
+                                        searchParams[`${key}Start`]=dayjs(values[key][0].format('YYYY-MM-DD 00:00:00')).valueOf()/1000;
+                                        searchParams[`${key}End`]=dayjs(values[key][1].format('YYYY-MM-DD 23:59:59')).valueOf()/1000;
+                                    }else{
+                                        searchParams[key]=values[key]
+                                    }
+                                }
+                            }
+                            searchEmployees({ current: 1, pageSize: pageSize }, searchParams)
                         }}
                     />
                 </div>
