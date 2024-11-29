@@ -7,7 +7,7 @@ import {
   AppstoreOutlined,
   SolutionOutlined,
   ControlOutlined,
-  RocketOutlined,
+  RobotOutlined,
   ProfileOutlined,
   SnippetsOutlined,
   // SettingOutlined,
@@ -139,7 +139,7 @@ const asideMenuConfig: SiderMenuItemType[] = [
   },
   {
     name: 'AI项目',
-    icon: <RocketOutlined />,
+    icon: <RobotOutlined />,
     children: [
       {
         name: '3D 点云标注',
