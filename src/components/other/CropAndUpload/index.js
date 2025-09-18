@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
 export default function (props) {

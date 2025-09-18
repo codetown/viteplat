@@ -3,8 +3,7 @@ import { Badge, Dropdown, Spin, Tabs } from 'antd'
 import type { NoticeIconTabProps } from './NoticeList'
 import NoticeList from './NoticeList'
 import classes from './index.module.scss'
-import { useState } from 'react'
-import React from 'react'
+import React,{ useState } from 'react'
 
 const { TabPane } = Tabs
 
@@ -100,9 +99,9 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
   )
 }
 
-NoticeIcon.defaultProps = {
-  emptyImage: 'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg'
-}
+// NoticeIcon.defaultProps = {
+//   emptyImage: 'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg'
+// }
 
 NoticeIcon.Tab = NoticeList
 

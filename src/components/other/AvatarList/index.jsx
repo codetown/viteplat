@@ -1,5 +1,5 @@
 import { Avatar, Tooltip } from 'antd';
-import React from 'react';
+
 import classNames from 'classnames';
 import styles from './index.less';
 
@@ -10,7 +10,7 @@ const avatarSizeToClassName = (size) =>
     [styles.avatarItemMini]: size === 'mini',
   });
 
-const Item = ({ src, size, tips, onClick = () => {} }) => {
+const Item = ({ src, size, tips, onClick = () => { } }) => {
   const cls = avatarSizeToClassName(size);
   return (
     <li className={cls} onClick={onClick}>
