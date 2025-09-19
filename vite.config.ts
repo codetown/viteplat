@@ -18,7 +18,6 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler',
         additionalData: `
         @use "@/assets/scss/variables.scss";
         $primary-color:#1DA57A;

@@ -88,12 +88,12 @@ export default function Curd(props: any) {
                     }}
                 />
             </Card>
-            <Modal open={modalOpen} maskClosable={false} keyboard={false} onClose={() => {
+            <Modal open={modalOpen} maskClosable={false} keyboard={false} onCancel={() => {
                 setModalOpen(false);
             }}>
                 <InputForm fields={fields} />
             </Modal>
-            {/*<Drawer open={drawerOpen} maskClosable={false} keyboard={false} onClose={() => {
+            {/*<Drawer open={drawerOpen} maskClosable={false} keyboard={false} onCancel={() => {
                 setDrawerOpen(false);
             }}>
                 <InputForm fields={fields} />
