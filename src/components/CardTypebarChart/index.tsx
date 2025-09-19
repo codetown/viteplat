@@ -1,8 +1,8 @@
 import { Card } from 'antd'
-import { Tiny } from '@ant-design/plots'
+// import { Tiny } from '@ant-design/plots'
 import mock from './mock'
 import classes from './index.module.scss'
-const { Ring } = Tiny
+// const { Ring } = Tiny
 interface CardConfig {
   title?: string | React.ReactNode
   subTitle?: string | React.ReactNode
@@ -28,29 +28,31 @@ export interface CardTypebarChartProps {
 
 const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
   props: CardTypebarChartProps
-): JSX.Element => {
+): React.ReactNode => {
   const { cardConfig = DEFAULT_DATA } = props
 
-  const { title, subTitle, value, des, rate, chartData, chartHeight } = cardConfig
-  const config = {
-    percent: chartData,
-    color: ['#E8EFF5', '#66AFF4'],
-    height: chartHeight,
-    autoFit: true,
-    annotations: [
-      {
-        type: 'text',
-        style: {
-          text: `${chartData! * 100}%`,
-          x: '50%',
-          y: '50%',
-          textAlign: 'center',
-          fontSize: 16,
-          fontStyle: 'bold'
-        }
-      }
-    ]
-  }
+  const { title, subTitle, value, des, rate
+    //, chartData, chartHeight 
+  } = cardConfig
+  // const config = {
+  //   percent: chartData,
+  //   color: ['#E8EFF5', '#66AFF4'],
+  //   height: chartHeight,
+  //   autoFit: true,
+  //   annotations: [
+  //     {
+  //       type: 'text',
+  //       style: {
+  //         text: `${chartData! * 100}%`,
+  //         x: '50%',
+  //         y: '50%',
+  //         textAlign: 'center',
+  //         fontSize: 16,
+  //         fontStyle: 'bold'
+  //       }
+  //     }
+  //   ]
+  // }
   return (
     <Card title={title}>
       <div className={classes.cardSubTitle}>{subTitle}</div>
@@ -59,7 +61,7 @@ const CardTypebarChart: React.FunctionComponent<CardTypebarChartProps> = (
         {des}
         <span>{rate}↑</span>
       </div>
-      <Ring {...config} />
+      {/* <Ring {...config} /> */}
     </Card>
   )
 }

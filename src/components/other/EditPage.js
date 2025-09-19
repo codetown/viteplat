@@ -1,17 +1,17 @@
-import {useEffect } from 'react';
-import { Modal, Input, Form, Switch } from 'antd';
+import { useEffect } from 'react'
+import { Modal, Input, Form, Switch } from 'antd'
 
 export default function (props) {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
   const onSubmit = () => {
-    console.info("onSubmit=>")
+    console.info('onSubmit=>')
     form
       .validateFields()
       .then((values) => {
-        props?.onSave(values);
+        props?.onSave(values)
       })
       .catch((errorInfo) => {
-        console.info('errorInfo', errorInfo);
+        console.info('errorInfo', errorInfo)
         /*
         errorInfo:
         {
@@ -25,26 +25,26 @@ export default function (props) {
         outOfDate: false,
         }
         */
-      });
-  };
+      })
+  }
 
   useEffect(() => {
     if (props && props.optionId) {
       getOptionDetail({
-        id: props.optionId,
+        id: props.optionId
       }).then((res) => {
         if (res.code === 200) {
           const formData = {
-            ...form.getFieldsValue(),
-          };
+            ...form.getFieldsValue()
+          }
           Object.keys(formData).forEach((key) => {
-            formData[key] = res.data[key];
-          });
-          form.setFieldsValue(formData);
+            formData[key] = res.data[key]
+          })
+          form.setFieldsValue(formData)
         }
-      });
+      })
     }
-  }, []);
+  }, [])
 
   return (
     <Modal
@@ -53,33 +53,30 @@ export default function (props) {
       getContainer={false}
       onOk={onSubmit}
       okBnProps={{
-        loading:props?.saving,
+        loading: props?.saving
       }}
-      onCancel={props.onCancel}
-    >
+      onCancel={props.onCancel}>
       <Form
-      form={form}
+        form={form}
         layout="vertial"
         labelCol={{
-          span: 6,
+          span: 6
         }}
         wrapperCol={{
-          span: 16,
+          span: 16
         }}
         style={{
-          paddingTop: 16,
-        }}
-      >
+          paddingTop: 16
+        }}>
         <Form.Item
           label="字段标签"
           name="fieldLabel"
           rules={[
             {
               required: true,
-              message: '请输入字段标签',
-            },
-          ]}
-        >
+              message: '请输入字段标签'
+            }
+          ]}>
           <Input placeholder="请输入字段标签" size="large" />
         </Form.Item>
         <Form.Item
@@ -88,10 +85,9 @@ export default function (props) {
           rules={[
             {
               required: true,
-              message: '请输入字段变量',
-            },
-          ]}
-        >
+              message: '请输入字段变量'
+            }
+          ]}>
           <Input placeholder="请输入字段变量" size="large" />
         </Form.Item>
         <Form.Item
@@ -100,10 +96,9 @@ export default function (props) {
           rules={[
             {
               required: true,
-              message: '请输入选项文本',
-            },
-          ]}
-        >
+              message: '请输入选项文本'
+            }
+          ]}>
           <Input placeholder="请输入选项文本" size="large" />
         </Form.Item>
         <Form.Item
@@ -112,10 +107,9 @@ export default function (props) {
           rules={[
             {
               required: true,
-              message: '请输入选项值',
-            },
-          ]}
-        >
+              message: '请输入选项值'
+            }
+          ]}>
           <Input placeholder="请输入选项值" size="large" />
         </Form.Item>
         <Form.Item label="是否是默认" name="isDefault" valuePropName="checked">
@@ -123,5 +117,5 @@ export default function (props) {
         </Form.Item>
       </Form>
     </Modal>
-  );
+  )
 }

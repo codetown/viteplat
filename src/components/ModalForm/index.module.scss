@@ -1,0 +1,30 @@
+.modalForm {
+    display: flex;
+}
+
+.modalFormDoubleColumns {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+
+    .colItem {
+        // width:calc(50% - 12px);
+        width: calc(33% - 16px);
+    }
+
+    .rowItem {
+        // width: 100%;
+        width: calc(50% - 12px);
+    }
+
+    :global(.ant-form-item-control-input-content) {
+        :global(.ant-input-number) {
+            width: 100%;
+        }
+
+        :global(.ant-picker) {
+            width: 100%;
+        }
+
+    }
+}

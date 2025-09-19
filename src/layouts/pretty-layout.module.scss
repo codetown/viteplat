@@ -147,6 +147,12 @@
   justify-content: center;
 }
 
+.collaseText {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 :global(.ant-menu-dark .ant-menu-item-selected) {
   background: linear-gradient(135deg, #6253E1, #04BEFE);
 }

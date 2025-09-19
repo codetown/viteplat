@@ -7,6 +7,7 @@ export default function InputForm(props: any) {
 
   return (
     <Form
+    size='large'
       form={form}
       labelCol={{
         span: 6

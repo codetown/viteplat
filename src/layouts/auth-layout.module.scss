@@ -1,0 +1,147 @@
+.layout {
+  height: 100%;
+}
+
+.logo {
+  height: 64px;
+  line-height: 64px;
+  overflow: hidden;
+  will-change: filter;
+  padding: 0 16px;
+  border-bottom: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.logo>span {
+  line-height: 64px;
+  height: 64px;
+  vertical-align: middle;
+}
+
+.logo>span>img {
+  vertical-align: middle;
+  margin-bottom: 2px;
+  width: 36px;
+  height: 36px;
+}
+
+.logo>strong {
+  font-size: 18px;
+  display: inline-block;
+  line-height: 64px;
+  height: 64px;
+  margin-left: 8px;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.headerRight {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  .messageIcon {
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: #999;
+  }
+}
+
+.menu {
+  height: calc(100vh - 100px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  padding: 8px 13px 8px 9px;
+}
+
+:global(.ant-menu-inline-collapsed) {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+:global(.ant-menu-inline .ant-menu-sub.ant-menu-inline) {
+  border-radius: 10px;
+}
+
+.menu::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 6px;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 8px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 4px;
+  background: #414141;
+  opacity: 0.2;
+}
+
+.menu::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  border-radius: 10px;
+  background: #2f2f2f;
+}
+
+.siderBottom {
+  height: 36px;
+  background-color: #102539;
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+
+  span:nth-of-type(1) {
+    color: #f2f2f2;
+    font-size: 12px;
+  }
+
+  span:nth-of-type(2) {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
+.content {
+  margin: 16px 0 16px 16px;
+  padding-right: 16px;
+  min-height: 280px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pageLoading {
+  height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collaseText {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+:global(.ant-menu-dark .ant-menu-item-selected) {
+  background: linear-gradient(135deg, #6253E1, #04BEFE);
+}

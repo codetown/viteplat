@@ -52,7 +52,7 @@ export default function Curd(props: any) {
         },
         {
             label: '创建日期',
-            name: 'createdTime',
+            name: 'createdAt',
             type: 'rangePicker'
         }
     ]

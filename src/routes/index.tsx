@@ -66,6 +66,14 @@ const routes: RouteObject[] = [
         element: lazyLoad(lazy(() => import('@/pages/demo/curd')))
       },
       {
+        path: 'demo/fm-demo',
+        element: lazyLoad(lazy(() => import('@/pages/demo/fm-demo')))
+      },
+      {
+        path: 'demo/employee',
+        element: lazyLoad(lazy(() => import('@/pages/demo/fm-demo/employee')))
+      },
+      {
         path: 'app/employees',
         element: lazyLoad(lazy(() => import('@/pages/app/employees')))
       },
@@ -92,33 +100,12 @@ const routes: RouteObject[] = [
     element: lazyLoad(lazy(() => import('@/pages/login/login-new')))
   },
   {
-    path: 'app/',
-    element: lazyLoad(lazy(() => import('@/layouts/appLayout'))),
-    children: [
-      {
-        path: 'pages-config/create',
-        element: lazyLoad(lazy(() => import('@/pages/app/pages-config/create')))
-      },
-      {
-        path: 'pages-config/drag-demo',
-        element: lazyLoad(lazy(() => import('@/pages/app/pages-config/drag-demo')))
-      },
-      {
-        path: 'pages-config/workbench',
-        element: lazyLoad(lazy(() => import('@/pages/app/pages-config/workbench')))
-      }]
-  },
-  {
     path: 'ai',
-    element: lazyLoad(lazy(() => import('@/layouts/wrokbenchLayout'))),
+    element: lazyLoad(lazy(() => import('@/layouts/prettyLayout'))),
     children: [
       {
         path: 'home',
         element: lazyLoad(lazy(() => import('@/pages/app/pages-config/drag-demo')))
-      },
-      {
-        path: 'annotation-3d',
-        element: lazyLoad(lazy(() => import('@/pages/app/annotation-3d')))
       },
     ]
   },

@@ -9,11 +9,11 @@ import './index.scss'
 // import enUS from 'antd/locale/en_US';
 import zhCN from 'antd/locale/zh_CN'
 
-/**解决antd时间组件国际化不彻底问题 Start**/
+// 解决antd时间组件国际化不彻底问题 Start
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 dayjs.locale('zh-cn')
-/**解决antd时间组件国际化不彻底问题 End**/
+// 解决antd时间组件国际化不彻底问题 End
 
 const useStyle = createStyles(({ prefixCls, css }) => ({
   linearGradientButton: css`
@@ -65,7 +65,7 @@ const MyAntDesignApp = () => {
   </ConfigProvider>)
 }
 
-createRoot(document.getElementById('root') as HTMLElement).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <MyAntDesignApp />
   </StrictMode>

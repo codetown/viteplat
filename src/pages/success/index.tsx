@@ -9,7 +9,7 @@ const extra = (
 
 export default function Success() {
   return (
-    <Card bordered={false}>
+    <Card variant="borderless">
       <Result
         status="success"
         title="提交成功"

@@ -1,7 +1,7 @@
 .filterForm {
-    column-gap: 24px;
+    column-gap: 20px;
     row-gap: 20px;
-    padding: 16px 0 12px 0;
+    padding: 24px 20px 22px 20px;
     display: grid;
 
     :global(>.ant-form-item) {
@@ -26,8 +26,6 @@
     }
 
     :global(.ant-form-item-control-input) {
-        // transform: scale(0.875);
-        // width: 112.5%;
         width: 100%;
     }
 
@@ -66,10 +64,18 @@
 
     .btnGrp {
         display: flex;
-        column-gap: 24px;
+        column-gap: 12px;
 
         button {
-            width: 88px;
+            width: 64px;
+        }
+    }
+
+    :global(.ant-form-item-row):target {
+        :global(.ant-form-item-label) {
+            >label {
+                color: #0000ff !important;
+            }
         }
     }
 }
@@ -96,26 +102,26 @@
 
 @media screen and (min-width: 1400px) {
     .filterForm {
-        grid-template-columns: repeat(4, calc(25% - 18px));
+        grid-template-columns: repeat(5, calc(20% - 19.2px));
     }
 }
 
 @media screen and (min-width: 1600px) {
     .filterForm {
-        grid-template-columns: repeat(5, calc(20% - 19.2px));
+        grid-template-columns: repeat(6, calc(16.6666% - 20px));
     }
 }
 
 @media screen and (min-width: 1920px) {
     .filterForm {
-        grid-template-columns: repeat(5, calc(20% - 19.2px));
+        grid-template-columns: repeat(7, calc(14.2857% - 20.5714px));
     }
 }
 
 /* 1920px 每行5个*/
 @media screen and (min-width: 2560px) {
     .filterForm {
-        grid-template-columns: repeat(5, calc(20% - 19.2px));
+        grid-template-columns: repeat(8, calc(12.5% - 21px));
     }
 }
 

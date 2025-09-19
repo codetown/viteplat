@@ -103,7 +103,7 @@ const PrettyLayout = () => {
               </>
             ) : (
               <>
-                <span onClick={() => setCollapsed(!collapsed)}>收起</span>
+                <span className='collaseText' onClick={() => setCollapsed(!collapsed)}>收起</span>
                 <span onClick={() => setCollapsed(!collapsed)}>
                   <MenuFoldOutlined />
                 </span>

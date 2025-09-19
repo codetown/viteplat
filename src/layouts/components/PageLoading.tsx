@@ -1,4 +1,4 @@
-import classes from '../layout.module.scss'
+import classes from '../auth-layout.module.scss'
 import { Spin } from 'antd'
 const PageLoading: React.FC = () => {
   return (

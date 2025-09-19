@@ -3,7 +3,8 @@ import { Badge, Dropdown, Spin, Tabs } from 'antd'
 import type { NoticeIconTabProps } from './NoticeList'
 import NoticeList from './NoticeList'
 import classes from './index.module.scss'
-import React,{ useState } from 'react'
+import { useState } from 'react'
+import React from 'react'
 
 const { TabPane } = Tabs
 
@@ -30,7 +31,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
   Tab: typeof NoticeList
 } = (props: NoticeIconProps) => {
   const getNotificationBox = (): React.ReactNode => {
-    const { children, loading, onClear, onTabChange, onItemClick, onViewMore, clearText, viewMoreText } = props
+    const { children, loading, onClear, onTabChange, onItemClick, onViewMore, clearText, viewMoreText,emptyImage } = props
     if (!children) {
       return null
     }
@@ -55,6 +56,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
             onViewMore={(event): void => onViewMore && onViewMore(child.props, event)}
             showClear={showClear}
             showViewMore={showViewMore}
+            emptyImage={emptyImage||'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg'}
             title={title}
           />
         </TabPane>
@@ -98,11 +100,6 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
     </Dropdown>
   )
 }
-
-// NoticeIcon.defaultProps = {
-//   emptyImage: 'https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg'
-// }
-
 NoticeIcon.Tab = NoticeList
 
 export default NoticeIcon

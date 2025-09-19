@@ -4,7 +4,7 @@ import { Badge, Breadcrumb, Layout, Menu, theme } from 'antd'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { asideMenuConfig } from './menuConfig'
 import AvatarDropdown from './components/AvatarDropdown'
-import classes from './layout.module.scss'
+import classes from './auth-layout.module.scss'
 import useGlobalStore from '@/stores/global'
 // import NoticeDropdown from './components/NoticeDropdown'
 import logo from '@/assets/logo2.png'
@@ -62,12 +62,12 @@ export default function MainLayout() {
   return (
     <Layout className={classes.layout}>
       <Sider trigger={null} collapsible collapsed={collapsed} collapsedWidth={48} theme="light">
-        <div className={classes.logo}>
+        <a className={classes.logo}>
           <span>
             <img src={logo} />
           </span>
           <strong>Web-Platform</strong>
-        </div>
+        </a>
         <Menu
           className={classes.menu}
           mode="inline"
@@ -83,18 +83,18 @@ export default function MainLayout() {
           selectedKeys={[pathname]}
           items={menuData}
         />
-        <div className={classes.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }}>
+        <div className={classes.siderBottom} style={{ justifyContent: collapsed ? 'center' : 'right' }} onClick={() => { setCollapsed(!collapsed) }}>
           {collapsed ? (
             <>
               {/* <span onClick={() => setCollapsed(!collapsed)}>展开</span> */}
-              <span onClick={() => { setCollapsed(!collapsed) }} title="展开">
+              <span title="展开">
                 <MenuUnfoldOutlined />
               </span>
             </>
           ) : (
             <>
-              <span onClick={() => { setCollapsed(!collapsed) }}>收起</span>
-              <span onClick={() => { setCollapsed(!collapsed) }}>
+              <span className='collaseText'>收起</span>
+              <span>
                 <MenuFoldOutlined />
               </span>
             </>

@@ -17,7 +17,7 @@ export default function () {
         total: 0,
         showTotal: (total: number) => `共${total}条`,
     });
-    const searchForm = useRef<any>();
+    const searchForm = useRef<any>(null);
     const search = (params: any) => {
         setLoading(true);
         getMemberList({
@@ -63,7 +63,7 @@ export default function () {
     },
     {
         label: "创建日期",
-        name: "createdTime",
+        name: "createdAt",
         type: "rangePicker"
     },
     ];

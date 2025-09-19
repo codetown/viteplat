@@ -7,9 +7,9 @@ import {
   AppstoreOutlined,
   SolutionOutlined,
   ControlOutlined,
-  RobotOutlined,
-  ProfileOutlined,
+  // RobotOutlined,
   SnippetsOutlined,
+  // ProfileOutlined,
   // SettingOutlined,
   // DatabaseOutlined,
   // UploadOutlined
@@ -134,20 +134,6 @@ const asideMenuConfig: SiderMenuItemType[] = [
       {
         name: '在线教育',
         path: '/app/education',
-      }
-    ]
-  },
-  {
-    name: 'AI项目',
-    icon: <RobotOutlined />,
-    children: [
-      {
-        name: '3D 点云标注',
-        path: '/ai/annotation-3d'
-      },
-      {
-        name: 'YOLO数据集',
-        path: '/ai/yolo-datasets'
       }
     ]
   },

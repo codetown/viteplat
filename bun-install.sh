@@ -4,10 +4,10 @@ set -euo pipefail
 platform=$(uname -ms)
 
 if [[ ${OS:-} = Windows_NT ]]; then
-  if [[ $platform != MINGW64* ]]; then
-    powershell -c "irm bun.sh/install.ps1|iex"
-    exit $?
-  fi
+    if [[ $platform != MINGW64* ]]; then
+        powershell -c "irm bun.sh/install.ps1|iex"
+        exit $?
+    fi
 fi
 
 # Reset
@@ -119,7 +119,7 @@ else
     bun_uri=$github_repo/releases/download/$1/bun-$target.zip
 fi
 
-bun_uri=https://github.moeyy.xyz/$bun_uri
+bun_uri=https://gh-proxy.com/$bun_uri
 install_env=BUN_INSTALL
 bin_env=\$$install_env/bin
 

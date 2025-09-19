@@ -1,5 +1,5 @@
 import { Card } from 'antd'
-import { Column } from '@ant-design/plots';
+// import { Column } from '@ant-design/plots';
 import classes from './index.module.scss'
 
 interface CardConfig {
@@ -36,39 +36,39 @@ export interface CardGroupBarChartProps {
 
 const CardGroupBarChart: React.FunctionComponent<CardGroupBarChartProps> = (
   props: CardGroupBarChartProps
-): JSX.Element => {
+): React.ReactNode => {
   const { cardConfig = DEFAULT_DATA } = props
-  const config = {
-    data: cardConfig.chartData,
-    xField: 'category',
-    yField: 'value',
-    colorField: 'type',
-    legend: {
-      color: {
-        title: false,
-        position: 'top',
-        layout: {
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }
-      }
-    },
-    height: cardConfig.chartHeight,
-    group: true,
-    style: {
-      // 矩形四个方向的内边距
-      inset: 5,
-      // 矩形单个方向的内边距
-      // insetLeft:5,
-      // insetRight:20,
-      // insetBottom:10
-      // insetTop:10
-    },
-  };
+  // const config = {
+  //   data: cardConfig.chartData,
+  //   xField: 'category',
+  //   yField: 'value',
+  //   colorField: 'type',
+  //   legend: {
+  //     color: {
+  //       title: false,
+  //       position: 'top',
+  //       layout: {
+  //         justifyContent: 'center',
+  //         alignItems: 'center',
+  //         flexDirection: 'column',
+  //       }
+  //     }
+  //   },
+  //   height: cardConfig.chartHeight,
+  //   group: true,
+  //   style: {
+  //     // 矩形四个方向的内边距
+  //     inset: 5,
+  //     // 矩形单个方向的内边距
+  //     // insetLeft:5,
+  //     // insetRight:20,
+  //     // insetBottom:10
+  //     // insetTop:10
+  //   },
+  // };
   return (
     <Card title={cardConfig.title} className={classes.cardGroupBarChart}>
-      <Column {...config} />
+      {/* <Column {...config} /> */}
     </Card>
   )
 }

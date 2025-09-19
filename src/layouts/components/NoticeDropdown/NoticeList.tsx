@@ -13,6 +13,7 @@ export type NoticeIconTabProps = {
   emptyText?: string
   clearText?: string
   viewMoreText?: string
+  emptyImage?: string
   list: any[]
   onViewMore?: (e: any) => void
 }
@@ -26,12 +27,13 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
   showClear = true,
   clearText,
   viewMoreText,
+  emptyImage,
   showViewMore = false
 }: NoticeIconTabProps) => {
   if (!list || list.length === 0) {
     return (
       <div className={classes.notFound}>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg" alt="not found" />
+        <img src={emptyImage||"https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg"} alt="not found" />
         <div>{emptyText}</div>
       </div>
     )

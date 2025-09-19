@@ -9,7 +9,7 @@ const FormItem = Form.Item
 
 export default function () {
   const { searchVideos, loading, items, total, current, pageSize, currentVideo, showPlayer, setState } = useVideoStore((state: any) => state)
-  const playerRef = useRef<any>();
+  const playerRef = useRef<any>(null);
 
   const videoJsOptions = { // lookup the options in the docs for more options
     autoplay: false,
@@ -128,7 +128,7 @@ export default function () {
   );
   return (
     <div className={classes.coverCardList}>
-      <Card bordered={false}>
+      <Card variant="borderless">
         <Form
           form={form}
           layout="inline"

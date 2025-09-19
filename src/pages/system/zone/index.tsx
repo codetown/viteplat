@@ -112,7 +112,7 @@ export default function Zone() {
     },
     {
       label: '创建日期',
-      name: 'createdTime',
+      name: 'createdAt',
       type: 'rangePicker'
     }
   ];

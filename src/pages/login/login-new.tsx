@@ -25,7 +25,7 @@ export default function Login() {
     }
     return (
         <div className={classes.container}>
-            <Card bordered={false}>
+            <Card variant="borderless">
                 <div className={classes.content}>
                     <Form
                         name="login"

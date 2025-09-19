@@ -26,7 +26,7 @@ const DEFAULT_DATA: CardConfig = {
   ]
 }
 
-const CardRankChart: React.FunctionComponent<CardRankChartProps> = (props: CardRankChartProps): JSX.Element => {
+const CardRankChart: React.FunctionComponent<CardRankChartProps> = (props: CardRankChartProps): React.ReactNode => {
   const { cardConfig = DEFAULT_DATA } = props
   const { title, dataSource } = cardConfig
   return (

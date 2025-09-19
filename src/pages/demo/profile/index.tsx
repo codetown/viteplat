@@ -152,7 +152,7 @@ const Basic=() => {
     },
   ];
   return (
-      <Card bordered={false}>
+      <Card variant="borderless">
         <Descriptions
           title="退款申请"
           style={{

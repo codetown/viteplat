@@ -1,8 +1,8 @@
 import { Card } from 'antd'
-import { Tiny, TinyLineConfig } from '@ant-design/plots'
+// import { Tiny, TinyLineConfig } from '@ant-design/plots'
 import mock from './mock'
 import classes from './index.module.scss'
-const { Area } = Tiny
+// const { Area } = Tiny
 interface CardConfig {
   title: string | React.ReactNode
   subTitle: string | React.ReactNode
@@ -27,22 +27,24 @@ interface CardAreaChartProps {
   cardConfig?: CardConfig
 }
 
-const CardAreaChart: React.FunctionComponent<CardAreaChartProps> = (props: CardAreaChartProps): JSX.Element => {
+const CardAreaChart: React.FunctionComponent<CardAreaChartProps> = (props: CardAreaChartProps): React.ReactNode => {
   const { cardConfig = DEFAULT_DATA } = props
-  const { title, subTitle, value, chartData, des, rate, chartHeight } = cardConfig
-  const config: TinyLineConfig = {
-    data: chartData.map((value, index) => ({ value, index })),
-    height: chartHeight,
-    autoFit: true,
-    shapeField: 'smooth',
-    xField: 'index',
-    yField: 'value',
-    style: {
-      lineWidth: 2,
-      fill: '#00D6CB',
-      fillOpacity: 0.2
-    }
-  }
+  const { title, subTitle, value, des, rate
+    // , chartHeight,chartData
+  } = cardConfig
+  // const config: TinyLineConfig = {
+  //   data: chartData.map((value, index) => ({ value, index })),
+  //   height: chartHeight,
+  //   autoFit: true,
+  //   shapeField: 'smooth',
+  //   xField: 'index',
+  //   yField: 'value',
+  //   style: {
+  //     lineWidth: 2,
+  //     fill: '#00D6CB',
+  //     fillOpacity: 0.2
+  //   }
+  // }
   return (
     <Card title={title} className={classes.areaChart}>
       <div className={classes.cardSubTitle}>{subTitle}</div>
@@ -51,7 +53,7 @@ const CardAreaChart: React.FunctionComponent<CardAreaChartProps> = (props: CardA
         {des}
         <span>{rate}↑</span>
       </div>
-      <Area {...config} />
+      {/* <Area {...config} /> */}
     </Card>
   )
 }

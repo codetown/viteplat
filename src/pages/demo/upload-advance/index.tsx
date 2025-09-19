@@ -113,7 +113,7 @@ export default function UploadAdvance() {
           <List
             header={<div>Header</div>}
             footer={<div>Footer</div>}
-            bordered
+            variant
             dataSource={files}
             renderItem={(item) => (
               <List.Item>
